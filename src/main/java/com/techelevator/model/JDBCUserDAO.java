@@ -30,7 +30,7 @@ public class JDBCUserDAO implements UserDAO {
 		String saltString = new String(Base64.encode(salt));
 		
 		jdbcTemplate.update("INSERT INTO users(user_name, password, salt, email) VALUES (?, ?, ?, ?)",
-				userName, hashedPassword, saltString);
+				userName, hashedPassword, saltString, email);
 	}
 
 	@Override
@@ -52,13 +52,13 @@ public class JDBCUserDAO implements UserDAO {
 
 	@Override
 	public void updatePassword(String userName, String password) {
-		jdbcTemplate.update("UPDATE app_user SET password = ? WHERE user_name = ?", password, userName);
+		jdbcTemplate.update("UPDATE users SET password = ? WHERE user_name = ?", password, userName);
 	}
 
 	@Override
 	public Object getUserByUserName(String userName) {
 		String sqlSearchForUsername ="SELECT * "+
-		"FROM app_user "+
+		"FROM users "+
 		"WHERE UPPER(user_name) = ? ";
 
 		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUsername, userName.toUpperCase()); 
@@ -67,6 +67,7 @@ public class JDBCUserDAO implements UserDAO {
 			thisUser = new User();
 			thisUser.setUserName(user.getString("user_name"));
 			thisUser.setPassword(user.getString("password"));
+			thisUser.setEmail(user.getString("email"));
 		}
 
 		return thisUser;
