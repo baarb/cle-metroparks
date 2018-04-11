@@ -19,21 +19,26 @@ public class HomeController {
 	
 
 	@RequestMapping(path="/", method=RequestMethod.GET)
-	public String displayHomePage() {
+	public String displayLandingPage() {
 		
 		return "index";
 	}
-	
-	@RequestMapping(path="/animalId", method=RequestMethod.GET)
-	public String displayGame1Page() {
+	@RequestMapping(path="/user", method=RequestMethod.GET)
+	public String displayHomePage() {
 		
-		return "animalId";
+		return "homePage";
 	}
 	
-	@RequestMapping(path="/animalSpotting", method=RequestMethod.GET)
+	@RequestMapping(path="/games/gameAnimalId", method=RequestMethod.GET)
+	public String displayGame1Page() {
+		
+		return "games/gameAnimalId";
+	}
+	
+	@RequestMapping(path="/games/gameAnimalSpotting", method=RequestMethod.GET)
 	public String displayGame2Page() {
 		
-		return "animalSpotting";
+		return "games/gameAnimalSpotting";
 	}
 	
 	
