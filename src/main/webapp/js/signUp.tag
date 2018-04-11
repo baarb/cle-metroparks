@@ -1,7 +1,6 @@
 <sign-up> 
-<c:url var="formAction" value="/users" />
-<form method="POST" action="${formAction}">
-	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+<form method="POST" action="{opts.formUrl}">
+	<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
 	<div class="row">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
