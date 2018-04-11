@@ -4,11 +4,11 @@
 
 BEGIN;
 
-INSERT INTO users(user_name, password, email) VALUES ('bradley', 'password', 'bradley.shilling@gmail.com');
+INSERT INTO users(user_name, password, salt, email) VALUES ('bradley', 'password', 'salt', 'bradley.shilling@gmail.com');
 
 INSERT INTO badges(title, description, badge_url, disabled_badge_url) VALUES ('Test Badge', 'this is a test badge', 'http://bit.ly/2HAN91j', 'http://bit.ly/2HAN91j');
 
-INSERT INTO rawPhotos(photo_url, OPPOSSUM, DEER, RABBIT, photo_date, trail_cam) VALUES ('http://bit.ly/2HAN91j', '1.0570484', '5.0570484', '0.0570484', '10/30/1985', '1');
+INSERT INTO raw_photos(photo_url, OPPOSSUM, DEER, RABBIT, photo_date, trail_cam) VALUES ('http://bit.ly/2HAN91j', '1.0570484', '5.0570484', '0.0570484', '10/30/1985', '1');
 
 INSERT INTO category(title, family, description) VALUES ('Oppossum', 'Didelphimorphia', 'The opossum is a marsupial of the order Didelphimorphia endemic to the Americas. The largest order of marsupials in the Western Hemisphere, it comprises 103 or more species in 19 genera. Opossums originated in South America and entered North America in the Great American Interchange following the connection of the two continents. Their unspecialized biology, flexible diet, and reproductive habits make them successful colonizers and survivors in diverse locations and conditions.');
 INSERT INTO category(title, family, description) VALUES ('Deer', 'Cervidae', 'Deer are the ruminant mammals forming the family Cervidae. The two main groups are the Cervinae, including the muntjac, the elk, the fallow deer and the chital, and the Capreolinae, including the reindeer, the roe deer and the moose. Female reindeer, and male deer of all species (except the Chinese water deer), grow and shed new antlers each year. In this they differ from permanently horned antelope, which are part of a different family within the same order of even-toed ungulates. The musk deer of Asia and water chevrotain (or mouse deer) of tropical African and Asian forests are not usually regarded as true deer and form their own families: Moschidae and Tragulidae, respectively. Deer appear in art from Paleolithic cave paintings onwards, and they have played a role in mythology, religion, and literature throughout history, as well as in heraldry. Their economic importance includes the use of their meat as venison, their skins as soft, strong buckskin, and their antlers as handles for knives. Deer hunting has been a popular activity since at least the Middle Ages, and remains an important business today.');
