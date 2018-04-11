@@ -3,6 +3,9 @@ package com.techelevator.model;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 public class User {
 	private String userName;
 	
@@ -14,6 +17,13 @@ public class User {
 	private String password;
 	
 	private String confirmPassword;
+	
+	@Email
+	@NotBlank
+	private String email;
+	
+	private String confirmEmail;
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -31,5 +41,17 @@ public class User {
 	}
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getConfirmEmail() {
+		return confirmEmail;
+	}
+	public void setConfirmEmail(String confirmEmail) {
+		this.confirmEmail = confirmEmail;
 	}
 }
