@@ -40,7 +40,7 @@ public class UserController {
 			return "redirect:/users/new";
 		}
 		
-		userDAO.saveUser(user.getUserName(), user.getPassword());
+		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 		return "redirect:/userRegistration/login";
 	}
 	
