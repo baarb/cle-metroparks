@@ -16,50 +16,56 @@ import com.techelevator.model.UserDAO;
 
 @Controller
 public class HomeController {
-	
+
 	UserDAO userDAO;
 
 	@Autowired
 	public HomeController(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
-	
 
-	@RequestMapping(path="/", method=RequestMethod.GET)
-	public String displayLandingPage() {
-		
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public String displayLandingPage(HttpSession session) {
+
+//		try {
+//			if (session.getAttribute("currentUser") != null) {
+//				return "redirect:/users/{currentUser}";
+//			}
+//		} catch (Exception e) {
+//			
+//		}
+
 		return "index";
 	}
-	
-	@RequestMapping(path="/", method=RequestMethod.POST)
+
+	@RequestMapping(path = "/", method = RequestMethod.POST)
 	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			flash.addFlashAttribute("user", user);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 			return "redirect:/";
 		}
-		
+
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 		return "redirect:/userRegistration/login";
 	}
-	
-	@RequestMapping(path="/users/{currentUser}", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/users/{currentUser}", method = RequestMethod.GET)
 	public String displayHomePage(HttpSession session) {
-		
+
 		return "homePage";
 	}
-	
-	@RequestMapping(path="/games/gameAnimalId", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/games/gameAnimalId", method = RequestMethod.GET)
 	public String displayGame1Page() {
-		
+
 		return "games/gameAnimalId";
 	}
-	
-	@RequestMapping(path="/games/gameAnimalSpotting", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/games/gameAnimalSpotting", method = RequestMethod.GET)
 	public String displayGame2Page() {
-		
+
 		return "games/gameAnimalSpotting";
 	}
-	
-	
+
 }
