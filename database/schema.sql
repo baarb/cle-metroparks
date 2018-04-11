@@ -39,14 +39,14 @@ CREATE TABLE badges
 );
 
 CREATE SEQUENCE seq_photo_id;
-CREATE TABLE raw_photos
+CREATE TABLE rawPhotos
 (
 	photo_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_photo_id'),
 	photo_url VARCHAR(200) NOT NULL,
 	OPPOSSUM real,
 	DEER real, 
 	RABBIT real, 
-	RACOON real, 
+	RACCOON real, 
 	TURKEY real, 
 	SKUNK real, 
 	BIRD real, 
@@ -59,15 +59,31 @@ CREATE TABLE raw_photos
 	MMV real,
 	BIGFOOT real,
 	photo_date VARCHAR(200),
-	trail_cam INTEGER
+	trail_cam INTEGER,
+	identified INTEGER
 );
 
 CREATE SEQUENCE seq_vote_id;
 CREATE TABLE votes
 (
 	vote_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_vote_id'),
-	photo_id INTEGER NOT null REFERENCES raw_photos,
-	selected_category VARCHAR(200) NOT NULL
+	photo_id INTEGER NOT null REFERENCES rawPhotos,
+	OPPOSSUM INTEGER,
+	DEER INTEGER, 
+	RABBIT INTEGER, 
+	RACCOON INTEGER, 
+	TURKEY INTEGER, 
+	SKUNK INTEGER, 
+	BIRD INTEGER, 
+	FOX INTEGER, 
+	HUMAN INTEGER, 
+	CAT INTEGER,
+	COYOTE INTEGER, 
+	SQUIRREL INTEGER, 
+	DOG INTEGER, 
+	MMV INTEGER,
+	BIGFOOT INTEGER,
+	rating INTEGER
 );
 
 CREATE SEQUENCE seq_category_id;
@@ -80,12 +96,11 @@ CREATE TABLE category
 );
 
 CREATE SEQUENCE seq_approved_photo_id;
-CREATE TABLE approved_photos
+CREATE TABLE approvedPhotos
 (
 	photo_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_approved_photo_id'),
-	raw_photo_id INTEGER NOT null REFERENCES raw_photos,
-	category_id VARCHAR(200) NOT null,
-	rating INTEGER
+	raw_photo_id INTEGER NOT null REFERENCES rawPhotos,
+	average_rating real
 );
 
 COMMIT;
