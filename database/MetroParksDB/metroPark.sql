@@ -13,7 +13,7 @@ CREATE SEQUENCE seq_user_id;
 CREATE TABLE users
 (
 	user_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_user_id'),
-	userName VARCHAR(200) NOT NULL,
+	user_name VARCHAR(200) NOT NULL,
 	password  VARCHAR(300) NOT NULL,
 	email VARCHAR(200) NOT NULL,
 	score INTEGER
@@ -30,7 +30,7 @@ CREATE TABLE badges
 );
 
 CREATE SEQUENCE seq_photo_id;
-CREATE TABLE rawPhotos
+CREATE TABLE raw_photos
 (
 	photo_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_photo_id'),
 	photo_url VARCHAR(200) NOT NULL,
@@ -57,8 +57,8 @@ CREATE SEQUENCE seq_vote_id;
 CREATE TABLE votes
 (
 	vote_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_vote_id'),
-	photo_id INTEGER NOT null REFERENCES rawPhotos,
-	selected_Category VARCHAR(200) NOT NULL
+	photo_id INTEGER NOT null REFERENCES raw_photos,
+	selected_category VARCHAR(200) NOT NULL
 );
 
 CREATE SEQUENCE seq_category_id;
@@ -71,18 +71,18 @@ CREATE TABLE category
 );
 
 CREATE SEQUENCE seq_approved_photo_id;
-CREATE TABLE approvedPhotos
+CREATE TABLE approved_photos
 (
 	photo_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_approved_photo_id'),
-	raw_photo_id INTEGER NOT null REFERENCES rawPhotos,
-	catergory_id VARCHAR(200) NOT null,
+	raw_photo_id INTEGER NOT null REFERENCES raw_photos,
+	category_id VARCHAR(200) NOT null,
 	rating INTEGER
 );
 
 
 
 
-INSERT INTO users(userName, password, email) VALUES ('bradley', 'password', 'bradley.shilling@gmail.com');
+INSERT INTO users(user_name, password, email) VALUES ('bradley', 'password', 'bradley.shilling@gmail.com');
 
 INSERT INTO badges(title, description, badge_url, disabled_badge_url) VALUES ('Test Badge', 'this is a test badge', 'http://bit.ly/2HAN91j', 'http://bit.ly/2HAN91j');
 

@@ -29,14 +29,14 @@ public class JDBCUserDAO implements UserDAO {
 		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 		
-		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt) VALUES (?, ?, ?)",
+		jdbcTemplate.update("INSERT INTO users(user_name, password, salt) VALUES (?, ?, ?)",
 				userName, hashedPassword, saltString);
 	}
 
 	@Override
 	public boolean searchForUsernameAndPassword(String userName, String password) {
 		String sqlSearchForUser = "SELECT * "+
-							      "FROM app_user "+
+							      "FROM users "+
 							      "WHERE UPPER(user_name) = ? ";
 		
 		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toUpperCase());
