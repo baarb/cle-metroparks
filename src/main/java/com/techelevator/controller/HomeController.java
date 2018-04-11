@@ -55,6 +55,12 @@ public class HomeController {
 
 		return "homePage";
 	}
+	
+	@RequestMapping(path = "/users/{currentUser}/profile", method = RequestMethod.GET)
+	public String displayUserProfile(HttpSession session) {
+
+		return "userPages/userPage";
+	}
 
 	@RequestMapping(path = "/games/gameAnimalId", method = RequestMethod.GET)
 	public String displayGame1Page() {
