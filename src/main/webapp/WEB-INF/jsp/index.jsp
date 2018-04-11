@@ -61,11 +61,7 @@ grid-column: 2/3;
 		<div>
 			<a href="userRegistration/login"><h6>Log In</h6></a>
 		</div>
-		<div>
-			<c:url var="user" value="/user" />
-			<a href="user">Skip to Home Page</a>
-		</div>
-
+		
 
 	</div>
 	<div class="userBenefits">
