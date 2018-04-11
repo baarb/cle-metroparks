@@ -22,8 +22,10 @@ CREATE TABLE users
 	user_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_user_id'),
 	user_name VARCHAR(200) NOT NULL,
 	password  VARCHAR(300) NOT NULL,
+	salt VARCHAR(255) NOT NULL,
 	email VARCHAR(200) NOT NULL,
 	score INTEGER
+	
 );
 
 CREATE SEQUENCE seq_badge_id;
