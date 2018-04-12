@@ -27,14 +27,6 @@ public class HomeController {
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String displayLandingPage(HttpSession session) {
 
-//		try {
-//			if (session.getAttribute("currentUser") != null) {
-//				return "redirect:/users/{currentUser}";
-//			}
-//		} catch (Exception e) {
-//			
-//		}
-
 		return "index";
 	}
 

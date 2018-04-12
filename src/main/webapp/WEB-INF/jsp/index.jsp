@@ -110,19 +110,7 @@ section {
 <div class="container-fluid">
 	<ul class="nav navbar-nav">
 		<c:url var="homePageHref" value="/" />
-		<li><a href="${homePageHref}">Home</a></li>
-		<c:if test="${not empty currentUser}">
-			<c:url var="dashboardHref" value="/users/${currentUser}" />
-			<li><a href="${dashboardHref}">Private Messages</a></li>
-			<c:url var="newMessageHref"
-				value="/users/${currentUser}/messages/new" />
-			<li><a href="${newMessageHref}">New Message</a></li>
-			<c:url var="sentMessagesHref" value="/users/${currentUser}/messages" />
-			<li><a href="${sentMessagesHref}">Sent Messages</a></li>
-			<c:url var="changePasswordHref"
-				value="/users/${currentUser}/changePassword" />
-			<li><a href="${changePasswordHref}">Change Password</a></li>
-		</c:if>
+		<li><a href="${homePageHref}">Logo</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 		<c:choose>

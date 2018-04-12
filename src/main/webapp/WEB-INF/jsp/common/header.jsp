@@ -39,7 +39,7 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
-					<c:url var="homePageHref" value="/" />
+					<c:url var="homePageHref" value="/users/{currentUser}" />
 					<li><a href="${homePageHref}">Home</a></li>
 					<c:if test="${not empty currentUser}">
 						<c:url var="dashboardHref" value="/users/${currentUser}" />
