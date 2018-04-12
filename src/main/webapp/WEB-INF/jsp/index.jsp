@@ -115,7 +115,7 @@ section {
 </nav>
 <body>
 	<div>
-
+		<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />
 		<signup-funnel></signup-funnel>
 	</div>
 
@@ -137,6 +137,9 @@ section {
 
 	<script
 		src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+	<c:url value="/js/indexPage/signUpFunnel.tag" var="signUpFunnel" />
+	<script src="${signUpFunnel}" type="riot/tag"></script>
+	
 	<c:url value="/js/indexPage/signUp.tag" var="signUp" />
 	<script src="${signUp}" type="riot/tag"></script>
 	<c:url value="/js/indexPage/userBenefits.tag" var="userBenefits" />
@@ -151,11 +154,12 @@ section {
 		riot.observable(pubSub);//makes it observable
 		riot.mount('signup-funnel', {
 			'bus' : pubSub,
+			'imgUrl' : '<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		riot.mount('sign-up', {
 			'bus' : pubSub,
-			'formUrl' : '<c:url value="/users" />',
+			'firstPhoto' : '${firstPhoto}',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
