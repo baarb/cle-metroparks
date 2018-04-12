@@ -44,14 +44,11 @@
 
 
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
 						$.validator.addMethod('capitals', function(thing) {
 							return thing.match(/[A-Z]/);
 						});
-						$("form")
-								.validate(
+						$("form").validate(
 										{
 
 											rules : {

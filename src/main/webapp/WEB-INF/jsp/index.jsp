@@ -34,14 +34,10 @@
 
 	});
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 <style>
 .header {
 	grid-column: 2/3;
@@ -178,44 +174,7 @@ section {
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 	</script>
-	<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$.validator.addMethod('capitals', function(thing) {
-							return thing.match(/[A-Z]/);
-						});
-						$("form")
-								.validate(
-										{
-
-											rules : {
-												userName : {
-													required : true
-												},
-												password : {
-													required : true,
-													minlength : 15,
-													capitals : true,
-												},
-												confirmPassword : {
-													required : true,
-													equalTo : "#password"
-												}
-											},
-											messages : {
-												password : {
-													minlength : "Password too short, make it at least 15 characters",
-													capitals : "Field must contain a capital letter",
-												},
-												confirmPassword : {
-													equalTo : "Passwords do not match"
-												}
-											},
-											errorClass : "error"
-										});
-					});
-</script> 
+	
 </body>
 
 </html>
