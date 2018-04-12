@@ -60,12 +60,17 @@ section {
 .main {
 	display: grid;
 	grid-template-columns: auto auto;
-	background-image: url("img/background-background-image-creek-707915.jpg");
+	background-image:
+		url("img/background-background-image-creek-707915.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover; 
-	background-color:threeddarkshadow;
+	background-size: cover;
+	background-color: threeddarkshadow;
 	color: white;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: threeddarkshadow;
 }
 
 .login {
@@ -114,7 +119,7 @@ section {
 </nav>
 <body>
 	<div>
-		
+
 		<signup-funnel></signup-funnel>
 	</div>
 
@@ -122,14 +127,15 @@ section {
 		<user-benefits></user-benefits>
 		<sign-up></sign-up>
 	</div>
-	
-	<div >
-		<best-pics></best-pics>
-	</div>
-	
 	<div>
 		<metro-benefits></metro-benefits>
 	</div>
+
+	<div>
+		<best-pics></best-pics>
+	</div>
+
+
 
 
 
@@ -161,20 +167,55 @@ section {
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
+
+		riot.mount('best-pics', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+
 		riot.mount('metro-benefits', {
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
-
-		riot.mount('best-pics', {
-			'bus' : pubSub,
-			
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
-		});
-
-		
 	</script>
+	<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$.validator.addMethod('capitals', function(thing) {
+							return thing.match(/[A-Z]/);
+						});
+						$("form")
+								.validate(
+										{
 
+											rules : {
+												userName : {
+													required : true
+												},
+												password : {
+													required : true,
+													minlength : 15,
+													capitals : true,
+												},
+												confirmPassword : {
+													required : true,
+													equalTo : "#password"
+												}
+											},
+											messages : {
+												password : {
+													minlength : "Password too short, make it at least 15 characters",
+													capitals : "Field must contain a capital letter",
+												},
+												confirmPassword : {
+													equalTo : "Passwords do not match"
+												}
+											},
+											errorClass : "error"
+										});
+					});
+</script> 
 </body>
 
 </html>
