@@ -30,17 +30,6 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(path = "/", method = RequestMethod.POST)
-	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
-		if (result.hasErrors()) {
-			flash.addFlashAttribute("user", user);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-			return "redirect:/";
-		}
-
-		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-		return "redirect:/userRegistration/login";
-	}
 
 	@RequestMapping(path = "/users/{currentUser}", method = RequestMethod.GET)
 	public String displayHomePage(HttpSession session) {
