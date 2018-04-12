@@ -9,11 +9,11 @@ import com.techelevator.model.BiodiversityDAO;
 @Controller
 public class AnimalIdController {
 
-	@Autowired
-	BiodiversityDAO bioDao;
-
-	@Autowired
-	BasicDataSource dataSource;
+//	@Autowired
+//	BiodiversityDAO bioDao;
+//
+//	@Autowired
+//	BasicDataSource dataSource;
 	
 	
 	
