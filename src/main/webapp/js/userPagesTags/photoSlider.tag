@@ -3,55 +3,52 @@
 	<!-- HTML -->
 	<div id="wrapper">
 	
-		<span id="controlL" class="left-controls" role="button"
-			aria-label="See Previous Modules"> <b
-			class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
+		<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
+			<button class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></button>
 		</span>
 	
-		<div class="title text-center h1">Display Photos/Badges Area</div>
-	
 		<div class="module-section clearfix">
-			<button class="btn arrow-guides fa-chevron-left"></button>
+			<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
 			<ul id="content">
 	
 				<li class="card effect1">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 				<li class="card">
 					<div class="inside-top">
-						<img src="http://placehold.it/100x100">
+						<img src="http://placehold.it/200x100">
 					</div>
 				</li>
 	
@@ -60,15 +57,11 @@
 	
 	
 		</div>
-		<!--end of module-section-->
 	
-		<span id="controlR" class="right-controls" role="button"
-			aria-label="See Previous Modules"> <b
-			class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
+		<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules"> 
+			<button class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></button>
 		</span>
-		<button class="btn arrow-guides-right fa-chevron-right"></button>
-	
-	
+		<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
 	
 	</div>
 	
@@ -76,10 +69,10 @@
 	<!-- CSS -->
 	
 	<style>
-	body {
-		background: #fff;
+	container {
+		background-color: lightblue;
 	}
-	
+
 	html {
 		overflow: scroll;
 		overflow-x: hidden;
@@ -91,7 +84,7 @@
 	}
 	#wrapper {
 		max-width: 100%;
-		padding: 50px 75px 50px 45px;
+		padding: 0px 75px 0px 45px;
 		position: relative;
 	}
 	
@@ -109,7 +102,8 @@
 		background: #fff;
 		opacity: 1;
 		cursor: pointer;
-		text-align: center; webkit justify content : center;
+		text-align: center; 
+		webkit justify content: center;
 		justify-content: center;
 		display: webkit box;
 		display: webkit flex;
@@ -150,7 +144,8 @@
 		background: #fff;
 		opacity: 1;
 		cursor: pointer;
-		text-align: center; webkit justify content : center;
+		text-align: center; 
+		webkit justify content: center;
 		justify-content: center;
 		display: webkit box;
 		display: webkit flex;
@@ -287,10 +282,8 @@
 	}
 	
 	.inside-top {
-		width: 100%;
 		height: 150px;
 		background: #000;
-		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 100;
@@ -304,18 +297,19 @@
 	
 	<script type="text/javascript">
 		$('#controlR').click(function() {
-			event.preventDefault();
-			$('#content').animate({
-				marginLeft : "-=400px"
-			}, "fast");
-		});
+		      event.preventDefault();
+		      $('#content').animate({
+		        marginLeft: "-=400px"
+		      }, "fast");
+		   });
 	
-		$('#controlL').click(function() {
-			event.preventDefault();
-			$('#content').animate({
-				marginLeft : "+=400px"
-			}, "fast");
-		});
+		 $('#controlL').click(function() {
+		      event.preventDefault();
+		      $('#content').animate({
+		        marginLeft: "+=400px"
+		      }, "fast");
+		 }); 
+
 	</script>
 
 </photo-slider>
