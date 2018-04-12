@@ -1,17 +1,19 @@
 package com.techelevator.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.Vote;
 
-public class JDBCBiodiversityDAO {
-
+@Component
+public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	private JdbcTemplate jdbcTemplate;
 
 	@Autowired
@@ -60,9 +62,31 @@ public class JDBCBiodiversityDAO {
 //		
 //	}
 	
-	//pull list of probable animals from AI
-	public List<String> probableAnimals(){
-		List<String>probableAnimals = new ArrayList<>();
+	//find an unseen photo
+	public int unseenPhotoId(int userId) {
+		int photoId = -1;
+		String sqlSelectPhoto = 
+		"select rawphotos.photo_id from rawphotos where rawphotos.photo_id NOT IN (select photo_id from votes WHERE user_id = ?)";
+		SqlRowSet photoIdSQL = jdbcTemplate.queryForRowSet(sqlSelectPhoto, userId); 
+		if(photoIdSQL.next()) {
+			photoId = photoIdSQL.getInt(1);
+		}
+		return photoId;
+	}
+	
+	
+	
+	public String returnPhotoURL(int photoId) {
+		String photoURL = "";
+		String sqlSelectPhotoUrl = 
+				"select photo_url from rawphotos where photo_id = ?";
+		photoURL = jdbcTemplate.queryForObject(sqlSelectPhotoUrl, String.class, photoId);
+		return photoURL;
+	}
+	
+	//pull map of probable animals from AI
+	public Map<String, Double> probableAnimals(int photoId){
+		Map<String, Double>probableAnimals = new HashMap<>();
 		
 		
 		

@@ -54,16 +54,6 @@ public class HomeController {
 		return "userPages/userPage";
 	}
 
-	@RequestMapping(path = "/games/gameAnimalId", method = RequestMethod.GET)
-	public String displayGame1Page() {
 
-		return "games/gameAnimalId";
-	}
-
-	@RequestMapping(path = "/games/gameAnimalSpotting", method = RequestMethod.GET)
-	public String displayGame2Page() {
-
-		return "games/gameAnimalSpotting";
-	}
 
 }

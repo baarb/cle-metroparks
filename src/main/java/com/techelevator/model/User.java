@@ -24,6 +24,8 @@ public class User {
 	
 	private String confirmEmail;
 	
+	private int userId;
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -53,5 +55,11 @@ public class User {
 	}
 	public void setConfirmEmail(String confirmEmail) {
 		this.confirmEmail = confirmEmail;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 }

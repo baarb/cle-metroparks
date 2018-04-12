@@ -5,11 +5,11 @@
 
 <div class="row">
 
-	<img href="">
+	<img src="${photoURL}">
 
 </div>
 
-<form action="/games/gameAnimalId">
+<form action="/capstone/games/gameAnimalId">
 	<c:forEach var="animal" items="${probableAnimals}">
 		<div>
 
@@ -21,8 +21,8 @@
 			<div>
 				<c:out value="How many?" />
 				<select name="quantity" class="">
-					<option value="1">1</option>
-					<option selected="selected" value="2">2</option>
+					<option selected="selected" value="1">1</option>
+					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
 					<option value="5">5</option>
@@ -31,8 +31,8 @@
 			</div>
 		</div>
 	</c:forEach>
-	<input type="hidden" name="userId" value=""> <input
-		type="hidden" name="photoId" value="">
+	<input type="hidden" name="userId" value="${user.getUserId()}"> <input
+		type="hidden" name="photoId" value="${photoId}">
 <div class="">
 	<input class="submit" type="submit" value="Submit"/>
 </div>
