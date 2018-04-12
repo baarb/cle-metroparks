@@ -42,12 +42,12 @@
 					<c:url var="homePageHref" value="/users/{currentUser}" />
 					<li><a href="${homePageHref}">Home</a></li>
 					<c:if test="${not empty currentUser}">
-						<c:url var="dashboardHref" value="/users/${currentUser}" />
+						<%-- <c:url var="dashboardHref" value="/users/${currentUser}" />
 						<li><a href="${dashboardHref}">Private Messages</a></li>
 						<c:url var="newMessageHref" value="/users/${currentUser}/messages/new" />
 						<li><a href="${newMessageHref}">New Message</a></li>
 						<c:url var="sentMessagesHref" value="/users/${currentUser}/messages" />
-						<li><a href="${sentMessagesHref}">Sent Messages</a></li>
+						<li><a href="${sentMessagesHref}">Sent Messages</a></li> --%>
 						<c:url var="changePasswordHref" value="/users/${currentUser}/changePassword" />
 						<li><a href="${changePasswordHref}">Change Password</a></li>
 					</c:if>
