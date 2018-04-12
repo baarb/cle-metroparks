@@ -59,16 +59,13 @@ section {
 
 .main {
 	display: grid;
-	grid-template-columns: auto auto auto;
-	background-color: lightblue;
-}
-
-.signup {
-	grid-column: 2/3;
-}
-
-.signup>h4 {
-	text-align: center;
+	grid-template-columns: auto auto;
+	background-image: url("img/background-background-image-creek-707915.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover; 
+	background-color:threeddarkshadow;
+	color: white;
 }
 
 .login {
@@ -85,16 +82,6 @@ section {
 .userBenefits>h1 {
 	grid-column: 2/span 2;
 	text-align: center
-}
-.lists{
-	grid-column: 2/ span 2;
-}
-.list1 {
-	grid-column: 2/4;
-}
-
-.list2 {
-	grid-column: 3/4;
 }
 
 .bestPics {
@@ -115,80 +102,77 @@ section {
 	<ul class="nav navbar-nav navbar-right">
 		<c:choose>
 			<c:when test="${empty currentUser}">
+				<c:url var="newUserHref" value="/users/new" />
+				<li><a href="${newUserHref}">Sign Up</a></li>
 				<c:url var="loginHref" value="/userRegistration/login" />
 				<li><a href="${loginHref}">Log In</a></li>
 			</c:when>
-			<c:otherwise>
-				<c:url var="logoutAction" value="/logout" />
-				<form id="logoutForm" action="${logoutAction}" method="POST">
-					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-				</form>
-				<li><a id="logoutLink" href="#">Log Out</a></li>
-			</c:otherwise>
+
 		</c:choose>
 	</ul>
 </div>
 </nav>
 <body>
-
+	<div>
+		
+		<signup-funnel></signup-funnel>
+	</div>
 
 	<div class="main">
-
-		<div class="signup">
-			<h4>Sign Up</h4>
-
-
-			<sign-up></sign-up>
-
-		</div>
-
-
-
+		<user-benefits></user-benefits>
+		<sign-up></sign-up>
 	</div>
-
-	<div class="userBenefits">
-		<h1>User Benefits</h1>
-		<div class="lists">
-			<ul class="list1">
-				<li>Create Your Own Picture Collections</li>
-				<li></li>
-
-			</ul>
-			<ul class="list2">
-				<li>Earn Badges!</li>
-				<li>Share with Friends</li>
-
-			</ul>
-		</div>
-
+	
+	<div >
+		<best-pics></best-pics>
 	</div>
-	<div class="bestPics">
-		<h1>Carousel of Best Pics</h1>
-
-	</div>
-	<div class="metroBenefits">
-		<h1>Metropark Benefits</h1>
+	
+	<div>
+		<metro-benefits></metro-benefits>
 	</div>
 
 
 
 	<script
 		src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
-	<c:url value="/js/signUp.tag" var="signUp" />
+	<c:url value="/js/indexPage/signUp.tag" var="signUp" />
 	<script src="${signUp}" type="riot/tag"></script>
+	<c:url value="/js/indexPage/userBenefits.tag" var="userBenefits" />
+	<script src="${userBenefits}" type="riot/tag"></script>
+	<c:url value="/js/indexPage/bestPics.tag" var="bestPics" />
+	<script src="${bestPics}" type="riot/tag"></script>
+	<c:url value="/js/indexPage/metroBenefits.tag" var="metroBenefits" />
+	<script src="${metroBenefits}" type="riot/tag"></script>
 
 	<script>
-		/* This is where we include our components */
-		//Searchbox (OMDB API)
 		let pubSub = {};
 		riot.observable(pubSub);//makes it observable
+		riot.mount('signup-funnel', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
 		riot.mount('sign-up', {
 			'bus' : pubSub,
 			'formUrl' : '<c:url value="/users" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
-		//
+		riot.mount('user-benefits', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		riot.mount('metro-benefits', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+
+		riot.mount('best-pics', {
+			'bus' : pubSub,
+			
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+
+		
 	</script>
 
 </body>
