@@ -1,42 +1,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Landing Page</title>
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
-<script
-	src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<c:url var="cssHref" value="/site.css" />
-<link rel="stylesheet" type="text/css" href="${cssHref}">
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("time.timeago").timeago();
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
+	<script src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<c:url var="cssHref" value="/site.css" />
+	<link rel="stylesheet" type="text/css" href="${cssHref}">
 
-		$("#logoutLink").click(function(event) {
-			$("#logoutForm").submit();
-		});
-
-		var pathname = window.location.pathname;
-		$("nav a[href='" + pathname + "']").parent().addClass("active");
-
-	});
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 
 <style>
 .header {
@@ -94,26 +74,28 @@ section {
 }
 </style>
 </head>
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-	<ul class="nav navbar-nav">
-		<c:url var="homePageHref" value="/" />
-		<li><a href="${homePageHref}">Logo</a></li>
-	</ul>
-	<ul class="nav navbar-nav navbar-right">
-		<c:choose>
-			<c:when test="${empty currentUser}">
-				<c:url var="newUserHref" value="/users/new" />
-				<li><a href="${newUserHref}">Sign Up</a></li>
-				<c:url var="loginHref" value="/userRegistration/login" />
-				<li><a href="${loginHref}">Log In</a></li>
-			</c:when>
 
-		</c:choose>
-	</ul>
-</div>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<ul class="nav navbar-nav">
+			<c:url var="homePageHref" value="/" />
+			<li><a href="${homePageHref}">Logo</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<c:choose>
+				<c:when test="${empty currentUser}">
+					<c:url var="newUserHref" value="/users/new" />
+					<li><a href="${newUserHref}">Sign Up</a></li>
+					<c:url var="loginHref" value="/userRegistration/login" />
+					<li><a href="${loginHref}">Log In</a></li>
+				</c:when>
+			</c:choose>
+		</ul>
+	</div>
 </nav>
+
 <body>
+
 	<div>
 		<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />
 		<signup-funnel></signup-funnel>
@@ -131,12 +113,7 @@ section {
 		<best-pics></best-pics>
 	</div>
 
-
-
-
-
-	<script
-		src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+	<script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
 	<c:url value="/js/indexPage/signUpFunnel.tag" var="signUpFunnel" />
 	<script src="${signUpFunnel}" type="riot/tag"></script>
 	
