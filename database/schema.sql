@@ -11,8 +11,10 @@ DROP SEQUENCE IF EXISTS seq_badge_id;
 DROP TABLE IF EXISTS badges;
 DROP SEQUENCE IF EXISTS seq_photo_id;
 DROP TABLE IF EXISTS rawPhotos;
-DROP SEQUENCE IF EXISTS seq_vote_id;
+DROP SEQUENCE IF EXISTS seq_votes_id;
 DROP TABLE IF EXISTS votes;
+DROP SEQUENCE IF EXISTS seq_vote_animal_id;
+DROP TABLE IF EXISTS vote_animal;
 DROP SEQUENCE IF EXISTS seq_approved_photo_id;
 DROP TABLE IF EXISTS approvedPhotos;
 
@@ -63,29 +65,24 @@ CREATE TABLE rawPhotos
 	identified INTEGER
 );
 
-CREATE SEQUENCE seq_vote_id;
+CREATE SEQUENCE seq_votes_id;
 CREATE TABLE votes
 (
-	vote_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_vote_id'),
+	vote_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_votes_id'),
 	photo_id INTEGER NOT null REFERENCES rawPhotos,
 	user_id INTEGER NOT null REFERENCES users,
-	OPPOSSUM INTEGER,
-	DEER INTEGER, 
-	RABBIT INTEGER, 
-	RACCOON INTEGER, 
-	TURKEY INTEGER, 
-	SKUNK INTEGER, 
-	BIRD INTEGER, 
-	FOX INTEGER, 
-	HUMAN INTEGER, 
-	CAT INTEGER,
-	COYOTE INTEGER, 
-	SQUIRREL INTEGER, 
-	DOG INTEGER, 
-	MMV INTEGER,
-	BIGFOOT INTEGER,
 	rating INTEGER
 );
+
+CREATE SEQUENCE seq_vote_animal_id;
+CREATE TABLE votes_animal
+(
+	votes_animal_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_vote_animal_id'),
+	vote_id INTEGER REFERENCES votes,
+	animal_id VARCHAR(200) NOT NULL,
+	num_animals INTEGER NOT NULL
+);
+
 
 CREATE SEQUENCE seq_category_id;
 CREATE TABLE category

@@ -17,6 +17,9 @@ public interface BiodiversityDAO {
 	
 	
 	//pull list of probable animals from AI
+	public List<String> returnAnimalTypes (Map<String,Double> probableAnimals);
+	
+	//create map of animals with AI data
 	public Map<String, Double> probableAnimals(int photoId);
 	
 	
