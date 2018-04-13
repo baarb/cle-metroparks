@@ -3,15 +3,17 @@
 <div class="lists">
 	<div class="list1">
 		<ul >
-			<li>Create Your Own Picture Collections</li>
-			<li></li>
+			<li>EXPLORE new wildlife trends </li>
+			<li>PEAK into the secret lives of your animal neighbors</li>
+			<li>SHARE your discoveries with friends</li>
 
 		</ul>
 	</div>
 	<div class="list2">
 		<ul >
-			<li>Earn Badges!</li>
-			<li>Share with Friends</li>
+			<li>EARN Citizen Science Badges!</li>
+			<li>COLLECT amazing photos of your favorite creatures</li>
+			<li>JOURNEY into the world of citizen science TODAY!</li>
 
 		</ul>
 	</div>

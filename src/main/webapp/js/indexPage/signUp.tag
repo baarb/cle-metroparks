@@ -1,6 +1,7 @@
 <sign-up>
 <div class="signup">
-	<h4>Sign Up</h4>
+	<h4>Sign Up to</h4>
+	<h4>become a Citizen Scientist</h4>
 	<form method="POST" action="{opts.formUrl}">
 		<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
 		<div class="row">
@@ -35,6 +36,7 @@
 <style>
 .signup {
 	grid-column: 2/3;
+	margin: 3%;
 }
 
 .signup>h4 {
