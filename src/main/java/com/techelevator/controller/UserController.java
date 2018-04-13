@@ -44,5 +44,17 @@ public class UserController {
 		return "redirect:/userRegistration/login";
 	}
 	
+	@RequestMapping(path="/", method=RequestMethod.POST)
+	public String createUserLanding(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("user", user);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+			return "redirect:/";
+		}
+		
+		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+		return "redirect:/userRegistration/login";
+	}
+	
 	
 }

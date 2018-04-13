@@ -18,8 +18,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 	
-<c:url var="cssHref" value="/site.css" />
-<link rel="stylesheet" type="text/css" href="${cssHref}">
+<%-- <c:url var="cssHref" value="/site.css" />
+<link rel="stylesheet" type="text/css" href="${cssHref}"> --%>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -38,10 +38,7 @@
 </head>
 <body>
 	<header>
-		<c:url var="homePageHref" value="/" />
-		<c:url var="imgSrc" value="/img/logo.png" />
-		<a href="${homePageHref}"><img src="${imgSrc}"
-			class="img-responsive" /></a>
+		<%-- logo here --%>
 	</header>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -50,12 +47,6 @@
 					<c:when test="${not empty currentUser}">
 						<c:url var="homePageHref" value="/users/${currentUser.userName}" />
 						<li><a href="${homePageHref}">Home</a></li>
-						<%-- <c:url var="dashboardHref" value="/users/${currentUser}" />
-						<li><a href="${dashboardHref}">Private Messages</a></li>
-						<c:url var="newMessageHref" value="/users/${currentUser}/messages/new" />
-						<li><a href="${newMessageHref}">New Message</a></li>
-						<c:url var="sentMessagesHref" value="/users/${currentUser}/messages" />
-						<li><a href="${sentMessagesHref}">Sent Messages</a></li> --%>
 						<c:url var="changePasswordHref"
 							value="/users/${currentUser.userName}/changePassword" />
 						<li><a href="${changePasswordHref}">Change Password</a></li>

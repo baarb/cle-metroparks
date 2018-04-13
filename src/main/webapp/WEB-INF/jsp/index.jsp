@@ -213,6 +213,7 @@ background-size: cover;
 		riot.mount('sign-up', {
 			'bus' : pubSub,
 			'firstPhoto' : '${firstPhoto}',
+			'formUrl' : '<c:url value="/" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
