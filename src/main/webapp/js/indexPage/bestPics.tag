@@ -7,7 +7,7 @@
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
   </span>
   
-  <div class="title text-center h1">Best Pictures</div>
+  <div class="title text-center h1">COLLECT photos of your favorite animals</div>
  
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
@@ -182,7 +182,7 @@ button:focus {outline:0 !important;}
   height:1000px;
   z-index:40;
   background:#fff;
-  opacity:1;
+  opacity:0;
   cursor:pointer;
   text-align:center;
   webkit justify content: center;
@@ -227,7 +227,7 @@ button:focus {outline:0 !important;}
   height:1000px;
   z-index:40;
   background:#fff;
-  opacity:1;
+  opacity:0;
   cursor:pointer;
   text-align:center;
   webkit justify content: center;
@@ -263,7 +263,7 @@ button:focus {outline:0 !important;}
 }
 
 .title{
-  color:#eee;
+  color:#fff;
 }
 
 .module-section{

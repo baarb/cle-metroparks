@@ -3,26 +3,15 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 
-<div class="title text-center h1">Favorite Photos</div>
+
 <div>
 	<photo-slider></photo-slider>
 </div>
 
-<div class="title text-center h1">Badges Earned</div>
-<div>
-	<photo-slider></photo-slider>
-</div>
-
-
-<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
-<script
-	src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
+<script src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
 <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
 <c:url value="/js/userPagesTags/photoSlider.tag" var="photoSlider"/>
 <script src="${photoSlider}" type="riot/tag"></script>
@@ -38,7 +27,6 @@
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
-		//
 </script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
