@@ -64,10 +64,10 @@
 
 		<div class="title text-center h1">Badges Earned</div>
 		<div class="module-section clearfix">
-			<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
+			<span id="controlL2" class="left-controls2" role="button" aria-label="See Previous Modules"> 
 				<button aria-hidden="true"><i class="fas fa-chevron-left"></i></button>
 			</span>
-			<ul id="content">
+			<ul id="content2">
 	
 				<li class="card effect1">
 					<div class="inside-top">
@@ -113,12 +113,12 @@
 			</ul>
 	
 	
-	
-		</div>
-	
-		<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules"> 
+		<span id="controlR2" class="right-controls2" role="button" aria-label="See Previous Modules"> 
 			<button aria-hidden="true"><i class="fas fa-chevron-right"></i></button>
 		</span>
+		</div>
+	
+		
 		<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
 	
 	</div>
@@ -167,7 +167,27 @@
 		display: moz box;
 		display: ms flexbox;
 		display: flex;
-		color: #fff;
+	
+	}
+	
+	.left-controls2 {
+		position: in-line;
+		top: 0;
+		left: 0;
+		width: 4%;
+		z-index: 40;
+		background: #fff;
+		opacity: 1;
+		cursor: pointer;
+		text-align: center; 
+		webkit justify content: center;
+		justify-content: center;
+		display: webkit box;
+		display: webkit flex;
+		display: moz box;
+		display: ms flexbox;
+		display: flex;
+		
 	}
 	
 	.fa-chevron-left-extra {
@@ -208,7 +228,27 @@
 		display: moz box;
 		display: ms flexbox;
 		display: flex;
-		color: #fff;
+		
+	}
+	
+	.right-controls2 {
+		position: in-line;
+		top: 0;
+		right: 0;
+		width: 4%;
+		z-index: 40;
+		background: #fff;
+		opacity: 1;
+		cursor: pointer;
+		text-align: center; 
+		webkit justify content: center;
+		justify-content: center;
+		display: webkit box;
+		display: webkit flex;
+		display: moz box;
+		display: ms flexbox;
+		display: flex;
+		
 	}
 	
 	.fa-chevron-right-extra {
@@ -254,7 +294,7 @@
 		position: relative;
 	}
 	
-	.arrow-guides {
+	.arrow-guides, .arrow-guides:hover  {
 		font-size: 29px;
 		font-family: FontAwesome;
 		font-style: normal;
@@ -268,35 +308,7 @@
 		color: #fff;
 	}
 	
-	.arrow-guides:hover {
-		font-size: 29px;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		float: left;
-		position: relative;
-		top: 80px;
-		left: -10px;
-		padding: 10px 5px 5px 2px;
-		background: #999;
-		color: #fff;
-	}
-	
-	.arrow-guides-right {
-		font-size: 29px;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		float: right;
-		position: relative;
-		bottom: 185px;
-		right: -40px;
-		padding: 10px 2px 5px 5px;
-		background: #999;
-		color: #fff;
-	}
-	
-	.arrow-guides-right:hover {
+	.arrow-guides-right, .arrow-guides-right:hover {
 		font-size: 29px;
 		font-family: FontAwesome;
 		font-style: normal;
@@ -362,6 +374,20 @@
 		 $('#controlL').click(function() {
 		      event.preventDefault();
 		      $('#content').animate({
+		        marginLeft: "+=400px"
+		      }, "fast");
+		 }); 
+		 
+		 $('#controlR2').click(function() {
+		      event.preventDefault();
+		      $('#content2').animate({
+		        marginLeft: "-=400px"
+		      }, "fast");
+		   });
+	
+		 $('#controlL2').click(function() {
+		      event.preventDefault();
+		      $('#content2').animate({
 		        marginLeft: "+=400px"
 		      }, "fast");
 		 }); 
