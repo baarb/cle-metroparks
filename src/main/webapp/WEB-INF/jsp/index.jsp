@@ -150,7 +150,7 @@ background-size: cover;
 <body>
 	<div>
 		<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />
-		<signup-funnel></signup-funnel>
+		<!-- <signup-funnel></signup-funnel> -->
 	</div>
 
 	<div class="main">
