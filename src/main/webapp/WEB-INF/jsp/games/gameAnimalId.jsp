@@ -4,21 +4,22 @@
 
 
 <div class="animalPic">
-	<img src="${photoURL}">
+	<img src="${photoURL}" class="game-main-image">
 </div>
 <c:url var="formAction" value="/games/gameAnimalId" />
 <form method="POST" action="${formAction}">
-	<c:forEach var="animal" items="${animalTypes}">
+	<c:forEach var="animal" items="${animalTypes}" varStatus="loop">
+	<span class="pirate" style="color:red;"><c:out value="${loop.index}" /></span>
 		<div>
 
 			<div>
-				<label class="quizChoiceButton"> 
-				<input type="checkbox" name="animalSeen" value="${animal}"> ${animal}
+				<label class="quizChoiceButton"> <c:out value="${animal}" />
+				<input type="checkbox" name="animalSeen" value="${animal}"> 
 				</label>
 			</div>
 			<span> 
 			<label for="quantity">How Many?</label>
-			<input type="number" name="quantity" value="quantity">
+			<input type="number" name="quantity" value="1">
 			</span>
 		</div>
 	</c:forEach>

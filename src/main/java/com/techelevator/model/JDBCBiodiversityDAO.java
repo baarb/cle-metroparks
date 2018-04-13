@@ -121,18 +121,20 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	
 	//store votes
 	public void storeVote(Vote vote) {
-		String animalType = vote.getAnimalsSeen();
-		int numberOfAnimalsSeen = vote.getNumberOfAnimalsSeen();
+		String[] animalType = vote.getAnimalsSeen();
+		int[] numberOfAnimalsSeen = vote.getNumberOfAnimalsSeen();
 		int photoId = vote.getPhotoId();
 		int userId = vote.getUserId();
+		
 		
 		String sqlInsertIntoVote = "INSERT INTO votes(photo_id, user_id) VALUES(?,?)"
 				+" RETURNING vote_id";
 		int voteId = jdbcTemplate.queryForObject(sqlInsertIntoVote, int.class, photoId, userId);
-		
+	
+		for (int i=0; i<animalType.length; i++) {
 		String sqlInsertIntoVoteAnimal ="INSERT INTO votes_animal(vote_id, animal_id, num_animals) VALUES(?,?,?)";
-		jdbcTemplate.update(sqlInsertIntoVoteAnimal, voteId, animalType, numberOfAnimalsSeen);
-
+		jdbcTemplate.update(sqlInsertIntoVoteAnimal, voteId, animalType[i], numberOfAnimalsSeen[i]);
+	}
 	}
 	
 	
