@@ -29,7 +29,7 @@ public class UserController {
 		if( ! modelHolder.containsAttribute("user")) {
 			modelHolder.addAttribute("user", new User());
 		}
-		return "index";
+		return "userRegistration/newUser";
 	}
 	
 	@RequestMapping(path="/users", method=RequestMethod.POST)
@@ -37,7 +37,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("user", user);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-			return "redirect:/users/new";
+			return "redirect:/";
 		}
 		
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
