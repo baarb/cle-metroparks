@@ -51,8 +51,8 @@ public class AnimalIdController {
 	@RequestMapping(path ="/games/gameAnimalId", method=RequestMethod.POST)
 	public String displayGame1PagePOST(
 			HttpSession session, 
-			@RequestParam String animalSeen, 
-			@RequestParam int quantity
+			@RequestParam String[] animalSeen, 
+			@RequestParam int[] quantity
 			) {
 		Vote vote = new Vote();
 		vote.setAnimalsSeen(animalSeen);

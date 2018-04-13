@@ -4,8 +4,8 @@ public class Vote {
 	private int voteId;
 	private int userId;
 	private int photoId;
-	private String animalsSeen;
-	private int numberOfAnimalsSeen;
+	private String[] animalsSeen;
+	private int[] numberOfAnimalsSeen;
 	
 	
 	public int getVoteId() {
@@ -26,16 +26,16 @@ public class Vote {
 	public void setPhotoId(int photoId) {
 		this.photoId = photoId;
 	}
-	public String getAnimalsSeen() {
+	public String[] getAnimalsSeen() {
 		return animalsSeen;
 	}
-	public void setAnimalsSeen(String animalsSeen) {
+	public void setAnimalsSeen(String[] animalsSeen) {
 		this.animalsSeen = animalsSeen;
 	}
-	public int getNumberOfAnimalsSeen() {
+	public int[] getNumberOfAnimalsSeen() {
 		return numberOfAnimalsSeen;
 	}
-	public void setNumberOfAnimalsSeen(int numberOfAnimalsSeen) {
+	public void setNumberOfAnimalsSeen(int[] numberOfAnimalsSeen) {
 		this.numberOfAnimalsSeen = numberOfAnimalsSeen;
 	}
 
