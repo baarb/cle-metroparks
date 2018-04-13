@@ -24,14 +24,6 @@
 	margin: 
 }
 
-body {
-	
-}
-
-section {
-	
-}
-
 
 .box1SignUpFunnel{
 display: grid;
@@ -66,8 +58,11 @@ justify-content: center;
 	margin-bottom: 1%; 
 }
 .underlayBox3{
-background-color:black;
-background-size: cover;
+ 	position: relative; /* Position the background text */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 20px; /* Some padding */
 }
 .box3MetroBen {
 	display: grid;
@@ -76,8 +71,6 @@ background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	background-color: threeddarkshadow;
-	opacity: .4;
 }
 .box4BestPics{
 	background-color: darkgrey;
@@ -102,7 +95,11 @@ background-size: cover;
 .bestPics {
 	grid-column: 2/3;
 }
-
+.responsive {
+    width: 100%;
+    height: auto;
+   
+}
 
 </style>
 
@@ -148,10 +145,7 @@ background-size: cover;
 </nav>
 
 <body>
-	<div>
-		<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />
-		<!-- <signup-funnel></signup-funnel> -->
-	</div>
+	
 
 	<div class="main">
 	
@@ -161,7 +155,35 @@ background-size: cover;
 			<div>
 				<div class="img-magnifier-container">
 					<h5>Can you find the third Coyote?</h5>
-					<img id="myimage" src="${firstPhoto}" width="600" height="400" >
+					<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">
+						<img id="myimage" src="${firstPhoto}" width="600" height="400" >
+					</button>
+					<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+      </div>
+
+    </div>
+  </div>
 				</div>
 			</div>
 	
@@ -172,8 +194,9 @@ background-size: cover;
 		<user-benefits></user-benefits>
 		<sign-up></sign-up>
 	</div>
-	<div class="underlayBox3">
+	
 		<div class="box3MetroBen">
+		<div class="underlayBox3">
 			<metro-benefits></metro-benefits>
 		</div>
 	</div>
@@ -193,6 +216,9 @@ background-size: cover;
 	<c:url value="/js/indexPage/signUpFunnel.tag" var="signUpFunnel" />
 	<script src="${signUpFunnel}" type="riot/tag"></script>
 	
+	<c:url value="/js/indexPage/signUpModal.tag" var="signUpModal" />
+	<script src="${signUpModal}" type="riot/tag"></script>
+	
 	<c:url value="/js/indexPage/signUp.tag" var="signUp" />
 	<script src="${signUp}" type="riot/tag"></script>
 	<c:url value="/js/indexPage/userBenefits.tag" var="userBenefits" />
@@ -210,6 +236,12 @@ background-size: cover;
 			'imgUrl' : '<c:url var="firstPhoto" value="img/background-background-image-creek-707915.jpg" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
+		
+		riot.mount('signup-modal', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		
 		riot.mount('sign-up', {
 			'bus' : pubSub,
 			'firstPhoto' : '${firstPhoto}',
