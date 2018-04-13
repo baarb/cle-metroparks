@@ -3,12 +3,70 @@
 	<!-- HTML -->
 	<div id="wrapper">
 	
-		<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
-			<button class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></button>
-		</span>
-	
+		
+		<div class="title text-center h1">Favorite Photos</div>
 		<div class="module-section clearfix">
 			<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+		<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
+			<button aria-hidden="true"><i class="fas fa-chevron-left"></i></button>
+		</span>
+			<ul id="content">
+	
+				<li class="card effect1">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+				<li class="card">
+					<div class="inside-top">
+						<img src="http://placehold.it/200x100">
+					</div>
+				</li>
+	
+			</ul>
+	
+			<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules"> 
+				<button aria-hidden="true"><i class="fas fa-chevron-right"></i></button>
+			</span>
+		</div>
+	
+		<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
+
+		<div class="title text-center h1">Badges Earned</div>
+		<div class="module-section clearfix">
+			<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
+				<button aria-hidden="true"><i class="fas fa-chevron-left"></i></button>
+			</span>
 			<ul id="content">
 	
 				<li class="card effect1">
@@ -59,7 +117,7 @@
 		</div>
 	
 		<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules"> 
-			<button class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></button>
+			<button aria-hidden="true"><i class="fas fa-chevron-right"></i></button>
 		</span>
 		<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
 	
@@ -97,7 +155,6 @@
 		top: 0;
 		left: 0;
 		width: 4%;
-		height: 1000px;
 		z-index: 40;
 		background: #fff;
 		opacity: 1;
@@ -139,7 +196,6 @@
 		top: 0;
 		right: 0;
 		width: 4%;
-		height: 1000px;
 		z-index: 40;
 		background: #fff;
 		opacity: 1;
