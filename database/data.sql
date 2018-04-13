@@ -111,18 +111,4 @@ INSERT INTO category(title, family, description) VALUES ('Motorized Vehicle', 'A
 INSERT INTO category(title, family, description) VALUES ('Sasquatch', 'Cryptozoological Hominid', 'In North American folklore, Bigfoot or Sasquatch is a hairy, upright-walking, ape-like being who reportedly dwells in the wilderness and leaves behind large footprints. Strongly associated with the Pacific Northwest (particularly Washington state and British Columbia), individuals claim to see the creature across North America. Over the years, the creature has inspired numerous commercial ventures and hoaxes. Folklorists trace the figure of Bigfoot to a combination of factors and sources, including folklore surrounding the European wild man figure, folk belief among Native Americans and loggers, and a cultural increase in environmental concerns. A majority of mainstream scientists have historically discounted the existence of Bigfoot, considering it to be a combination of folklore, misidentification, and hoax, rather than a living animal.');
 
 
-INSERT INTO votes(photo_id, user_id, DEER, RABBIT) VALUES (1, 1, 1, 2);
-INSERT INTO votes(photo_id, user_id, DEER, RABBIT) VALUES (1, 1, 0, 1);
-INSERT INTO votes(photo_id, user_id, BIRD, RACCOON) VALUES (1, 1, 1, 1);
-INSERT INTO votes(photo_id, user_id, DOG, RABBIT) VALUES (2, 1, 1, 2);
-INSERT INTO votes(photo_id, user_id, DEER, RABBIT) VALUES (3, 1, 0, 1);
-INSERT INTO votes(photo_id, user_id, BIRD, RACCOON) VALUES (2, 1, 1, 1);
-INSERT INTO votes(photo_id, user_id, DOG, HUMAN) VALUES (80, 1, 1, 3);
-INSERT INTO votes(photo_id, user_id, DEER, RABBIT) VALUES (6, 1, 0, 1);
-INSERT INTO votes(photo_id, user_id, BIRD, RACCOON) VALUES (7, 1, 1, 1);
-INSERT INTO votes(photo_id, user_id, DOG, HUMAN) VALUES (80, 1, 1, 3);
-INSERT INTO votes(photo_id, user_id, DEER, RABBIT) VALUES (3, 1, 0, 1);
-INSERT INTO votes(photo_id, user_id, BIRD, RACCOON) VALUES (2, 1, 1, 1);
-INSERT INTO votes(photo_id, user_id, DOG, BIGFOOT) VALUES (73, 1, 1, 3);
-
 COMMIT;
