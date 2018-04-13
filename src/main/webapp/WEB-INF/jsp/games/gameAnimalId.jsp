@@ -31,6 +31,20 @@
 	</div>
 </form>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    var _selector = document.querySelector('input[name=animalSeen]');
+    _selector.addEventListener('change', function (event) {
+        if (_selector.checked) {
+            // do something if checked
+        } else {
+            // do something else otherwise
+        }
+    });
+});
+
+</script>
 
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
