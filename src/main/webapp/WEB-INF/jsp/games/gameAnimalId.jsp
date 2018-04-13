@@ -12,25 +12,19 @@
 		<div>
 
 			<div>
-				<label class="quizChoiceButton"> <input type="radio"
-					name="animalSeen" value="${animal}"> ${animal}
+				<label class="quizChoiceButton"> 
+				<input type="checkbox" name="animalSeen" value="${animal}"> ${animal}
 				</label>
 			</div>
-			<span> <c:out value="How many?" /> <select name="quantity"
-				class="">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-			</select>
+			<span> 
+			<label for="quantity">How Many?</label>
+			<input type="number" name="quantity" value="quantity">
 			</span>
 		</div>
 	</c:forEach>
-	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" /> <input
-		type="hidden" name="userId" value="${userId}"> <input
-		type="hidden" name="photoId" value="${photoId}">
+	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" /> 
+	<input type="hidden" name="userId" value="${userId}"> 
+	<input type="hidden" name="photoId" value="${photoId}">
 	<div class="">
 		<input class="submit" type="submit" value="Submit" />
 	</div>
