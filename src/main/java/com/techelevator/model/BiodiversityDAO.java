@@ -30,7 +30,6 @@ public interface BiodiversityDAO {
 	//create map of animals with AI data
 	public Map<String, Double> probableAnimals(int photoId);
 	
-	
 	//store votes
 	public void storeVote(Vote vote);
 	
