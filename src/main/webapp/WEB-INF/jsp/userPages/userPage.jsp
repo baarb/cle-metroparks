@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-
+<user-game-tab></user-game-tab>
 
 <div>
 	<photo-slider></photo-slider>
@@ -25,6 +25,12 @@
 <c:url value="/js/userPagesTags/photoSlider.tag" var="photoSlider"/>
 <script src="${photoSlider}" type="riot/tag"></script>
 
+<c:url value="/js/userPagesTags/userGameTab.tag" var="userGameTab"/>
+<script src="${userGameTab}" type="riot/tag"></script>
+
+<c:url value="/js/userPagesTags/userBadgesTab.tag" var="userBadgesTab"/>
+<script src="${userBadgesTab}" type="riot/tag"></script>
+
 <script>
 		/* This is where we include our components */
 		//Searchbox (OMDB API)
@@ -39,6 +45,13 @@
 		riot.mount('user-badges', {
 			'bus' : pubSub,
 			'formUrl' : '<c:url value="/users" />',
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		
+		riot.mount('user-game-tab', {
+			'bus' : pubSub,
+			'gameAnimalId':'${gameAnimalId}',
+			'gameAnimalSpotting':'${gameAnimalSpotting}',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
