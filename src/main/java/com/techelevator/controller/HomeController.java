@@ -18,8 +18,7 @@ UserDAO userDAO;
 
 @Autowired
 BiodiversityDAO bioDAO;
-// below command returns a list of the approved photo URLs
-//bioDAO.returnApprovedPhotoUrls();
+// bioDAO.returnApprovedPhotoUrls();
 
 @Autowired
 public HomeController(UserDAO userDAO) {
