@@ -22,36 +22,67 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	public JDBCBiodiversityDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
-	
-	//find an unseen photo
+
+	// find an unseen photo
 	public int unseenPhotoId(int userId) {
 		int photoId = -1;
-		String sqlSelectPhoto = 
-		"select rawphotos.photo_id from rawphotos where rawphotos.photo_id NOT IN "
-		+ "(select photo_id from votes WHERE user_id = ?)";
-		SqlRowSet photoIdSQL = jdbcTemplate.queryForRowSet(sqlSelectPhoto, userId); 
-		if(photoIdSQL.next()) {
+		String sqlSelectPhoto = "select rawphotos.photo_id from rawphotos where rawphotos.photo_id NOT IN "
+				+ "(select photo_id from votes WHERE user_id = ?)"
+				+ " AND rawphotos.photo_id NOT IN (select raw_photo_id from approvedphotos)";
+		SqlRowSet photoIdSQL = jdbcTemplate.queryForRowSet(sqlSelectPhoto, userId);
+		if (photoIdSQL.next()) {
 			photoId = photoIdSQL.getInt(1);
 		}
 		return photoId;
 	}
-	
-	
-	
+
+	// return unseen photo URL
 	public String returnPhotoURL(int photoId) {
 		String photoURL = "";
-		String sqlSelectPhotoUrl = 
-				"select photo_url from rawphotos where photo_id = ?";
+		String sqlSelectPhotoUrl = "select photo_url from rawphotos where photo_id = ?";
 		photoURL = jdbcTemplate.queryForObject(sqlSelectPhotoUrl, String.class, photoId);
 		return photoURL;
 	}
+
+	// set approved photo
+	public Boolean isApprovedPhoto(int photoId) {
+		Boolean approved = false;
+		int numVotes = 0;
+		int categoryCount = 0;
+		Map<String, Integer> seenAnimals = new HashMap<>();
+
+		String sqlNumVotes = "select count(photo_id) from votes where photo_id = ?";
+		numVotes = jdbcTemplate.queryForObject(sqlNumVotes, int.class, photoId);
+		String sqlCountCategories = "select count(animal_id), animal_id from votes_animal "
+				+ "inner join votes on votes.vote_id = votes_animal.vote_id " + "where photo_id = ? group by animal_id";
+		SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, photoId);
+		if (animalGroupsSQL.next()) {
+			seenAnimals.put(animalGroupsSQL.getString("animal_id"), animalGroupsSQL.getInt("num_animals"));
+		}
+		if (seenAnimals.keySet() != null) {
+			String[] seenAnimalsArray = (String[]) seenAnimals.keySet().toArray();
+			while (!approved) {
+				for (int i = 0; i < seenAnimalsArray.length; i++) {
+					if(seenAnimals.get(seenAnimalsArray[i]) / numVotes >= .8) {
+						approved = true;
+					}
+				}
+			}
+		}
+		return approved;
+	}
 	
-	//pull map of probable animals from AI
-	public Map<String, Double> probableAnimals(int photoId){
-		Map<String, Double>probableAnimals = new HashMap<>();
-		
-		List<String>animals=new ArrayList<>();
+	//set photo as approved
+	public void setApprovedPhoto(int photoId) {
+		String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id) VALUES (?)";
+		jdbcTemplate.update(approvedPhotoSQL, photoId);
+	}
+
+	// pull map of probable animals from AI
+	public Map<String, Double> probableAnimals(int photoId) {
+		Map<String, Double> probableAnimals = new HashMap<>();
+
+		List<String> animals = new ArrayList<>();
 		String oppossum = "SELECT oppossum FROM rawphotos WHERE photo_id = ?";
 		String deer = "SELECT deer FROM rawphotos WHERE photo_id = ?";
 		String rabbit = "SELECT rabbit FROM rawphotos WHERE photo_id = ?";
@@ -98,48 +129,42 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		animals.add(bigfoot);
 		animals.add("Bigfoot");
 
-
-		for(int i = 0; i < animals.size(); i+=2) {
+		for (int i = 0; i < animals.size(); i += 2) {
 			Double aiValue = jdbcTemplate.queryForObject(animals.get(i), Double.class, photoId);
 			if (aiValue != null) {
 				if (aiValue > 1) {
-				probableAnimals.put(animals.get(i+1), aiValue);
+					probableAnimals.put(animals.get(i + 1), aiValue);
 				}
 			}
 		}
 		return probableAnimals;
 	}
-	
-	public List<String> returnAnimalTypes (Map<String,Double> probableAnimals){
+
+	public List<String> returnAnimalTypes(Map<String, Double> probableAnimals) {
 		List<String> animalTypes = new ArrayList<>();
-		
-		for(String type: probableAnimals.keySet()) {
+
+		for (String type : probableAnimals.keySet()) {
 			animalTypes.add(type);
 		}
 		return animalTypes;
 	}
-	
-	//store votes
+
+	// store votes
 	public void storeVote(Vote vote) {
 		String[] animalType = vote.getAnimalsSeen();
 		int[] numberOfAnimalsSeen = vote.getNumberOfAnimalsSeen();
 		int photoId = vote.getPhotoId();
 		int userId = vote.getUserId();
-		
-		
-		String sqlInsertIntoVote = "INSERT INTO votes(photo_id, user_id) VALUES(?,?)"
-				+" RETURNING vote_id";
+
+		String sqlInsertIntoVote = "INSERT INTO votes(photo_id, user_id) VALUES(?,?)" + " RETURNING vote_id";
 		int voteId = jdbcTemplate.queryForObject(sqlInsertIntoVote, int.class, photoId, userId);
-	
-		for (int i=0; i<animalType.length; i++) {
-		String sqlInsertIntoVoteAnimal ="INSERT INTO votes_animal(vote_id, animal_id, num_animals) VALUES(?,?,?)";
-		jdbcTemplate.update(sqlInsertIntoVoteAnimal, voteId, animalType[i], numberOfAnimalsSeen[i]);
+
+		for (int i = 0; i < animalType.length; i++) {
+			String sqlInsertIntoVoteAnimal = "INSERT INTO votes_animal(vote_id, animal_id, num_animals) VALUES(?,?,?)";
+			jdbcTemplate.update(sqlInsertIntoVoteAnimal, voteId, animalType[i], numberOfAnimalsSeen[i]);
+		}
 	}
-	}
-	
-	
-	//return animal categories by votes
-	
-	//set approved photo
-	
+
+	// return animal categories by votes
+
 }

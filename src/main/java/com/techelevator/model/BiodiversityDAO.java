@@ -15,6 +15,11 @@ public interface BiodiversityDAO {
 	//return an unseen photo url
 	public String returnPhotoURL(int photoId);
 	
+	//determine if photo is approved
+	public Boolean isApprovedPhoto(int photoId);
+	
+	//store photo as approved
+	public void setApprovedPhoto(int photoId);
 	
 	//pull list of probable animals from AI
 	public List<String> returnAnimalTypes (Map<String,Double> probableAnimals);

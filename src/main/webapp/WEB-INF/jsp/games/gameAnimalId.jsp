@@ -9,17 +9,17 @@
 <c:url var="formAction" value="/games/gameAnimalId" />
 <form method="POST" action="${formAction}">
 	<c:forEach var="animal" items="${animalTypes}" varStatus="loop">
-	<span class="pirate" style="color:red;"><c:out value="${loop.index}" /></span>
-		<div>
+<%-- 	<span class="pirate" style="color:red;"><c:out value="${loop.index}" /></span>--%>		
+ <div>
 
 			<div>
 				<label class="quizChoiceButton"> <c:out value="${animal}" />
-				<input type="checkbox" name="animalSeen" value="${animal}"> 
+				<input type="checkbox" onchange='handleChange(this);' name="animalSeen" value="${animal}"> 
 				</label>
 			</div>
 			<span> 
 			<label for="quantity">How Many?</label>
-			<input type="number" name="quantity" value="1">
+			<input id="quantity" type="number" name="quantity" value="1">
 			</span>
 		</div>
 	</c:forEach>
@@ -33,17 +33,13 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function (event) {
-    var _selector = document.querySelector('input[name=animalSeen]');
-    _selector.addEventListener('change', function (event) {
-        if (_selector.checked) {
-            // do something if checked
-        } else {
-            // do something else otherwise
-        }
-    });
-});
-
+function handleChange(checkbox) {
+    if(checkbox.checked == true){
+        document.getElementById("quantity").removeAttribute("disabled");
+    }else{
+        document.getElementById("quantity").setAttribute("disabled", "disabled");
+   }
+}
 </script>
 
 

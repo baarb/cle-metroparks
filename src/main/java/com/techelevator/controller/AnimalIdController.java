@@ -57,13 +57,20 @@ public class AnimalIdController {
 		Vote vote = new Vote();
 		vote.setAnimalsSeen(animalSeen);
 		vote.setNumberOfAnimalsSeen(quantity);
-		vote.setPhotoId( (int) session.getAttribute("photoId"));
+		int photoId = (int) session.getAttribute("photoId");
+		vote.setPhotoId(photoId);
 		vote.setUserId((int)session.getAttribute("userId"));
 		
 		bioDao.storeVote(vote);
 		
+		if(bioDao.isApprovedPhoto(photoId)) {
+			bioDao.setApprovedPhoto(photoId);
+		}
+		
 		session.removeAttribute("photoId");
 		session.removeAttribute("photoURL");
+		
+		
 		
 		return "redirect:/games/gameAnimalId";
 	}
