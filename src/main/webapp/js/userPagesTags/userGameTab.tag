@@ -1,7 +1,7 @@
 
 <user-game-tab>
 <div class="row">
-<h1>Home Page</h1>
+
 	
 
 	<div>
