@@ -56,7 +56,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		String sqlCountCategories = "select count(animal_id), animal_id from votes_animal "
 				+ "inner join votes on votes.vote_id = votes_animal.vote_id " + "where photo_id = ? group by animal_id";
 		SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, photoId);
-		if (animalGroupsSQL.next()) {
+		while (animalGroupsSQL.next()) {
 			seenAnimals.put(animalGroupsSQL.getString("animal_id"), animalGroupsSQL.getInt("num_animals"));
 		}
 		if (seenAnimals.keySet() != null) {
@@ -70,6 +70,18 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 			}
 		}
 		return approved;
+	}
+	
+	//return list of approved photo URLS
+	public List<String> returnApprovedPhotoUrls(){
+		List<String> photoUrls = new ArrayList<>();
+		String sqlApprovedPhotos = "select photo_url from rawphotos where photo_id "
+				+ "IN (select photo_id from approvedphotos)";
+		SqlRowSet photoUrlsSQL = jdbcTemplate.queryForRowSet(sqlApprovedPhotos);
+		while(photoUrlsSQL.next()) {
+			photoUrls.add(photoUrlsSQL.getString("photo_url"));
+		}
+		return photoUrls;
 	}
 	
 	//set photo as approved
