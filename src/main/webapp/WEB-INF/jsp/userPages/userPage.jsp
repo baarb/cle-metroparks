@@ -8,6 +8,15 @@
 	<photo-slider></photo-slider>
 </div>
 
+
+
+
+
+
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
@@ -22,6 +31,12 @@
 		let pubSub = {};
 		riot.observable(pubSub);//makes it observable
 		riot.mount('photo-slider', {
+			'bus' : pubSub,
+			'formUrl' : '<c:url value="/users" />',
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		
+		riot.mount('user-badges', {
 			'bus' : pubSub,
 			'formUrl' : '<c:url value="/users" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'

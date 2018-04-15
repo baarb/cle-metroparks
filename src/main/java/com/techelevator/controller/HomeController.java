@@ -34,7 +34,7 @@ public class HomeController {
 	@RequestMapping(path = "/users/{currentUser}", method = RequestMethod.GET)
 	public String displayHomePage(HttpSession session) {
 
-		return "homePage";
+		return "userPages/userPage";
 	}
 	
 	@RequestMapping(path = "/users/{currentUser}/profile", method = RequestMethod.GET)

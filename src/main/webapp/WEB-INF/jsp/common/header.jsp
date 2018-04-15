@@ -46,14 +46,13 @@
 			<ul class="nav navbar-nav">
 				<c:choose>
 					<c:when test="${not empty currentUser}">
-						<c:url var="homePageHref" value="/users/${currentUser.userName}" />
-						<li><a href="${homePageHref}">Home</a></li>
-						<c:url var="changePasswordHref"
-							value="/users/${currentUser.userName}/changePassword" />
-						<li><a href="${changePasswordHref}">Change Password</a></li>
 						<c:url var="userProfile"
 							value="/users/${currentUser.userName}/profile" />
-						<li><a href="${userProfile}">User Profile</a></li>
+						<li><a href="${userProfile}">${currentUser.userName}</a></li>
+						<%-- <c:url var="changePasswordHref"
+							value="/users/${currentUser.userName}/changePassword" />
+						<li><a href="${changePasswordHref}">Change Password</a></li> --%>
+						
 					</c:when>
 					<c:otherwise>
 						<c:url var="homePageHref" value="/" />
