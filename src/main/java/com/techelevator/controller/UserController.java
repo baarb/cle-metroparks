@@ -40,8 +40,12 @@ public class UserController {
 			return "redirect:/";
 		}
 		
-		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-		return "redirect:/userRegistration/login";
+		if(userDAO.getUserByUserName(user.getUserName()) == null) {
+			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+			return "redirect:/userRegistration/login";
+		} else {
+			return "redirect:/";
+		}
 	}
 	
 	@RequestMapping(path="/", method=RequestMethod.POST)
@@ -52,8 +56,13 @@ public class UserController {
 			return "redirect:/";
 		}
 		
-		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-		return "redirect:/userRegistration/login";
+		if(userDAO.getUserByUserName(user.getUserName()) == null) {
+			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+			return "redirect:/userRegistration/login";
+		} else {
+			return "redirect:/";
+		}
+
 	}
 	
 	
