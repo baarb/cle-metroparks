@@ -18,6 +18,7 @@ UserDAO userDAO;
 
 @Autowired
 BiodiversityDAO bioDAO;
+// below code returns a list of the approved photo URLs
 // bioDAO.returnApprovedPhotoUrls();
 
 @Autowired
