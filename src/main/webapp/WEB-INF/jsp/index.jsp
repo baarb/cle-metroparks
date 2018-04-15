@@ -314,6 +314,5 @@ function magnify(imgID, zoom) {
 magnify("myimage", 1.75);
 /*Specify the id of the image, and the strength of the magnifier glass:*/ 
 </script>
-</body>
 
-</html>
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />
