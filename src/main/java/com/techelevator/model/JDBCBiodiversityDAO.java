@@ -23,7 +23,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	//finds if badge is earned and if so adds earned badge to badges_users table
+	// finds if badge is earned and if so adds earned badge to badges_users table
 	public List<Integer> assignBadge(int userId, String[] animalSeen) {
 		Badges badge = new Badges();
 		String[] animalsSeenArray = animalSeen;
@@ -44,11 +44,11 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 				if (!badgeEarned.get(i).equals("no")) {
 					String findBadgeIdSQL = "select badge_id from badges where title = ?";
 					int badgeId = jdbcTemplate.queryForObject(findBadgeIdSQL, int.class, badgeEarned.get(i));
-					
+
 					String checkBageExists = "select badge_id from badges where badge_id NOT IN(select badge_id from users_badges where user_id = ? AND badge_id = ?)";
 					SqlRowSet badgeCheck = jdbcTemplate.queryForRowSet(checkBageExists, userId, badgeId);
-					while(badgeCheck.next()) {
-						if(badgeId == badgeCheck.getInt("badge_id")) {
+					while (badgeCheck.next()) {
+						if (badgeId == badgeCheck.getInt("badge_id")) {
 							String addBadgeSQL = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
 							jdbcTemplate.update(addBadgeSQL, userId, badgeId);
 							badgeIDs.add(badgeId);
@@ -59,15 +59,15 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return badgeIDs;
 	}
-	
-	//returns a list of earned badges as objects
+
+	// returns a list of earned badges as objects
 	public List<Badges> returnBadges(List<Integer> badgeIds) {
 		List<Badges> earnedBadges = new ArrayList<>();
-		for(int i = 0; i < badgeIds.size() ; i++) {
+		for (int i = 0; i < badgeIds.size(); i++) {
 			Badges newBadge = new Badges();
 			String sqlReturnBadgeInfo = "select * from badges where badge_id = ?";
 			SqlRowSet badgeInfo = jdbcTemplate.queryForRowSet(sqlReturnBadgeInfo, badgeIds.get(i));
-			while(badgeInfo.next()) {
+			while (badgeInfo.next()) {
 				newBadge.setBadgeDescription(badgeInfo.getString("description"));
 				newBadge.setBadgeId(badgeInfo.getInt("badge_id"));
 				newBadge.setBadgeTitle(badgeInfo.getString("title"));
@@ -77,7 +77,6 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return earnedBadges;
 	}
-	
 
 	// find an unseen photo
 	public int unseenPhotoId(int userId) {
@@ -224,6 +223,16 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		int photoId = vote.getPhotoId();
 		int userId = vote.getUserId();
 
+		String findUserScore = "select score from users where user_id = ?";
+	
+		if (jdbcTemplate.queryForObject(findUserScore, int.class, userId) != null) {
+			int userScore = jdbcTemplate.queryForObject(findUserScore, int.class, userId);
+			String sqlUpdateUserScoreNotNull = "update users set score = score+1 where user_id = ?";
+			jdbcTemplate.update(sqlUpdateUserScoreNotNull, userId);
+		} else {
+			String sqlUpdateUserScoreNull = "update users set score = 1 where user_id = ?";
+			jdbcTemplate.update(sqlUpdateUserScoreNull, userId);
+		}
 		String sqlInsertIntoVote = "INSERT INTO votes(photo_id, user_id) VALUES(?,?)" + " RETURNING vote_id";
 		int voteId = jdbcTemplate.queryForObject(sqlInsertIntoVote, int.class, photoId, userId);
 
