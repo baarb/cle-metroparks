@@ -133,12 +133,12 @@ function openTab(evt, tabName) {
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
-		riot.mount('user-preferences', {
+		riot.mount('user-badges-tab', {
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
-		riot.mount('user-badges-tab', {
+		riot.mount('user-preferences', {
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
@@ -147,7 +147,7 @@ function openTab(evt, tabName) {
 			'bus' : pubSub,
 			'formUrl' : '<c:url value="/users" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
-		});
+		}); 
 
 		</script>
 

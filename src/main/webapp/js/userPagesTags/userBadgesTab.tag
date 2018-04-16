@@ -1,4 +1,5 @@
 <user-badges-tab>
+
 <h2>Badges</h2>
 
 <div id="wrapper">
@@ -442,4 +443,4 @@ $('#controlL').click(function() {
 */
 </script>
 
- </user-badges-tab>
+</user-badges-tab>
