@@ -11,9 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.Vote;
-import com.techelevator.model.BadgesDAO;
+import com.techelevator.model.Badges;
 import com.techelevator.model.BiodiversityDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
@@ -55,6 +56,7 @@ public class AnimalIdController {
 	@RequestMapping(path ="/games/gameAnimalId", method=RequestMethod.POST)
 	public String displayGame1PagePOST(
 			HttpSession session, 
+			RedirectAttributes flashScope,
 			@RequestParam String[] animalSeen, 
 			@RequestParam int[] quantity
 			) {
@@ -72,7 +74,11 @@ public class AnimalIdController {
 			bioDao.setApprovedPhoto(photoId);
 		}
 		
-		bioDao.assignBadge(userId, animalSeen);
+		List<Integer> earnedBadgeIds = bioDao.assignBadge(userId, animalSeen);
+		if(earnedBadgeIds != null) {
+			List<Badges> listOfBadges = bioDao.returnBadges(earnedBadgeIds);
+			flashScope.addFlashAttribute("listOfBadges", listOfBadges);
+		}
 		
 		session.removeAttribute("photoId");
 		session.removeAttribute("photoURL");

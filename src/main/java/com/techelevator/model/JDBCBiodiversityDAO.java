@@ -23,35 +23,62 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	
-	public void assignBadge(int userId, String[] animalSeen) {
+	//finds if badge is earned and if so adds earned badge to badges_users table
+	public List<Integer> assignBadge(int userId, String[] animalSeen) {
 		Badges badge = new Badges();
 		String[] animalsSeenArray = animalSeen;
+		List<Integer> badgeIDs = new ArrayList<>();
 		Map<String, Integer> seenAnimals = new HashMap<>();
 		String sqlCountCategories = "select count(animal_id) from votes_animal "
 				+ "inner join votes on votes.vote_id = votes_animal.vote_id "
 				+ "where user_id = ? and animal_id= ? group by animal_id";
-
 		for (int i = 0; i < animalsSeenArray.length; i++) {
 			SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, userId, animalsSeenArray[i]);
-					while (animalGroupsSQL.next()) {
+			while (animalGroupsSQL.next()) {
 				seenAnimals.put(animalsSeenArray[i], animalGroupsSQL.getInt("count"));
 			}
 		}
-		
 		if (seenAnimals.keySet() != null) {
-			String badgeEarned = badge.determineBadge(seenAnimals);
-			if (! badgeEarned.equals("no")) {
-				String findBAdgeIdSQL= "select badge_id from badges where title = ?";
-				int badgeId = jdbcTemplate.queryForObject(findBAdgeIdSQL, int.class, badgeEarned);
-				String addBadgeSQL = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
-				jdbcTemplate.update(addBadgeSQL, userId, badgeId);
+			List<String> badgeEarned = badge.determineBadge(seenAnimals);
+			for (int i = 0; i < badgeEarned.size(); i++) {
+				if (!badgeEarned.get(i).equals("no")) {
+					String findBadgeIdSQL = "select badge_id from badges where title = ?";
+					int badgeId = jdbcTemplate.queryForObject(findBadgeIdSQL, int.class, badgeEarned.get(i));
+					
+					String checkBageExists = "select badge_id from badges where badge_id NOT IN(select badge_id from users_badges where user_id = ? AND badge_id = ?)";
+					SqlRowSet badgeCheck = jdbcTemplate.queryForRowSet(checkBageExists, userId, badgeId);
+					while(badgeCheck.next()) {
+						if(badgeId == badgeCheck.getInt("badge_id")) {
+							String addBadgeSQL = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
+							jdbcTemplate.update(addBadgeSQL, userId, badgeId);
+							badgeIDs.add(badgeId);
+						}
+					}
+				}
 			}
 		}
+		return badgeIDs;
 	}
 	
+	//returns a list of earned badges as objects
+	public List<Badges> returnBadges(List<Integer> badgeIds) {
+		List<Badges> earnedBadges = new ArrayList<>();
+		for(int i = 0; i < badgeIds.size() ; i++) {
+			Badges newBadge = new Badges();
+			String sqlReturnBadgeInfo = "select * from badges where badge_id = ?";
+			SqlRowSet badgeInfo = jdbcTemplate.queryForRowSet(sqlReturnBadgeInfo, badgeIds.get(i));
+			while(badgeInfo.next()) {
+				newBadge.setBadgeDescription(badgeInfo.getString("description"));
+				newBadge.setBadgeId(badgeInfo.getInt("badge_id"));
+				newBadge.setBadgeTitle(badgeInfo.getString("title"));
+				newBadge.setBadgeUrl(badgeInfo.getString("badge_url"));
+				earnedBadges.add(newBadge);
+			}
+		}
+		return earnedBadges;
+	}
 	
-	
+
 	// find an unseen photo
 	public int unseenPhotoId(int userId) {
 		int photoId = -1;
@@ -92,7 +119,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 			String[] seenAnimalsArray = seenAnimals.keySet().toArray(new String[seenAnimals.size()]);
 			while (!approved) {
 				for (int i = 0; i < seenAnimalsArray.length; i++) {
-					if(seenAnimals.get(seenAnimalsArray[i]) / numVotes >= .8) {
+					if (seenAnimals.get(seenAnimalsArray[i]) / numVotes >= .8) {
 						approved = true;
 					}
 				}
@@ -100,20 +127,20 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return approved;
 	}
-	
-	//return list of approved photo URLS
-	public List<String> returnApprovedPhotoUrls(){
+
+	// return list of approved photo URLS
+	public List<String> returnApprovedPhotoUrls() {
 		List<String> photoUrls = new ArrayList<>();
 		String sqlApprovedPhotos = "select photo_url from rawphotos where photo_id "
 				+ "IN (select photo_id from approvedphotos)";
 		SqlRowSet photoUrlsSQL = jdbcTemplate.queryForRowSet(sqlApprovedPhotos);
-		while(photoUrlsSQL.next()) {
+		while (photoUrlsSQL.next()) {
 			photoUrls.add(photoUrlsSQL.getString("photo_url"));
 		}
 		return photoUrls;
 	}
-	
-	//set photo as approved
+
+	// set photo as approved
 	public void setApprovedPhoto(int photoId) {
 		String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id) VALUES (?)";
 		jdbcTemplate.update(approvedPhotoSQL, photoId);
