@@ -42,9 +42,7 @@
 
 </head>
 <body>
-	<header>
-		<%-- logo here --%>
-	</header>
+	<div class="wrapper">
 	<nav class="navbar navbar-default">
 	
 		<div class="container-fluid">
@@ -78,7 +76,4 @@
 			</ul>
 		</div>
 	</nav>
-	<c:if test="${not empty currentUser}">
-		<p id="currentUser">Current User: ${currentUser.userName}</p>
-	</c:if>
-	<div class="wrapper">
+	

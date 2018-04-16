@@ -1,4 +1,5 @@
-		</div>
+
+		
 		
 		<footer>
 			
@@ -18,5 +19,6 @@
 			<span class="logo"><a href="https://www.clevelandmetroparks.com/" target="_blank"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/logo-white-01.png" class="footer-logo-image"></a>
 			</span>
 		</footer>
+		</div>
 	</body>
 </html>
