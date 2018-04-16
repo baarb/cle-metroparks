@@ -36,8 +36,11 @@ public class JDBCBadgesDAO implements BadgesDAO {
 		
 		if (seenAnimals.keySet() != null) {
 			String badgeEarned = badge.determineBadge(seenAnimals);
-			if (! badgeEarned.equals("no")) {
-				
+			if (true) {
+				String findBAdgeIdSQL= "select badge_id from badges where title = ?";
+				int badgeId = jdbcTemplate.queryForObject(findBAdgeIdSQL, int.class ,badgeEarned);
+				String addBadgeSQL = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
+				jdbcTemplate.update(addBadgeSQL, userId, badgeId);
 			}
 		}
 	}

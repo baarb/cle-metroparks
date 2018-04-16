@@ -68,11 +68,12 @@ public class AnimalIdController {
 		
 		bioDao.storeVote(vote);
 		
+		badgeDao.assignBadge(userId, animalSeen);
+		
+		
 		if(bioDao.isApprovedPhoto(photoId)) {
 			bioDao.setApprovedPhoto(photoId);
 		}
-		
-		badgeDao.assignBadge(userId, animalSeen);
 		
 		session.removeAttribute("photoId");
 		session.removeAttribute("photoURL");
