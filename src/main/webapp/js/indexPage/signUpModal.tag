@@ -14,7 +14,7 @@
 				title="Close Modal">&times;</span> 
 		</div>
 
-		<sign-up></sign-up>
+		<signup-modal-pop-up></signup-modal-pop-up>
 
 		<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 			<button
