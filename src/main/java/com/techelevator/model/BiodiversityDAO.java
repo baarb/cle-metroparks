@@ -7,6 +7,9 @@ import java.util.Map;
 import com.techelevator.Vote;
 
 public interface BiodiversityDAO {
+	
+	
+	public void assignBadge(int userId, String[] animalSeen);
 
 	//find an unseen photo
 	public int unseenPhotoId(int userId);

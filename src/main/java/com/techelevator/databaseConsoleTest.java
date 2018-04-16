@@ -12,7 +12,7 @@ public class databaseConsoleTest {
 //		method to jdbc set as value
 //		
 //		insert the value into a class method
-		
+				
 	}
 
 }

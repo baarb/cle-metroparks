@@ -27,8 +27,8 @@ public class AnimalIdController {
 	@Autowired
 	UserDAO userDao;
 	
-	@Autowired
-	BadgesDAO badgeDao;
+//	@Autowired
+//	BadgesDAO badgeDao;
 
 	@Autowired
 	BasicDataSource dataSource;
@@ -67,18 +67,15 @@ public class AnimalIdController {
 		vote.setUserId(userId);
 		
 		bioDao.storeVote(vote);
-		
-		badgeDao.assignBadge(userId, animalSeen);
-		
-		
+			
 		if(bioDao.isApprovedPhoto(photoId)) {
 			bioDao.setApprovedPhoto(photoId);
 		}
 		
+		bioDao.assignBadge(userId, animalSeen);
+		
 		session.removeAttribute("photoId");
 		session.removeAttribute("photoURL");
-		
-		
 		
 		return "redirect:/games/gameAnimalId";
 	}

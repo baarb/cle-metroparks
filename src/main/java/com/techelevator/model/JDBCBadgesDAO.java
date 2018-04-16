@@ -29,16 +29,16 @@ public class JDBCBadgesDAO implements BadgesDAO {
 
 		for (int i = 0; i < animalsSeenArray.length; i++) {
 			SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, userId, animalsSeenArray[i]);
-			while (animalGroupsSQL.next()) {
+					while (animalGroupsSQL.next()) {
 				seenAnimals.put(animalsSeenArray[i], animalGroupsSQL.getInt("count"));
 			}
 		}
 		
 		if (seenAnimals.keySet() != null) {
 			String badgeEarned = badge.determineBadge(seenAnimals);
-			if (true) {
+			if (! badgeEarned.equals("no")) {
 				String findBAdgeIdSQL= "select badge_id from badges where title = ?";
-				int badgeId = jdbcTemplate.queryForObject(findBAdgeIdSQL, int.class ,badgeEarned);
+				int badgeId = jdbcTemplate.queryForObject(findBAdgeIdSQL, int.class, badgeEarned);
 				String addBadgeSQL = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
 				jdbcTemplate.update(addBadgeSQL, userId, badgeId);
 			}
