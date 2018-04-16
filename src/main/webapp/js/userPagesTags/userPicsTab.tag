@@ -1,13 +1,18 @@
-<user-badges-tab>
+<user-pics-tab>
 
-<h2>Badges</h2>
-    <p>Your Badges</p>
-    <div class="title text-center h1">Badges Earned</div>
+<h2>Pictures</h2>
+    <p>Favorite Pictures</p> 
+    <p>Your Awesome Photo Finds</p>
+    	<div id="wrapper">
+	
+		
+		<div class="title text-center h1">Favorite Photos</div>
 		<div class="module-section clearfix">
-			<span id="controlL2" class="left-controls2" role="button" aria-label="See Previous Modules"> 
-				<button aria-hidden="true"><i class="fas fa-chevron-left"></i></button>
-			</span>
-			<ul id="content2">
+			<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+		<span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules"> 
+			<button aria-hidden="true"><i class="fas fa-chevron-left"></i></button>
+		</span>
+			<ul id="content">
 	
 				<li class="card effect1">
 					<div class="inside-top">
@@ -52,10 +57,9 @@
 	
 			</ul>
 	
-	
-		<span id="controlR2" class="right-controls2" role="button" aria-label="See Previous Modules"> 
-			<button aria-hidden="true"><i class="fas fa-chevron-right"></i></button>
-		</span>
+			<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules"> 
+				<button aria-hidden="true"><i class="fas fa-chevron-right"></i></button>
+			</span>
 		</div>
 		
 		<style>
@@ -326,5 +330,7 @@
 
 	</script>
 		
-	
- </user-badges-tab>
+
+
+
+</user-pics-tab>
