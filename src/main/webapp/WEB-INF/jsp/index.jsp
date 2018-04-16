@@ -59,6 +59,8 @@
 
 		<c:url value="/js/indexPage/signUpModal.tag" var="signUpModal" />
 		<script src="${signUpModal}" type="riot/tag"></script>
+		<c:url value="/js/indexPage/signUpModalPopUp.tag" var="signUpModalPopUp" />
+		<script src="${signUpModalPopUp}" type="riot/tag"></script>
 
 		<c:url value="/js/indexPage/signUp.tag" var="signUp" />
 		<script src="${signUp}" type="riot/tag"></script>
@@ -89,6 +91,15 @@
 			'bus' : pubSub,
 			'firstPhoto' : '${firstPhoto}',
 			'formUrl' : '<c:url value="/" />',
+			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		
+		riot.mount('signup-modal-pop-up', {
+			'bus' : pubSub,
+			'firstPhoto' : '${firstPhoto}',
+			'formUrl' : '<c:url value="/" />',
+			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 

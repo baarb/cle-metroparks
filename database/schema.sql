@@ -17,6 +17,13 @@ DROP SEQUENCE IF EXISTS seq_vote_animal_id;
 DROP TABLE IF EXISTS vote_animal;
 DROP SEQUENCE IF EXISTS seq_approved_photo_id;
 DROP TABLE IF EXISTS approvedPhotos;
+DROP SEQUENCE IF EXISTS seq_users_badges_id;
+DROP TABLE IF EXISTS users_badges;
+
+
+
+
+
 
 CREATE SEQUENCE seq_user_id;
 CREATE TABLE users
@@ -100,5 +107,14 @@ CREATE TABLE approvedPhotos
 	raw_photo_id INTEGER NOT null REFERENCES rawPhotos,
 	average_rating real
 );
+
+CREATE SEQUENCE seq_users_badges_id;
+CREATE TABLE users_badges
+(
+	users_badges_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_users_badges_id'),
+	user_id INTEGER NOT null REFERENCES users,
+	badge_id INTEGER NOT null REFERENCES badges
+);
+
 
 COMMIT;

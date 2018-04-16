@@ -1,4 +1,4 @@
-<sign-up>
+<signup-modal-pop-up>
 <div class="signup">
 	<h4>Sign Up to</h4>
 	<h4>become a Citizen Scientist</h4>
@@ -9,7 +9,7 @@
 			<div class="col-sm-4">
 				<div class="form-group">
 					<label for="userName">User Name: </label> <input type="text"
-						id="userName" name="userName" placeHolder="User Name"
+						id="userNamePopUp" name="userName" placeHolder="User Name"
 						class="form-control" />
 				</div>
 				<div style="color: red; font-weight: bold"> 
@@ -17,16 +17,16 @@
 				</div>
 				<div class="form-group">
 					<label for="password">Password: </label> <input type="password"
-						id="password" name="password" placeHolder="Password"
+						id="passwordPopUp" name="password" placeHolder="Password"
 						class="form-control" />
 				</div>
 				<div class="form-group">
 					<label for="confirmPassword">Confirm Password: </label> <input
-						type="password" id="confirmPassword" name="confirmPassword"
+						type="password" id="confirmPasswordPopUp" name="confirmPassword"
 						placeHolder="Re-Type Password" class="form-control" />
 				</div>
 				<div class="form-group">
-					<label for="email">Email: </label> <input type="email" id="email"
+					<label for="email">Email: </label> <input type="email" id="emailPopUp"
 						name="email" placeHolder="Email" class="form-control" />
 				</div>
 				<button type="submit" class="btn btn-default">Create User</button>
@@ -84,4 +84,4 @@
 										});
 	});
 </script> 
-</sign-up>
+</signup-modal-pop-up>
