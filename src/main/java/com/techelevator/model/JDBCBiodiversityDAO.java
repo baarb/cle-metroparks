@@ -233,6 +233,4 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 	}
 
-	// return animal categories by votes
-
 }

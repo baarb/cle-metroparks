@@ -37,9 +37,8 @@
 function handleChange(checkbox) {
     if(checkbox.checked == true){
         document.getElementById("quantity").removeAttribute("disabled");
-        document.getElementById("quantity").removeAttribute("hidden");
+       
     }else{
-        document.getElementById("quantity").setAttribute("disabled", "disabled");
         document.getElementById("quantity").setAttribute("disabled", "disabled");
    }
 }
