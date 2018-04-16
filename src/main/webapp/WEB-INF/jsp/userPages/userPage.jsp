@@ -90,6 +90,7 @@ function openTab(evt, tabName) {
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 <script src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
+
 <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
 
 <c:url value="/js/userPagesTags/userRankBar.tag" var="userRankBar" />
@@ -132,13 +133,12 @@ function openTab(evt, tabName) {
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
-		riot.mount('user-badges-tab', {
+		riot.mount('user-preferences', {
 			'bus' : pubSub,
-	
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
-		riot.mount('user-preferences', {
+		riot.mount('user-badges-tab', {
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
