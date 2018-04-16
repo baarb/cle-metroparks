@@ -1,3 +1,12 @@
+/* main styles */
+html, body, p, a {
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	font-weight:400;
+}
+
+
+
 .game-main-image {
 	max-width: 100%;
 }
@@ -158,4 +167,116 @@ footer .logo {
 .footer-logo-image {
 	margin-top:-15px;
 	max-width:220px;
+}
+
+/* header style */
+.navbar {
+	margin-bottom: 0px;
+}
+
+/* hero video */
+/* Default hide the video on all devices */
+#video{
+	display:none
+	}
+/* Default display the image to replace the video on all devices */
+#videosubstitute{
+	display:block;
+	width:100%;
+	height:auto;
+	max-width:100%
+}
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width : 992px) {
+	#video{
+		display:block;
+	}
+	#videosubstitute{
+		display:none;
+	}
+}
+
+#hero-video-wrapper {
+	width: 100%; 
+	min-width:100%; 
+	margin:auto; 
+	display:block;
+	position: relative;
+	overflow:hidden;
+}
+
+#video{
+	width: 100%;
+	height: 100%; 
+}
+#videoMessage {
+	padding:0.4em;
+}
+#videoMessage {
+	text-shadow: 2px 2px 2px #000000;
+	color:white;
+	z-index:99;
+}
+#videoMessage h1{
+	font-size: 2em;
+	color:#ffffff;
+	text-align:center;
+	margin: 0.25em;
+}
+#videoMessage h2{
+	font-size: 1.5em;
+	color:#ffffff;
+	text-align:center;
+	margin: 0.25em;
+}
+#videoMessage h3{
+	font-size: 1.3em;
+	color:#ffffff;
+	text-align:center;
+	margin: 0.25em;
+}
+.videoClick {
+	text-align:center;
+}
+.videoClick a{
+	color:white;
+	background-color:rgba(241, 241, 241, 0.25);
+	font-size: 1.7em;
+	cursor:pointer;
+	cursor:hand;
+}
+
+#videoMessageBox {
+    position: absolute;  top: 0;  left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+}
+
+#videoMessage {
+     -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+}
+
+
+/* mag button */
+.mag-button {
+	padding:0px !important;
+	border:none;
 }

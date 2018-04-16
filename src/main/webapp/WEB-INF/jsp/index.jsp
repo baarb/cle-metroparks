@@ -5,12 +5,29 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 
+<div id="hero-video-wrapper"> 
+	<div id="videoBlock">  
+	<img src="https://www.imi21.com/wp-content/uploads/2016/11/t12.jpg" id="videosubstitute" alt="">
+	<video preload="preload" id="video" autoplay="autoplay" loop="loop">
+		<source src="https://s3.amazonaws.com/metroparks-hackathon/Theme/hero-video.mp4" type="video/mp4">
+	</video> 
+		<div id="videoMessageBox">
+    			<div id="videoMessage">
+        			<h1 class="spacer">We need your help!</h1>
+        			<h2 class="spacer">We're available for</h2>
+        			<p class="videoClick">
+            			<a href="2017-website-tarifs.php">Click for rates</a>
+        			</p> 
+    			</div>
+		</div>
+	</div>
+</div>
 
 
 
 
 
-	<div class="main">
+
 
 		<div class="box1SignUpFunnel">
 			<c:url var="firstPhoto"
@@ -20,7 +37,7 @@
 				<div class="img-magnifier-container">
 					<h5>Can you find the third Coyote?</h5>
 					<button
-						onclick="document.getElementById('id01').style.display='block'">
+						onclick="document.getElementById('id01').style.display='block'" class="mag-button">
 						<img id="myimage" src="${firstPhoto}" width="600" height="400">
 					</button>
 					<signup-modal></signup-modal>
@@ -182,5 +199,5 @@ function magnify(imgID, zoom) {
 magnify("myimage", 1.75);
 /*Specify the id of the image, and the strength of the magnifier glass:*/ 
 </script>
-</div>
+
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

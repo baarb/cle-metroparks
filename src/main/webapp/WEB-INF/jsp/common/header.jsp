@@ -20,6 +20,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 
+<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 <c:url var="cssHref" value="/css/style.css" />
 <link rel="stylesheet" type="text/css" href="${cssHref}">
 
@@ -79,4 +80,4 @@
 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser.userName}</p>
 	</c:if>
-	<div class="container">
+	<div class="wrapper">
