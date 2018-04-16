@@ -12,6 +12,9 @@
 						id="userName" name="userName" placeHolder="User Name"
 						class="form-control" />
 				</div>
+				<div style="color: red; font-weight: bold"> 
+					{ opts.errorMessage }
+				</div>
 				<div class="form-group">
 					<label for="password">Password: </label> <input type="password"
 						id="password" name="password" placeHolder="Password"
@@ -46,11 +49,12 @@
 
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	this.on('mount', () =>{
+	let root = this.root;
 						$.validator.addMethod('capitals', function(thing) {
 							return thing.match(/[A-Z]/);
 						});
-						$("form").validate(
+						$(root).find('form').validate(
 										{
 
 											rules : {
@@ -78,6 +82,6 @@
 											},
 											errorClass : "error"
 										});
-					});
+	});
 </script> 
 </sign-up>

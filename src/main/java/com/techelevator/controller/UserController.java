@@ -61,6 +61,7 @@ public class UserController {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 			return "redirect:/userRegistration/login";
 		} else {
+			flash.addFlashAttribute("message", "Username already in use!");
 			return "redirect:/";
 		}
 

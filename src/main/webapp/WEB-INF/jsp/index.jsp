@@ -232,6 +232,7 @@
 			'bus' : pubSub,
 			'firstPhoto' : '${firstPhoto}',
 			'formUrl' : '<c:url value="/" />',
+			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
