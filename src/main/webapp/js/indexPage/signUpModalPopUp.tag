@@ -68,7 +68,7 @@
 												},
 												confirmPassword : {
 													required : true,
-													equalTo : "#password"
+													equalTo : "#passwordPopUp"
 												}
 											},
 											messages : {

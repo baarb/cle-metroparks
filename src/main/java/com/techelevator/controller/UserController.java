@@ -56,8 +56,8 @@ public class UserController {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 			return "redirect:/";
 		}
-		User check = (User) userDAO.getUserByUserName(user.getUserName());
-		if(check.getUserName() == null) {
+
+		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 			return "redirect:/userRegistration/login";
 		} else {
