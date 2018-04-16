@@ -47,6 +47,11 @@
 				<label for="userName">User Name: </label>
 				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
 			</div>
+			<c:if test="${not empty message}">
+   				<div style="color: red; font-weight: bold">
+   					<c:out value="Error: ${message}"/>
+   				</div>
+			</c:if>
 			<div class="form-group">
 				<label for="password">Password: </label>
 				<input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
