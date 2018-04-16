@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.Vote;
+import com.techelevator.model.BadgesDAO;
 import com.techelevator.model.BiodiversityDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
@@ -25,6 +26,9 @@ public class AnimalIdController {
 	
 	@Autowired
 	UserDAO userDao;
+	
+	@Autowired
+	BadgesDAO badgeDao;
 
 	@Autowired
 	BasicDataSource dataSource;
@@ -59,13 +63,16 @@ public class AnimalIdController {
 		vote.setNumberOfAnimalsSeen(quantity);
 		int photoId = (int) session.getAttribute("photoId");
 		vote.setPhotoId(photoId);
-		vote.setUserId((int)session.getAttribute("userId"));
+		int userId = (int)session.getAttribute("userId");
+		vote.setUserId(userId);
 		
 		bioDao.storeVote(vote);
 		
 		if(bioDao.isApprovedPhoto(photoId)) {
 			bioDao.setApprovedPhoto(photoId);
 		}
+		
+		badgeDao.assignBadge(userId, animalSeen);
 		
 		session.removeAttribute("photoId");
 		session.removeAttribute("photoURL");
