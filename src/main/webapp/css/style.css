@@ -105,3 +105,57 @@
 	width: 100%;
 	height: auto;
 }
+
+
+/* footer styles */
+footer {
+	margin-top:40px !important;
+	width:100%;
+	display: grid !important; 
+	/* grid-template-areas grid-template-rows / grid-template-column values */
+	grid-template: "social copyright logo" 40px / 1fr 3fr 1fr;
+	background-color: #1c5630; 
+	color: white; 
+	padding: 20px 0px 10px 0px; 
+	margin: 10px 0px 0px 0px;
+}
+
+footer ul {
+	list-style-type: none; 
+	display: grid; 
+}
+
+footer .social {
+	grid-area: social;
+	vertical-align: middle;
+	grid-template-columns: auto auto auto;
+}
+
+footer ul li {
+	justify-content: center; 
+	text-align: center;
+}
+
+footer ul li a {
+	color: #fff; 
+	font-size: 1.25em;
+}
+footer ul li a:hover {
+	color: #d6d6d6; 
+}
+footer .copyright {
+	vertical-align: middle;
+	grid-area: copyright;
+	text-align:center;
+	font-size:12px;
+	padding-top:4px;
+}
+footer .logo {
+	vertical-align: middle;
+	grid-area: logo;
+	text-align:right;
+}
+.footer-logo-image {
+	margin-top:-15px;
+	max-width:220px;
+}
