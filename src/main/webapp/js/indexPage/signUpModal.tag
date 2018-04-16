@@ -1,7 +1,7 @@
 <signup-modal>
 
 
-<!--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+
 
 <div id="id01" class="w3-modal">
 	<div class="w3-modal-content w3-card-4 w3-animate-zoom"
