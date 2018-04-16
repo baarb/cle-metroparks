@@ -1,3 +1,107 @@
 .game-main-image {
 	max-width: 100%;
 }
+
+
+/* Style for maginifyer */
+* {
+	box-sizing: border-box;
+}
+
+.img-magnifier-container {
+	position: relative;
+}
+
+.img-magnifier-glass {
+	position: absolute;
+	border: 1px solid #000;
+	border-radius: 2%;
+	cursor: none;
+	/*Set the size of the magnifier glass:*/
+	width: 125px;
+	height: 150px;
+}
+
+
+/* index styles */
+
+.header {
+	grid-column: 2/3;
+	display: flex;
+	align-content: space-between;
+	margin:
+}
+
+.box1SignUpFunnel {
+	display: grid;
+	grid-template-columns: 5% 90% 5%;
+	background-color: threeddarkshadow;
+}
+
+.box1SignUpFunnel>div {
+	grid-column: 2;
+	display: flex;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	justify-content: center;
+}
+
+.box2UserBenSignUp {
+	display: grid;
+	grid-template-columns: auto auto;
+	background-image:
+		url("../img/background-background-image-creek-707915.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: threeddarkshadow;
+	color: white;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.underlayBox3 {
+	position: relative; /* Position the background text */
+	background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+	color: #f1f1f1; /* Grey text */
+	width: 100%; /* Full width */
+	padding: 20px; /* Some padding */
+}
+
+.box3MetroBen {
+	display: grid;
+	grid-template-columns: auto auto;
+	background-image: url("../img/conifer-daylight-environment-454880.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.box4BestPics {
+	background-color: darkgrey;
+}
+
+.login {
+	grid-column: 3/3;
+	background-color: white;
+}
+
+.userBenefits {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	background-color: silver;
+}
+
+.userBenefits>h1 {
+	grid-column: 2/span 2;
+	text-align: center
+}
+
+.bestPics {
+	grid-column: 2/3;
+}
+
+.responsive {
+	width: 100%;
+	height: auto;
+}

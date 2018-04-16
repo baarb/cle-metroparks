@@ -4,6 +4,8 @@
 <html>
 <head>
 <title>Home Page</title>
+<link rel="icon" type="image/png" href="http://metroparks-hackathon.s3.amazonaws.com/Theme/favicon.png" />
+
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -45,21 +47,10 @@
 	
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
-				<c:choose>
-					<c:when test="${not empty currentUser}">
-						<c:url var="userProfile"
-							value="/users/${currentUser.userName}/profile" />
-						<li><a href="${userProfile}">${currentUser.userName}</a></li>
-						<%-- <c:url var="changePasswordHref"
-							value="/users/${currentUser.userName}/changePassword" />
-						<li><a href="${changePasswordHref}">Change Password</a></li> --%>
-						
-					</c:when>
-					<c:otherwise>
-						<c:url var="homePageHref" value="/" />
-						<li><a href="${homePageHref}">Logo</a></li>
-					</c:otherwise>
-				</c:choose>
+			<c:url var="homePageHref" value="/" />
+				<a href="${homePageHref}"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/app-logo-01.svg" style="width:400px;"/></a>
+			
+				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
@@ -71,6 +62,9 @@
 						<li><a href="${loginHref}">Log In</a></li>
 					</c:when>
 					<c:otherwise>
+						<c:url var="userProfile"
+							value="/users/${currentUser.userName}/profile" />
+						<li><a href="${userProfile}">${currentUser.userName}</a></li>
 						<c:url var="logoutAction" value="/logout" />
 						<form id="logoutForm" action="${logoutAction}" method="POST">
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
