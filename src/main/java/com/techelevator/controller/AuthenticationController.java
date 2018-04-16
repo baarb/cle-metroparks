@@ -53,4 +53,9 @@ public class AuthenticationController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.GET)
+	public String displayChangePassword() {
+		return "userPages/userPage";
+	}
 }
