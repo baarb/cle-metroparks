@@ -14,9 +14,9 @@
 		<div id="videoMessageBox">
     			<div id="videoMessage">
         			<h1 class="spacer">We need your help!</h1>
-        			<h2 class="spacer">We're available for</h2>
+        			<h2 class="spacer">We're looking for Citizen Scientists to help identify local wildlife.</h2>
         			<p class="videoClick">
-            			<a href="2017-website-tarifs.php">Click for rates</a>
+            			<a href="#coyote">Try it out!</a>
         			</p> 
     			</div>
 		</div>
