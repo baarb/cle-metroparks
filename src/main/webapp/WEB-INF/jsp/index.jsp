@@ -7,7 +7,7 @@
 
 <div id="hero-video-wrapper"> 
 	<div id="videoBlock">  
-	<img src="https://www.imi21.com/wp-content/uploads/2016/11/t12.jpg" id="videosubstitute" alt="">
+	<img src="https://s3.amazonaws.com/metroparks-hackathon/Theme/placeholder.png" id="videosubstitute" alt="">
 	<video preload="preload" id="video" autoplay="autoplay" loop="loop">
 		<source src="https://s3.amazonaws.com/metroparks-hackathon/Theme/hero-video.mp4" type="video/mp4">
 	</video> 
@@ -32,10 +32,10 @@
 		<div class="box1SignUpFunnel">
 			<c:url var="firstPhoto"
 				value="img/metropark_imgs/coyote_pics/Coyote_010.jpg" />
-			<!-- <signup-funnel></signup-funnel> -->
+			<!--  <signup-funnel></signup-funnel> -->
 			<div>
 				<div class="img-magnifier-container">
-					<h5>Can you find the third Coyote?</h5>
+					<h3 id="coyote">Can you find the third Coyote?</h3>
 					<button
 						onclick="document.getElementById('id01').style.display='block'" class="mag-button">
 						<img id="myimage" src="${firstPhoto}" width="600" height="400">
