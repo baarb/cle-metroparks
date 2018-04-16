@@ -9,7 +9,10 @@ import com.techelevator.Vote;
 public interface BiodiversityDAO {
 	
 	
-	public void assignBadge(int userId, String[] animalSeen);
+	public List<Integer> assignBadge(int userId, String[] animalSeen);
+	
+	public List<Badges> returnBadges(List<Integer> badgeIds);
+
 
 	//find an unseen photo
 	public int unseenPhotoId(int userId);

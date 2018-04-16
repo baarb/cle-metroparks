@@ -1,7 +1,7 @@
 <user-preferences>
 <h2>Preferences</h2>
 	
-		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>
+		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Change Password</button>
 		
 		
 		
@@ -14,29 +14,7 @@
         
       </div>
 
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-          <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-          
-        </div>
-      </form>
-
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-      </div>
-
-    </div>
-  </div>
-
-
-
-
-		<!-- <div class="signup">
+            <div class="changePW">
 			<h4>Change Your Password</h4>
 			<form method="POST" action="{opts.formUrl}">
 				<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
@@ -51,7 +29,12 @@
 						<div style="color: red; font-weight: bold">
 							{opts.errorMessage}</div>
 						<div class="form-group">
-							<label for="password">Password: </label> <input type="password"
+							<label for="password">Current Password: </label> <input type="password"
+								id="passwordPopUp" name="password" placeHolder="Password"
+								class="form-control" />
+						</div>
+						<div class="form-group">
+							<label for="password">New Password: </label> <input type="password"
 								id="passwordPopUp" name="password" placeHolder="Password"
 								class="form-control" />
 						</div>
@@ -60,71 +43,35 @@
 								type="password" id="confirmPasswordPopUp" name="confirmPassword"
 								placeHolder="Re-Type Password" class="form-control" />
 						</div>
-						<div class="form-group">
-							<label for="email">Email: </label> <input type="email"
-								id="emailPopUp" name="email" placeHolder="Email"
-								class="form-control" />
-						</div>
-						<button type="submit" class="btn btn-default">Create User</button>
+
+						<button type="submit" class="btn btn-default">Change Password</button>
 					</div>
 					<div class="col-sm-4"></div>
 				</div>
 			</form>
 		</div>
 
-		
 
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+      </div>
 
-
-
-<style>
-.signup {
+    </div>
+  </div>
+  
+  <style>
+.changePW {
 	grid-column: 2/3;
 	margin: 3%;
 }
 
-.signup>h4 {
+.changePW>h4 {
 	text-align: center;
 }
 </style>
+  
 
-
-<script type="text/javascript">
-	this.on('mount', () =>{
-	let root = this.root;
-						$.validator.addMethod('capitals', function(thing) {
-							return thing.match(/[A-Z]/);
-						});
-						$(root).find('form').validate(
-										{
-
-											rules : {
-												userName : {
-													required : true
-												},
-												password : {
-													required : true,
-													minlength : 15,
-													capitals : true,
-												},
-												confirmPassword : {
-													required : true,
-													equalTo : "#passwordPopUp"
-												}
-											},
-											messages : {
-												password : {
-													minlength : "Password too short, make it at least 15 characters",
-													capitals : "Field must contain a capital letter",
-												},
-												confirmPassword : {
-													equalTo : "Passwords do not match"
-												}
-											},
-											errorClass : "error"
-										});
-	});
-</script> -->
-			
+	
 		
 </user-preferences>

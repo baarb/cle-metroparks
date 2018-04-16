@@ -1,7 +1,7 @@
 <user-pics-tab>
 
 <h2>Pictures</h2>
-    <p>Favorite Pictures</p> 
+   
 
 <div id="wrapper">
   

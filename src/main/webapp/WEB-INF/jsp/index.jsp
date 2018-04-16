@@ -62,8 +62,7 @@
 			<best-pics></best-pics>
 		</div>
 
-		<script
-			src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+		
 
 
 

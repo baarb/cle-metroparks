@@ -84,9 +84,6 @@ function openTab(evt, tabName) {
 <c:url value="/js/userPagesTags/userPreferences.tag" var="userPreferences" />
 <script src="${userPreferences}" type="riot/tag"></script>
 
-<c:url value="/js/userPagesTags/changePasswordModal.tag" var="changePasswordModal" />
-<script src="${changePasswordModal}" type="riot/tag"></script>
-
 <c:url value="/js/userPagesTags/photoSlider.tag" var="photoSlider" />
 <script src="${photoSlider}" type="riot/tag"></script>
 
@@ -119,14 +116,11 @@ function openTab(evt, tabName) {
 		
 		riot.mount('user-preferences', {
 			'bus' : pubSub,
+			'formUrl' : '<c:url value="/users" />', 
+			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
-		
-		riot.mount('change-pw-modal', {
-			'bus' : pubSub,
-			'formUrl' : '<c:url value="/users" />',
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
-		}); 
+		 
 		
 		riot.mount('photo-slider', {
 			'bus' : pubSub,
