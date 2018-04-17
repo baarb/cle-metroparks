@@ -1,6 +1,6 @@
 <user-badges-tab>
 
-<h2>Badges</h2>
+<h2>Badges Earned ({numberOfBadges})</h2>
 
 <div id="wrapper">
   
@@ -269,12 +269,14 @@ width: 100px;
 
 <script>
 this.badges = [];
+this.numberOfBadges = 0;
 
 this.on('mount', () => {
 		fetch(opts.badgesUrl, {method: 'GET', credentials: 'include'})
 			.then((response) => response.json())
 		    .then((json) => {
 		    		this.badges = json;
+		    		this.numberOfBadges = Object.keys(this.badges).length;
 		    		this.update();
 		    	});
 });
@@ -292,6 +294,7 @@ $('#controlL').click(function() {
       marginLeft: "+=400px"
     }, "fast");
 });
+
 
 
 
