@@ -6,6 +6,8 @@ public class Vote {
 	private int photoId;
 	private String[] animalsSeen;
 	private int[] numberOfAnimalsSeen;
+	private int rating;
+	private boolean saved = false;
 	
 	
 	public int getVoteId() {
@@ -37,6 +39,18 @@ public class Vote {
 	}
 	public void setNumberOfAnimalsSeen(int[] numberOfAnimalsSeen) {
 		this.numberOfAnimalsSeen = numberOfAnimalsSeen;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	public boolean isSaved() {
+		return saved;
+	}
+	public void setSaved(boolean saved) {
+		this.saved = saved;
 	}
 
 
