@@ -54,18 +54,20 @@ public class AuthenticationController {
 		return "redirect:/";
 	}
 	
-//	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.GET)
-//	public String displayChangePassword() {
-//		return "userPages/userPage";
-//	}
+	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.GET)
+	public String displayChangePassword() {
+		return "userPages/userPage";
+	}
 	
 	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.POST)
 	public String changePassword(@RequestParam String userName, 
 								@RequestParam String password,
 								@RequestParam String newPassword,
-								RedirectAttributes flash) {
+								RedirectAttributes flash, ModelMap model, HttpSession session) {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			userDAO.updatePassword(userName, newPassword);
+			model.remove("currentUser");
+			session.invalidate();
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("error", "Invalid username/password!");
