@@ -119,7 +119,8 @@ document.getElementById("defaultOpen").click();
 		
 		riot.mount('user-pics-tab', {
 			'bus' : pubSub,
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+			'CSRF_TOKEN' : '${CSRF_TOKEN}',
+			'savedPicsUrl' : '<c:url value="/users/${currentUser.userName}/savedPhotos" />'
 		});
 		
 		riot.mount('user-badges-tab', {

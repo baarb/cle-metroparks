@@ -15,122 +15,11 @@
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
     
-    <li class="card effect1">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-       
-    </li>
+    <li each={ pic in pictures } class="card">
+   		<div class="inside-top">
+   			<img src="{ pic }" width=100%>
+   		</div>
+   	</li>
     
    </ul>
     
@@ -382,6 +271,18 @@ color:#fff;
 
 
 <script>
+this.pictures = [];
+
+this.on('mount', () => {
+		fetch(opts.savedPicsUrl, {method: 'GET', credentials: 'include'})
+			.then((response) => response.json())
+		    .then((json) => {
+		    		this.pictures = json;
+		    		this.update();
+		    	});
+});
+
+
 $('#controlR').click(function() {
     event.preventDefault();
     $('#content').animate({

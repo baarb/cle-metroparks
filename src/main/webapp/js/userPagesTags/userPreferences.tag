@@ -112,6 +112,43 @@
 }
 </style>
 
+<script>
+this.on('mount', () =>{
+	let root = this.root;
+						$.validator.addMethod('capitals', function(thing) {
+							return thing.match(/[A-Z]/);
+						});
+						$(root).find('form').validate(
+										{
+
+											rules : {
+												userName : {
+													required : true
+												},
+												newPassword : {
+													required : true,
+													minlength : 15,
+													capitals : true,
+												},
+												confirmPassword : {
+													required : true,
+													equalTo : "#newPassword"
+												}
+											},
+											messages : {
+												password : {
+													minlength : "Password too short, make it at least 15 characters",
+													capitals : "Field must contain a capital letter",
+												},
+												confirmPassword : {
+													equalTo : "Passwords do not match"
+												}
+											},
+											errorClass : "error"
+										});
+	});
+
+</script>
 
 
 </user-preferences>

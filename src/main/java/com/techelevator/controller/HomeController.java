@@ -95,4 +95,22 @@ public class HomeController {
 			return new ArrayList<Badges>();
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(path = "/users/{currentUser}/savedPhotos", method = RequestMethod.GET)
+	public List<String> getUserSavedPhotos(HttpSession session) {
+		User user = (User) session.getAttribute("currentUser");
+
+		if (user == null) {
+			return new ArrayList<String>();
+		} else {
+			int userId = user.getUserId();
+			List<String> savedPhotos = bioDAO.savedUserPhotos(userId);
+			if (savedPhotos != null) {
+				return savedPhotos;
+				
+			}
+			return new ArrayList<String>();
+		}
+	}
 }
