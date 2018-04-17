@@ -9,134 +9,17 @@
   </span>
   
   <div class="title text-center h1">Your Badges</div>
- 
+ <form method="GET" action="{opts.formUrl}">
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
-    
-    <li class="card effect1">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-    <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-    </li>
-     <li class="card">
-      <div class="inside-top">
-        <img src="http://placehold.it/350x150">
-      </div>
-       
-    </li>
-    
+   	{ opts.badges }
    </ul>
     
    
     
   </div><!--end of module-section-->
-  
+  </form>
 	<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
   </span>

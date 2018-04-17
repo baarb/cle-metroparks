@@ -46,6 +46,18 @@ public String displayHomePage(HttpSession session) {
     if ( session.getAttribute("currentUser") == null) {
         return "index";
     } else {
+      	User user = (User) session.getAttribute("currentUser");
+        int 	userId = user.getUserId();
+        	List<Integer> badgeIds = bioDAO.pullBadgeIdsByUser(userId);
+        	if (badgeIds != null) {
+        	int badgeCount = badgeIds.size();
+        	List<Badges> userBadges = bioDAO.returnBadges(badgeIds);
+        	session.setAttribute("userBadges", userBadges);
+        	session.setAttribute("badgeCount", badgeCount);
+        	Map<Integer, Integer> userRankings = bioDAO.pullAllUsersRankings();
+        	int userRank = bioDAO.findUserRanking(userId, userRankings);
+        	session.setAttribute("userRank", userRank);
+        	}
         return "userPages/userPage";
     }
 }

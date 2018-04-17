@@ -124,7 +124,9 @@ document.getElementById("defaultOpen").click();
 		
 		riot.mount('user-badges-tab', {
 			'bus' : pubSub,
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+			'CSRF_TOKEN' : '${CSRF_TOKEN}',
+			'formUrl' : '<c:url value="/users" />',
+			'badges' : '<c:forEach var="badge" items="${userBadges}"> <li class="card effect1"> <div class="inside-top"><img src="${badge.badgeUrl}"></div></li> </c:forEach>'
 		});
 		
 		riot.mount('user-preferences', {
