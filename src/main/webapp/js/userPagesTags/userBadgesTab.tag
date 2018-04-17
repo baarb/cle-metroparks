@@ -159,7 +159,7 @@ button:focus {outline:0 !important;}
 }
 
 .title{
-  color:#fff;
+  color:black;
 }
 
 .module-section{
