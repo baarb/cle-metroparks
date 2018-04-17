@@ -58,7 +58,9 @@ public class AnimalIdController {
 			HttpSession session, 
 			RedirectAttributes flashScope,
 			@RequestParam String[] animalSeen, 
-			@RequestParam int[] quantity
+			@RequestParam int[] quantity,
+			int rating,
+			boolean saved
 			) {
 		Vote vote = new Vote();
 		vote.setAnimalsSeen(animalSeen);
@@ -67,6 +69,8 @@ public class AnimalIdController {
 		vote.setPhotoId(photoId);
 		int userId = (int)session.getAttribute("userId");
 		vote.setUserId(userId);
+		vote.setRating(rating);
+		vote.setSaved(saved);
 		
 		bioDao.storeVote(vote);
 			
