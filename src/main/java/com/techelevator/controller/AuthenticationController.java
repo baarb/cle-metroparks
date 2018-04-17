@@ -54,10 +54,10 @@ public class AuthenticationController {
 		return "redirect:/";
 	}
 	
-//	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.GET)
-//	public String displayChangePassword() {
-//		return "userPages/userPage";
-//	}
+	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.GET)
+	public String displayChangePassword() {
+		return "userPages/userPage";
+	}
 	
 	@RequestMapping(path="/users/{currentUser}/profile/changePassword", method=RequestMethod.POST)
 	public String changePassword(@RequestParam String userName, 
