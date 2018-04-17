@@ -45,11 +45,7 @@ h5 {
 /* game styles */
 .game-wrapper {
 	width:100%;
-	padding-top: 40px;
-	padding-bottom: 70px;
-	padding-left: 20px;
-	padding-right:20px;
-	background-color:red;
+	padding: 40px 20px 70px 20px;
 	display: grid; 
 	grid-template: "image userinput";
 	grid-template-columns: 70% 30%;
@@ -62,6 +58,12 @@ h5 {
 }
 .user-input {
 	grid-area: userinput;
+}
+.form-wrapper {
+	padding: 20px;
+	margin-right:20px;
+	background-color:#e7e7e7;
+	border-radius: 5px;
 }
 .game-main-image {
 	max-width: 100%;

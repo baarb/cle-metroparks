@@ -7,12 +7,13 @@
 		<img src="${photoURL}" class="game-main-image">
 	</div>
 	<div class="user-input">
+		<div class="form-wrapper">
 		<c:url var="formAction" value="/games/gameAnimalId" />
 		<form method="POST" action="${formAction}">
 			<c:forEach var="animal" items="${animalTypes}" varStatus="loop">	
 	 		<div>
 				<span>
-					<label class="checkbox- container quizChoiceButton"><c:out value="${animal}" />
+					<label class="checkbox container quizChoiceButton"><c:out value="${animal}" />
 	  					<input type="checkbox" onchange='handleChange(this);' name="animalSeen" value="${animal}">
 	  					<span class="checkmark"></span>
 					</label>
@@ -46,6 +47,16 @@
     					<label for="ratingChoice5">5</label>
 				</span>
 			</div>
+			<div>
+				
+				<span>
+					<label class="checkbox container quizChoiceButton"> Save as Favorite
+	  					<input type="checkbox" name="saveAsFav" value="true">
+	  					<span class="checkmark"></span>
+					</label>
+				</span>
+				
+			</div>
 			
 			<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" /> 
 			<input type="hidden" name="userId" value="${userId}"> 
@@ -65,6 +76,7 @@
 			   }
 			}
 		</script>
+		</div>
 	</div>
 
 </div>
