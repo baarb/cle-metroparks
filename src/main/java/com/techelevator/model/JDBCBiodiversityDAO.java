@@ -77,6 +77,34 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return earnedBadges;
 	}
+	
+	public List<Integer> pullBadgeIdsByUser (int userId){
+		List<Integer> badgeIds = new ArrayList<>();
+		String sqlReturnBadgeIds = "select badge_id from users_badges where user_id = ?";
+		SqlRowSet badgeId = jdbcTemplate.queryForRowSet(sqlReturnBadgeIds, userId);
+		while(badgeId.next()) {
+			badgeIds.add(badgeId.getInt("badge_id"));
+		}
+		return badgeIds;
+	}
+	
+	public Map<Integer, Integer> pullAllUsersRankings(){
+		Map<Integer, Integer> userIdAndRank = new HashMap<>();
+		String pullScoreAndUserId = "select user_id, score from users order by score desc";
+		SqlRowSet userAndRankSQL = jdbcTemplate.queryForRowSet(pullScoreAndUserId);
+		while(userAndRankSQL.next()) {
+			userIdAndRank.put(userAndRankSQL.getInt("user_id"), userAndRankSQL.getInt("score"));
+		}
+		return userIdAndRank;
+	}
+	
+	public int findUserRanking(int userId, Map<Integer, Integer> userIdAndRankMap) {
+		int userRank = userId;
+		if(userIdAndRankMap.containsKey(userId)) {
+			userRank = userIdAndRankMap.get(userId);
+		}
+		return userRank;
+	}
 
 	// find an unseen photo
 	public int unseenPhotoId(int userId) {

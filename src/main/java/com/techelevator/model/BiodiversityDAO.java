@@ -12,8 +12,15 @@ public interface BiodiversityDAO {
 	public List<Integer> assignBadge(int userId, String[] animalSeen);
 	
 	public List<Badges> returnBadges(List<Integer> badgeIds);
+	
+	public List<Integer> pullBadgeIdsByUser (int userId);
 
+	public Map<Integer, Integer> pullAllUsersRankings();
+	
+	public int findUserRanking(int userId, Map<Integer, Integer> userIdAndRankMap);
 
+	
+	
 	//find an unseen photo
 	public int unseenPhotoId(int userId);
 	
