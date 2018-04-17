@@ -3,7 +3,6 @@
 	
 		
 		<div>
-			
 			<a href="{opts.gameAnimalId}">Can You Identify the Animal?</a>
 		</div>
 		<div>

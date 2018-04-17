@@ -5,13 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<style>
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+</style>
 
 
 
 
 <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
-  <h5 class="w3-bar-item">Menu</h5>
-  <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Games')">Games</button>
+  <button class="w3-bar-item w3-button tablink" id="defaultOpen" onclick="openTab(event, 'Games')">Games</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Pictures')">Pictures</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Badges')">Badges</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Preferences')">Preferences</button>
@@ -57,6 +68,8 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " w3-red";
 }
+
+document.getElementById("defaultOpen").click();
 </script>
 
 
