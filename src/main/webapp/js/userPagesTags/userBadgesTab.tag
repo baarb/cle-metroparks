@@ -9,17 +9,19 @@
   </span>
   
   <div class="title text-center h1">Your Badges</div>
- <form method="GET" action="{opts.formUrl}">
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
-   	{ opts.badges }
+   	<li each={ badge in badges } class="card">
+   		<div class="inside-top">
+   			<img src={ badge.badgeUrl } width=100%>
+   		</div>
+   	</li>
    </ul>
     
    
     
   </div><!--end of module-section-->
-  </form>
 	<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
   </span>
@@ -240,6 +242,10 @@ color:#fff;
   
 }
 
+/* .card>img{
+width: 100px;
+} */
+
  .inside-top{
   width:100%;
   height:150px;
@@ -262,6 +268,17 @@ color:#fff;
 
 
 <script>
+this.badges = [];
+
+this.on('mount', () => {
+		fetch(opts.badgesUrl, {method: 'GET', credentials: 'include'})
+			.then((response) => response.json())
+		    .then((json) => {
+		    		this.badges = json;
+		    		this.update();
+		    	});
+});
+
 $('#controlR').click(function() {
     event.preventDefault();
     $('#content').animate({
