@@ -129,7 +129,7 @@ document.getElementById("defaultOpen").click();
 		
 		riot.mount('user-preferences', {
 			'bus' : pubSub,
-			'formUrl' : '<c:url value="/users" />', 
+			'formUrl' : '<c:url value="/users/${currentUser.userName}/profile/changePassword" />', 
 			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
