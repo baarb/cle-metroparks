@@ -73,6 +73,7 @@ public class HomeController {
 			if (badgeIds != null) {
 				return bioDAO.returnBadges(badgeIds);
 			}
+			
 			return new ArrayList<Badges>();
 		}
 	}

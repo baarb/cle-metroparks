@@ -69,28 +69,14 @@ h5 {
 	max-width: 100%;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-input[type=number] {
-	width:2.25em;
-	background-color: #e7e7e7;
-	padding:5px 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
+/* checkbox */
 /* The container */
-.container {
+.container-checkbox {
     display: block;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -98,7 +84,7 @@ input[type=number] {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.container-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -111,17 +97,18 @@ input[type=number] {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: #ddd;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
+.container-checkbox:hover input ~ .checkmark {
+    background-color: #aaa;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container-checkbox input:checked ~ .checkmark {
     background-color: #2196F3;
+    background-color: rgba(160, 206, 17, 1);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -132,23 +119,42 @@ input[type=number] {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container-checkbox input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
+.container-checkbox .checkmark:after {
+    left: 10px;
+    top: -10px;
+    width: 14px;
+    height: 26px;
+    border: solid #363636;
+    border-width: 0 4px 4px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
+.quantity-wrapper {
+	font-weight: 300;
+	display:none;
+}
+/* input number */
+.form-wrapper input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.form-wrapper input[type=number] {
+	width:2.25em;
+	background-color: #e7e7e7;
+	padding:5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
 
 
 

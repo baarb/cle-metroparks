@@ -13,21 +13,22 @@
 			<c:forEach var="animal" items="${animalTypes}" varStatus="loop">	
 	 		<div>
 				<span>
-					<label class="checkbox container quizChoiceButton"><c:out value="${animal}" />
+					<label class="checkbox container-checkbox quizChoiceButton"><c:out value="${animal}" />
 	  					<input type="checkbox" onchange='handleChange(this);' name="animalSeen" value="${animal}">
 	  					<span class="checkmark"></span>
 					</label>
 				</span>
 				<span> 
-					<label for="quantity">How Many?
-						<input id="quantity" type="number" name="quantity" value="1">
+					<label for="quantity" class="quantity-wrapper">How Many?
+						<input class="quantity" type="number" name="quantity" value="1">
 					</label>
 				</span>
 			</div>
 			</c:forEach>
 			
 			<div>
-				<span>
+				<span>	
+					<input type="radio" id="ratingChoice0" name="rating" value="0" checked="checked" style="display:none;">
 
     					<input type="radio" id="ratingChoice1" name="rating" value="1">
     					<label for="ratingChoice1">1</label>
@@ -48,7 +49,7 @@
 			<div>
 				
 				<span>
-					<label class="checkbox container quizChoiceButton"> Save as Favorite
+					<label class="checkbox container-checkbox quizChoiceButton"> Save as Favorite
 	  					<input type="checkbox" name="saveAsFav" value="true">
 	  					<span class="checkmark"></span>
 					</label>
@@ -67,10 +68,11 @@
 		<script>
 			function handleChange(checkbox) {
 			    if(checkbox.checked == true){
-			        document.getElementById("quantity").removeAttribute("disabled");
-			       
+			    		document.getElementsByClassName("quantity-wrapper").style.display = 'block';
+			        document.getElementsByClassName("quantity").removeAttribute("disabled");
 			    }else{
-			        document.getElementById("quantity").setAttribute("disabled", "disabled");
+			    		hide(document.getElementsByClassName("quantity-wrapper"));
+			        document.getElementsByClassName("quantity").setAttribute("disabled", "disabled");
 			   }
 			}
 		</script>
