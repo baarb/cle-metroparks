@@ -45,13 +45,23 @@ h5 {
 /* game styles */
 .game-wrapper {
 	width:100%;
+	padding-top: 40px;
+	padding-bottom: 70px;
+	padding-left: 20px;
+	padding-right:20px;
 	background-color:red;
+	display: grid; 
+	grid-template: "image userinput";
+	grid-template-columns: 70% 30%;
+  	grid-column-gap: 20px;
 }
 .animalPic {
-	width:60%;
-	padding-top: 40px;
+	grid-area: image;
 	margin-left:auto;
 	margin-right:auto;
+}
+.user-input {
+	grid-area: userinput;
 }
 .game-main-image {
 	max-width: 100%;
@@ -135,6 +145,10 @@ input[type=number] {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+
+
+
 
 
 /* Style for maginifyer */
@@ -246,7 +260,6 @@ footer {
 	margin-top:0px !important;
 	width:100%;
 	display: grid !important; 
-	/* grid-template-areas grid-template-rows / grid-template-column values */
 	grid-template: "social copyright logo" 40px / 1fr 3fr 1fr;
 	background-color: #1c5630; 
 	color: white; 
