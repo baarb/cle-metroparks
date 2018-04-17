@@ -35,7 +35,6 @@ public interface BiodiversityDAO {
 	//find an unseen photo
 	public int unseenPhotoId(int userId);
 	
-	
 	//return an unseen photo url
 	public String returnPhotoURL(int photoId);
 	
