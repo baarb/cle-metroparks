@@ -153,6 +153,13 @@ h5 {
     border-radius: 4px;*/
     border:none;
     box-sizing: border-box;
+    /* remove browser focus defaults */
+    outline-style:none;
+	box-shadow:none;
+	border-color:transparent;
+}
+.form-wrapper input[type=number]:focus {
+	background-color: #aaa;
 }
 .form-wrapper input[type=number]:hover {
 	background-color: #aaa;	
