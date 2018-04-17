@@ -28,9 +28,7 @@
 			
 			<div>
 				<span>
-					<input type="radio" id="ratingChoice0" name="rating" value="0">
-    					<label for="ratingChoice0">0</label>
-    					
+
     					<input type="radio" id="ratingChoice1" name="rating" value="1">
     					<label for="ratingChoice1">1</label>
     					
