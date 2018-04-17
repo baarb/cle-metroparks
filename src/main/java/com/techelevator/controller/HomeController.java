@@ -72,6 +72,25 @@ public class HomeController {
 			List<Integer> badgeIds = bioDAO.pullBadgeIdsByUser(userId);
 			if (badgeIds != null) {
 				return bioDAO.returnBadges(badgeIds);
+				
+			}
+			return new ArrayList<Badges>();
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(path = "/users/{currentUser}/unearnedBadges", method = RequestMethod.GET)
+	public List<Badges> getUnearnedUserBadges(HttpSession session) {
+		User user = (User) session.getAttribute("currentUser");
+
+		if (user == null) {
+			return new ArrayList<Badges>();
+		} else {
+			int userId = user.getUserId();
+			List<Integer> badgeIds = bioDAO.pullUnearnedBadgeIds(userId);
+			if (badgeIds != null) {
+				return bioDAO.returnBadges(badgeIds);
+				
 			}
 			return new ArrayList<Badges>();
 		}

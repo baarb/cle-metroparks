@@ -126,6 +126,7 @@ document.getElementById("defaultOpen").click();
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}',
 			'badgesUrl' : '<c:url value="/users/${currentUser.userName}/badges" />',
+			'unearnedBadgesUrl': '<c:url value="/users/${currentUser.userName}/unearnedBadges" />'
 		});
 		
 		riot.mount('user-preferences', {

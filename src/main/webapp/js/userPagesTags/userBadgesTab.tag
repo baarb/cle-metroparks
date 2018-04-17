@@ -14,7 +14,14 @@
    <ul id="content">
    	<li each={ badge in badges } class="card">
    		<div class="inside-top">
+   			<p>{ badge.badgeTitle }</p>
    			<img src={ badge.badgeUrl } width=100%>
+   		</div>
+   	</li>
+   	<li each={ badge in unearnedBadges } class="card">
+   		<div class="inside-top">
+   			<p>{ badge.badgeTitle }</p>
+   			<img src={ badge.inactiveBadgeUrl } width=100%>
    		</div>
    	</li>
    </ul>
@@ -48,6 +55,11 @@ html {
 /*::-webkit-scrollbar-thumb {
     background: #FF0000;
 }*/
+
+p {
+	color: white;
+	text-align: center;
+}
 
 #wrapper{
   max-width:100%;
@@ -269,6 +281,7 @@ width: 100px;
 
 <script>
 this.badges = [];
+this.unearnedBadges = [];
 this.numberOfBadges = 0;
 
 this.on('mount', () => {
@@ -279,6 +292,15 @@ this.on('mount', () => {
 		    		this.numberOfBadges = Object.keys(this.badges).length;
 		    		this.update();
 		    	});
+});
+
+this.on('mount', () => {
+	fetch(opts.unearnedBadgesUrl, {method: 'GET', credentials: 'include'})
+		.then((response) => response.json())
+	    .then((json) => {
+	    		this.unearnedBadges = json;
+	    		this.update();
+	    	});
 });
 
 $('#controlR').click(function() {
