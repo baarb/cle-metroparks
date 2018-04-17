@@ -60,7 +60,7 @@ public class AnimalIdController {
 			@RequestParam String[] animalSeen, 
 			@RequestParam int[] quantity,
 			int rating,
-			boolean saved
+			boolean saveAsFav
 			) {
 		Vote vote = new Vote();
 		vote.setAnimalsSeen(animalSeen);
@@ -70,7 +70,7 @@ public class AnimalIdController {
 		int userId = (int)session.getAttribute("userId");
 		vote.setUserId(userId);
 		vote.setRating(rating);
-		vote.setSaved(saved);
+		vote.setSaved(saveAsFav);
 		
 		bioDao.storeVote(vote);
 			
