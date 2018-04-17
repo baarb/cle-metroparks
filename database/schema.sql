@@ -19,7 +19,8 @@ DROP SEQUENCE IF EXISTS seq_approved_photo_id;
 DROP TABLE IF EXISTS approvedPhotos;
 DROP SEQUENCE IF EXISTS seq_users_badges_id;
 DROP TABLE IF EXISTS users_badges;
-
+DROP SEQUENCE IF EXISTS seq_users_photos_id;
+DROP TABLE IF EXISTS users_photos;
 
 
 
@@ -114,6 +115,14 @@ CREATE TABLE users_badges
 	users_badges_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_users_badges_id'),
 	user_id INTEGER NOT null REFERENCES users,
 	badge_id INTEGER NOT null REFERENCES badges
+);
+
+CREATE SEQUENCE seq_users_photos_id;
+CREATE TABLE users_photos
+(
+	users_photos_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_users_photos_id'),
+	user_id INTEGER NOT null REFERENCES users,
+	photo_id INTEGER NOT null REFERENCES rawPhotos
 );
 
 
