@@ -63,7 +63,7 @@
 					</c:when>
 					<c:otherwise>
 						<c:url var="userProfile"
-							value="/users/${currentUser.userName}/profile" />
+							value="/users/${currentUser.userName}" />
 						<li><a href="${userProfile}">${currentUser.userName}</a></li>
 						<c:url var="logoutAction" value="/logout" />
 						
