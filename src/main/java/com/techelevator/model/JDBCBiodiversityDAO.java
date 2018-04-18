@@ -61,6 +61,8 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		String setUserAvatar = "update users set user_avatar = ? where user_id = ?";
 		jdbcTemplate.update(setUserAvatar, signupBadge.getBadgeId(), userId);
+		String updateUsersBadgesTables = "INSERT INTO users_badges(user_id, badge_id) VALUES(?,?)";
+		jdbcTemplate.update(updateUsersBadgesTables, userId, signupBadge.getBadgeId());
 		return signupBadge;
 	}
 

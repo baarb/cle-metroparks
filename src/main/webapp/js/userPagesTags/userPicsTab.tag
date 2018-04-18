@@ -1,6 +1,6 @@
 <user-pics-tab>
 
-<h2>Pictures</h2>
+<h2>Favorite Pictures</h2>
    
 
 <div id="wrapper">
@@ -8,8 +8,6 @@
   <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
   </span>
-  
-  <div class="title text-center h1"> Favorite Photos</div>
  
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
@@ -23,11 +21,7 @@
    	</div>
    	 <div show={pictures == 0}>
    	 	<h1>Looks like you don't have any favorite photos...</h1>
-   	 		
-   	 
    	 </div>
-   	
-    
    </ul>
     
    
@@ -45,15 +39,7 @@
 
 
 <style>
-body{
-  background:#fff;
-  
-}
 
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
@@ -65,7 +51,7 @@ html {
 
 #wrapper{
   max-width:100%;
-  padding:50px 75px 50px 45px;
+  padding:0 75px 0 45px;
   position:relative;
 }
 
@@ -179,67 +165,21 @@ ul{
 width:300em;
 list-style-type:none;
 padding:50px 0 50px 0;
-
-
-
 }
 
 #content{
   position:relative;
 }
 
-/*
-.arrow-guides, .arrow-guides:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:left;
-position:relative;
-top:80px;
-left:-10px;
-padding: 10px 5px 5px 2px;
-background:#999;
-color:#fff;
-}
-*/
-
-/*
-.arrow-guides-right, .arrow-guides-right:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:right;
-position:relative;
-bottom:185px;
-right:-40px;
-padding: 10px 2px 5px 5px;
-background:#999;
-color:#fff;
-}
-
-*/
-
-
-
 
 .card{
   width: 25em;
-  height:350px;
-  background:#fff;
   float:left;
   margin-right:10px;
   margin-bottom:50px;
   cursor:pointer;
   transform: scale(1);
   visibility:visible;
-  -moz-box-shadow: 0px 1px 5px 0px #676767;
-  -webkit-box-shadow: 0px 1px 5px 0px #676767;
-  box-shadow: 0px 1px 5px 0px #676767;
-  
 }
 
 .card:hover{
@@ -252,19 +192,9 @@ color:#fff;
   position:relative;
   transition-timing-function:cubic-bezier(0.5, 0, 0.1, 1);
   transition-duration:400ms;
- 
-  
 }
 
- .inside-top{
-  width:100%;
-  height:150px;
-  background:#000;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:100;
-}
+
 
 
 
