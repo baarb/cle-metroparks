@@ -174,7 +174,7 @@ button:focus {outline:0 !important;}
 }
 
 ul{
-width:600em;
+width:300em;
 list-style-type:none;
 padding:50px 0 50px 0;
 
