@@ -228,6 +228,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 
 		String sqlNumVotes = "select count(photo_id) from votes where photo_id = ?";
 		numVotes = jdbcTemplate.queryForObject(sqlNumVotes, int.class, photoId);
+		if(numVotes > 3) {
 		String sqlCountCategories = "select count(animal_id), animal_id from votes_animal "
 				+ "inner join votes on votes.vote_id = votes_animal.vote_id " + "where photo_id = ? group by animal_id";
 		SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, photoId);
@@ -243,6 +244,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 					}
 				}
 			}
+		}
 		}
 		return approved;
 	}
