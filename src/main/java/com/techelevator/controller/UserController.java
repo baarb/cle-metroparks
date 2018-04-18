@@ -106,6 +106,10 @@ public class UserController {
 		}
 
 	}
-	
+	@RequestMapping(path="", method=RequestMethod.POST)
+	public String setUserAvatar(User user, Badges chosenBadge, RedirectAttributes flash) {
+		bioDAO.setUserAvatar(user.getUserId(), chosenBadge.getBadgeId());
+		return "redirect:/";
+	}
 	
 }
