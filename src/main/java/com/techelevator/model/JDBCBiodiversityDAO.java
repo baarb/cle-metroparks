@@ -22,20 +22,22 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	public JDBCBiodiversityDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+
 	
-	//pulls a list of urls for highly rated photos 4-5 stars
-	public List<String> highlyRatedPhotoUrls(){
+
+	// pulls a list of urls for highly rated photos 4-5 stars
+	public List<String> highlyRatedPhotoUrls() {
 		List<String> photoUrls = new ArrayList<>();
-		String pullHighlyRatedPhtotos = "select photo_url from rawphotos inner join votes on rawphotos.photo_id = votes.photo_id where rating > 3";
+		String pullHighlyRatedPhtotos = "select photo_url from rawphotos inner join votes on rawphotos.photo_id = votes.photo_id where rating > 3 group by photo_url limit 25";
 		SqlRowSet ratedPhotos = jdbcTemplate.queryForRowSet(pullHighlyRatedPhtotos);
 		while (ratedPhotos.next()) {
 			photoUrls.add(ratedPhotos.getString("photo_url"));
 		}
 		return photoUrls;
 	}
-	
-	//returns a list of URLs for photos that a user has saved
-	public List<String> savedUserPhotos(int userId){
+
+	// returns a list of URLs for photos that a user has saved
+	public List<String> savedUserPhotos(int userId) {
 		List<String> savedPhotoUrls = new ArrayList<>();
 		String findPhotoUrlsByUserId = "SELECT photo_url from rawphotos inner join users_photos on rawphotos.photo_id = users_photos.photo_id where user_id = ?";
 		SqlRowSet savedPhotos = jdbcTemplate.queryForRowSet(findPhotoUrlsByUserId, userId);
@@ -44,8 +46,39 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return savedPhotoUrls;
 	}
-	
-	//returns a list of all available badges
+
+	// assign signup badge, set badge as user avatar
+	public Badges newUserInitiation(int userId) {
+		Badges signupBadge = new Badges();
+		String pullSignupBadge = "select * from badges where title = 'Official Member'";
+		SqlRowSet badgeInfo = jdbcTemplate.queryForRowSet(pullSignupBadge);
+		while (badgeInfo.next()) {
+			signupBadge.setBadgeDescription(badgeInfo.getString("description"));
+			signupBadge.setBadgeId(badgeInfo.getInt("badge_id"));
+			signupBadge.setBadgeTitle(badgeInfo.getString("title"));
+			signupBadge.setBadgeUrl(badgeInfo.getString("badge_url"));
+			signupBadge.setInactiveBadgeUrl(badgeInfo.getString("disabled_badge_url"));
+		}
+		String setUserAvatar = "update users set user_avatar = ? where user_id = ?";
+		jdbcTemplate.update(setUserAvatar, signupBadge.getBadgeId(), userId);
+		return signupBadge;
+	}
+
+	// set user avatar
+	public void setUserAvatar(int userId, int badgeId) {
+		String setAvatar = "update users set user_avatar = ? where user_id = ?";
+		jdbcTemplate.update(setAvatar, badgeId, userId);
+	}
+
+	// pull user avatar badge url
+	public String userAvatarUrl(int userId) {
+		String avatarUrl = "";
+		String findAvatarBadgeUrl = "select badge_url from badges inner join users on users.user_avatar = badges.badge_id where user_id = ?";
+		avatarUrl = jdbcTemplate.queryForObject(findAvatarBadgeUrl, String.class, userId);
+		return avatarUrl;
+	}
+
+	// returns a list of all available badges
 	public List<Integer> pullAllBadgeIds() {
 		List<Integer> badgeIds = new ArrayList<>();
 		String sqlReturnBadgeIds = "select badge_id from badges";
@@ -55,8 +88,8 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return badgeIds;
 	}
-	
-	//returns a list of badges that havent yet been earned by a user
+
+	// returns a list of badges that havent yet been earned by a user
 	public List<Integer> pullUnearnedBadgeIds(int userId) {
 		List<Integer> badgeIds = new ArrayList<>();
 		String sqlReturnBadgeIds = "select badge_id from badges where badge_id NOT IN(select badge_id from users_badges where user_id = ?)";
@@ -123,7 +156,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		return earnedBadges;
 	}
 
-	//returns a list of badge ids earned by the user
+	// returns a list of badge ids earned by the user
 	public List<Integer> pullBadgeIdsByUser(int userId) {
 		List<Integer> badgeIds = new ArrayList<>();
 		String sqlReturnBadgeIds = "select badge_id from users_badges where user_id = ?";
@@ -134,7 +167,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		return badgeIds;
 	}
 
-	//returns a Map of all the users and their rankings
+	// returns a Map of all the users and their rankings
 	public Map<Integer, Integer> pullAllUsersRankings() {
 		Map<Integer, Integer> userIdAndRank = new HashMap<>();
 		String pullScoreAndUserId = "select user_id, score from users order by score desc";
@@ -145,7 +178,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		return userIdAndRank;
 	}
 
-	//finds the personal ranking of a specific user
+	// finds the personal ranking of a specific user
 	public int findUserRanking(int userId, Map<Integer, Integer> userIdAndRankMap) {
 		int userRank = userId;
 		if (userIdAndRankMap.containsKey(userId)) {
@@ -153,6 +186,14 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return userRank;
 	}
+	
+	// pull user score
+		public int userScore(int userId) {
+			int score = 0;
+			String returnScoreByUser = "select score from users where user_id = ?";
+			score = jdbcTemplate.queryForObject(returnScoreByUser, int.class, userId);
+			return score;
+		}
 
 	// find an unseen photo
 	public int unseenPhotoId(int userId) {
