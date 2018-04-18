@@ -36,7 +36,8 @@ h5 {
 	padding-bottom: 40px;
 	min-height:100vh;
    	position:relative;
-   	margin-bottom:-60px;
+   	
+   	overflow:hidden;
 }
 .wrapper {
    height:100%;
@@ -272,6 +273,75 @@ h5 {
 }
 
 
+
+
+/* footer styles */
+footer {
+	margin-top:0px !important;
+	width:100%;
+	display: grid !important; 
+	grid-template: "social copyright logo" 40px / 1fr 3fr 1fr;
+	background-color: #1c5630; 
+	color: white; 
+	padding: 20px 0px 10px 0px; 
+	margin: 10px 0px 0px 0px;
+	position:absolute;
+	bottom:0;	
+}
+
+footer ul {
+	list-style-type: none; 
+	display: grid; 
+}
+
+footer .social {
+	grid-area: social;
+	vertical-align: middle;
+	grid-template-columns: auto auto auto;
+}
+
+footer ul li {
+	justify-content: center; 
+	text-align: center;
+}
+
+footer ul li a {
+	color: #fff; 
+	font-size: 1.25em;
+}
+footer ul li a:hover {
+	color: #d6d6d6; 
+}
+footer .copyright {
+	vertical-align: middle;
+	grid-area: copyright;
+	text-align:center;
+	font-size:12px;
+	padding-top:4px;
+}
+footer .logo {
+	vertical-align: middle;
+	grid-area: logo;
+	text-align:right;
+}
+.footer-logo-image {
+	margin-top:-15px;
+	max-width:220px;
+}
+
+/* header style */
+.navbar {
+	margin-bottom: 0px;
+}
+
+
+
+
+/* index page */
+#coyote {
+	text-align: center;
+}
+
 /* index styles */
 
 .header {
@@ -355,73 +425,6 @@ h5 {
 	height: auto;
 }
 
-
-/* footer styles */
-footer {
-	margin-top:0px !important;
-	width:100%;
-	display: grid !important; 
-	grid-template: "social copyright logo" 40px / 1fr 3fr 1fr;
-	background-color: #1c5630; 
-	color: white; 
-	padding: 20px 0px 10px 0px; 
-	margin: 10px 0px 0px 0px;
-	position:absolute;
-	bottom:0;	
-}
-
-footer ul {
-	list-style-type: none; 
-	display: grid; 
-}
-
-footer .social {
-	grid-area: social;
-	vertical-align: middle;
-	grid-template-columns: auto auto auto;
-}
-
-footer ul li {
-	justify-content: center; 
-	text-align: center;
-}
-
-footer ul li a {
-	color: #fff; 
-	font-size: 1.25em;
-}
-footer ul li a:hover {
-	color: #d6d6d6; 
-}
-footer .copyright {
-	vertical-align: middle;
-	grid-area: copyright;
-	text-align:center;
-	font-size:12px;
-	padding-top:4px;
-}
-footer .logo {
-	vertical-align: middle;
-	grid-area: logo;
-	text-align:right;
-}
-.footer-logo-image {
-	margin-top:-15px;
-	max-width:220px;
-}
-
-/* header style */
-.navbar {
-	margin-bottom: 0px;
-}
-
-
-
-
-/* index page */
-#coyote {
-	text-align: center;
-}
 
 /* hero video */
 /* Default hide the video on all devices */
@@ -594,9 +597,18 @@ input[type=submit][disabled=disabled]:hover, button[disabled=disabled]:hover, in
 .avatar {
 	max-width: 100px;
 	max-height: 100px;
+	margin-right:20px;
 }
 .user-info {
 	
+}
+.score {
+	color:#aeaeae;
+	font-style: italic;
+}
+.score-number {
+	color:#363636;
+	font-weight: 600;
 }
 
 

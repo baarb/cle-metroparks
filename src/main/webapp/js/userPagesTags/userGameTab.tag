@@ -26,7 +26,8 @@
 			<h4>Can you Spot</h4>
 			<h2>the Animal?</h2>
 		</figcaption>
-		<a href="{opts.gameAnimalSpotting}"></a>
+		<!--  <a href="{opts.gameAnimalSpotting}"></a>-->
+		<a href="http://textfiles.com/underconstruction/" target="_blank"></a>
 	</figure>
 	
 </div>
