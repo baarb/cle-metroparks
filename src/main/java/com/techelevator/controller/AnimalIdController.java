@@ -58,12 +58,25 @@ public class AnimalIdController {
 			HttpSession session, 
 			RedirectAttributes flashScope,
 			@RequestParam String[] animalSeen, 
-			@RequestParam int[] quantity,
+			int[] quantity,
 			int rating,
 			boolean saveAsFav
 			) {
 		Vote vote = new Vote();
 		vote.setAnimalsSeen(animalSeen);
+		if (quantity == null) { 
+			quantity = new int[animalSeen.length];
+			// FEATURE if AI and user both say no animal then value is 0.
+			// If AI says animal and user says not animal value is 1
+			quantity[0] = 0;
+			
+		} else if (quantity.length < animalSeen.length){ // this means both animal and no animal were selected
+			// kill trolls
+			quantity = new int[animalSeen.length];
+			for (int i = 0; i < animalSeen.length; i++) {
+				quantity[i] = 0;
+			}
+		};
 		vote.setNumberOfAnimalsSeen(quantity);
 		int photoId = (int) session.getAttribute("photoId");
 		vote.setPhotoId(photoId);
