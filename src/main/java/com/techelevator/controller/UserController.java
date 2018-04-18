@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.BiodiversityDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
 @Controller
 public class UserController {
 
+	@Autowired
+	private BiodiversityDAO bioDAO;
+	
 	private UserDAO userDAO;
 
 	@Autowired
@@ -42,6 +46,7 @@ public class UserController {
 		
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+			//bioDAO.newUserInitiation();
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
@@ -59,10 +64,40 @@ public class UserController {
 
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+			//bioDAO.newUserInitiation();
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
 			return "redirect:/";
+		}
+
+	}
+	
+	@RequestMapping(path="/popUp", method=RequestMethod.GET)
+	public String userPopUp(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash, ModelMap modelHolder) {
+		if( ! modelHolder.containsAttribute("user")) {
+			modelHolder.addAttribute("user", new User());
+		}
+		
+		return "index";
+
+	}
+	
+	@RequestMapping(path="/popUp", method=RequestMethod.POST)
+	public String createUserPopUp(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("user", user);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+			return "redirect:/";
+		}
+
+		if(userDAO.getUserByUserName(user.getUserName()) == null) {
+			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
+			//bioDAO.newUserInitiation();
+			return "redirect:/userRegistration/login";
+		} else {
+			flash.addFlashAttribute("popUpMessage", "Username already in use!");
+			return "redirect:/popUp";
 		}
 
 	}

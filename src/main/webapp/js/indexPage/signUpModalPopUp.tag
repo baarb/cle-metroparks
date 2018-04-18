@@ -13,7 +13,7 @@
 						class="form-control" />
 				</div>
 				<div style="color: red; font-weight: bold"> 
-					{ opts.errorMessage }
+					{ opts.popUpMessage }
 				</div>
 				<div class="form-group">
 					<label for="password">Password: </label> <input type="password"

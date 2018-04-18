@@ -115,7 +115,7 @@
 			'bus' : pubSub,
 			'firstPhoto' : '${firstPhoto}',
 			'formUrl' : '<c:url value="/popUp" />',
-			'errorMessage' : '<c:if test="${not empty popUpMessage}"> <c:out value="Error: ${message}"/> </c:if>',
+			'popUpMessage' : '<c:if test="${not empty popUpMessage}"> <c:out value="Error: ${popUpMessage}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
