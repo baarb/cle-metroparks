@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.Badges;
 import com.techelevator.model.BiodiversityDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
@@ -48,7 +49,7 @@ public class UserController {
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
-			bioDAO.newUserInitiation(newUser.getUserId());
+			Badges newBadge = bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
@@ -67,7 +68,7 @@ public class UserController {
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
-			bioDAO.newUserInitiation(newUser.getUserId());
+			Badges newBadge = bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
@@ -97,7 +98,7 @@ public class UserController {
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
 			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
-			bioDAO.newUserInitiation(newUser.getUserId());
+			Badges newBadge = bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("popUpMessage", "Username already in use!");
