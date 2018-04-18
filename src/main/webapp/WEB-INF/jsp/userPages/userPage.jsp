@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -90,6 +90,9 @@ document.getElementById("defaultOpen").click();
 <c:url value="/js/userPagesTags/userPicsTab.tag" var="userPicsTab" />
 <script src="${userPicsTab}" type="riot/tag"></script>
 
+<c:url value="/js/userPagesTags/userPicAltLink.tag" var="userPicAltLink" />
+<script src="${userPicAltLink}" type="riot/tag"></script>
+
 <c:url value="/js/userPagesTags/userBadgesTab.tag" var="userBadgesTab" />
 <script src="${userBadgesTab}" type="riot/tag"></script>
 
@@ -124,6 +127,12 @@ document.getElementById("defaultOpen").click();
 			'bus' : pubSub,
 			'CSRF_TOKEN' : '${CSRF_TOKEN}',
 			'savedPicsUrl' : '<c:url value="/users/${currentUser.userName}/savedPhotos" />'
+		});
+		
+		
+		riot.mount('user-pic-alt-link', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
 		

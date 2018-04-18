@@ -2,7 +2,7 @@
 
 <h2>Favorite Pictures</h2>
    
-
+<div hide={pictures == 0}>
 <div id="wrapper">
   
   <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
@@ -12,31 +12,27 @@
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
-    <div hide={pictures == 0}>
+    
 	    <li each={ pic in pictures } class="card">
 	   		<div class="inside-top">
 	   			<img src="{ pic }" width=100%>
 	   		</div>
 	   	</li>
    	</div>
-   	 <div show={pictures == 0}>
-   	 	<h1>Looks like you don't have any favorite photos...</h1>
-   	 </div>
+   	 
    </ul>
-    
-   
     
   </div><!--end of module-section-->
   
 <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
   </span>
+   
 <!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
-  
-  
-  
 </div>
-
+<div show={pictures == 0}>
+   	 	<user-pic-alt-link></user-pic-alt-link>
+   	 </div>
 
 <style>
 
@@ -202,6 +198,8 @@ padding:50px 0 50px 0;
   overflow: auto;
   zoom: 1;
 }
+
+
 
 
 </style>
