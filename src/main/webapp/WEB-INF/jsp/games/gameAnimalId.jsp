@@ -11,6 +11,7 @@
 		<h5>Can you identify any animals in this image?</h5>
 		<c:url var="formAction" value="/games/gameAnimalId" />
 		<form method="POST" action="${formAction}">
+		
 			<c:forEach var="animal" items="${animalTypes}" varStatus="loop">	
 	 		<div>
 				<span>
@@ -26,7 +27,14 @@
 				</span>
 			</div>
 			</c:forEach>
-			
+			<div>
+				<span>
+					<label class="checkbox container-checkbox quizChoiceButton"><c:out value="No animals" />
+	  					<input type="checkbox" name="animalSeen" value="Empty">
+	  					<span class="checkmark"></span>
+					</label>
+				</span>
+			</div>
 			<div>
 				<span>	
 				
