@@ -4,7 +4,7 @@
 <img src="{opts.avatarURL}" class="avatar">
 <div class="user-info">
 <h3>{opts.username}</h3>
-<span class="score">User Score: <span style="color:red">{opts.score}</span></span>
+<span class="score">Score: <span class="score-number">{opts.score}</span></span>
 </div>
 </div>
 

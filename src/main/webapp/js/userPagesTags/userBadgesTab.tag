@@ -4,11 +4,7 @@
 
 <div id="wrapper">
   
-  <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
-    <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
-  </span>
   
-  <div class="title text-center h1">Your Badges</div>
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
@@ -29,32 +25,14 @@
    
     
   </div><!--end of module-section-->
-	<span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
-    <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
-  </span>
+	
 <!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
   
 </div>
 
 
 <style>
-body{
-  background:#fff;
-  
-}
 
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
-/* optional: show position indicator in red */
-/*::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}*/
 
 p {
 	color: white;
@@ -186,44 +164,6 @@ padding:50px 0 50px 0;
   position:relative;
 }
 
-/*
-.arrow-guides, .arrow-guides:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:left;
-position:relative;
-top:80px;
-left:-10px;
-padding: 10px 5px 5px 2px;
-background:#999;
-color:#fff;
-}
-*/
-
-/*
-.arrow-guides-right, .arrow-guides-right:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:right;
-position:relative;
-bottom:185px;
-right:-40px;
-padding: 10px 2px 5px 5px;
-background:#999;
-color:#fff;
-}
-
-*/
-
-
-
-
 .card{
   width: 25em;
   height:350px;
@@ -254,9 +194,7 @@ color:#fff;
   
 }
 
-/* .card>img{
-width: 100px;
-} */
+
 
  .inside-top{
   width:100%;
