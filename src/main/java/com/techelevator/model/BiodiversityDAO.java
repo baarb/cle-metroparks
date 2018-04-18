@@ -8,6 +8,10 @@ import com.techelevator.Vote;
 
 public interface BiodiversityDAO {
 	
+	
+	//pulls a list of urls for highly rated photos 4-5 stars
+	public List<String> highlyRatedPhotoUrls();
+
 	//pulls a list of urls for photos saved by the user
 	public List<String> savedUserPhotos(int userId);
 	
