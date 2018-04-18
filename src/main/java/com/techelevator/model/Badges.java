@@ -12,27 +12,26 @@ public class Badges {
 	private String badgeUrl;
 	private String inactiveBadgeUrl;
 
-	public List<String> determineBadge(Map<String, Integer> animalsSeen) {
+	public List<String> determineBadge(Map<String, Integer> animalsSeen, int userScore) {
 		List<String> response = new ArrayList<>();
 
 		String defualt = "no";
-		int totalScore = 0;
+		int totalScore = userScore;
 
 		String[] seenAnimalsArray = animalsSeen.keySet().toArray(new String[animalsSeen.size()]);
 		if (seenAnimalsArray.length >= 2) {
 			response.add("Double Duty");
 		}
+
+		if (totalScore >= 10 && totalScore < 50) {
+			response.add("Junior Ranger");
+		} else if (totalScore >= 50 && totalScore < 100) {
+			response.add("Citizen Scientist");
+		} else if (totalScore >= 100) {
+			response.add("Master Woodsman");
+		}
+
 		for (int i = 0; i < seenAnimalsArray.length; i++) {
-			totalScore += animalsSeen.get(seenAnimalsArray[i]);
-
-			if (totalScore >= 10 && totalScore < 50) {
-				response.add("Junior Ranger");
-			} else if (totalScore >= 50 && totalScore < 100) {
-				response.add("Citizen Scientist");
-			} else if (totalScore >= 100) {
-				response.add("Master Woodsman");
-			}
-
 			if (animalsSeen.get(seenAnimalsArray[i]) == 1) {
 				response.add("First Photo");
 			} else if (animalsSeen.get(seenAnimalsArray[i]) == 10 && seenAnimalsArray[i].equals("Deer")) {

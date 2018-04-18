@@ -118,7 +118,8 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 			}
 		}
 		if (seenAnimals.keySet() != null) {
-			List<String> badgeEarned = badge.determineBadge(seenAnimals);
+			int userScore = userScore(userId);
+			List<String> badgeEarned = badge.determineBadge(seenAnimals, userScore);
 			for (int i = 0; i < badgeEarned.size(); i++) {
 				if (!badgeEarned.get(i).equals("no")) {
 					String findBadgeIdSQL = "select badge_id from badges where title = ?";
