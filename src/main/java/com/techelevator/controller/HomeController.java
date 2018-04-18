@@ -114,4 +114,18 @@ public class HomeController {
 			return new ArrayList<String>();
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(path = "/bestPics", method = RequestMethod.GET)
+	public List<String> getBestPics() {
+		
+		List<String> bestPics = bioDAO.highlyRatedPhotoUrls();
+
+		if (bestPics != null) {
+			return bestPics;
+		} else {
+			return new ArrayList<String>();
+		}
+
+	}
 }

@@ -126,7 +126,8 @@
 
 		riot.mount('best-pics', {
 			'bus' : pubSub,
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+			'CSRF_TOKEN' : '${CSRF_TOKEN}',
+			'bestPicsUrl' : '<c:url value="/bestPics" />'
 		});
 
 		riot.mount('metro-benefits', {
