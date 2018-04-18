@@ -24,7 +24,15 @@ DROP TABLE IF EXISTS users_photos;
 
 
 
-
+CREATE SEQUENCE seq_badge_id;
+CREATE TABLE badges
+(
+	badge_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_badge_id'),
+	title VARCHAR(200) NOT NULL,
+	description VARCHAR(2000) NOT NULL,
+	badge_url VARCHAR(200) NOT NULL,
+	disabled_badge_url VARCHAR(200) NOT NULL
+);
 
 CREATE SEQUENCE seq_user_id;
 CREATE TABLE users
@@ -34,18 +42,8 @@ CREATE TABLE users
 	password  VARCHAR(300) NOT NULL,
 	salt VARCHAR(255) NOT NULL,
 	email VARCHAR(200) NOT NULL,
-	score INTEGER
-	
-);
-
-CREATE SEQUENCE seq_badge_id;
-CREATE TABLE badges
-(
-	badge_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_badge_id'),
-	title VARCHAR(200) NOT NULL,
-	description VARCHAR(2000) NOT NULL,
-	badge_url VARCHAR(200) NOT NULL,
-	disabled_badge_url VARCHAR(200) NOT NULL
+	score INTEGER DEFAULT 0,
+	user_avatar INTEGER DEFAULT 1
 );
 
 CREATE SEQUENCE seq_photo_id;

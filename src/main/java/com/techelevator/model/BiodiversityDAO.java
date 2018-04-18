@@ -1,6 +1,5 @@
 package com.techelevator.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +7,17 @@ import com.techelevator.Vote;
 
 public interface BiodiversityDAO {
 	
+	//pull user score
+	public int userScore(int userId);
+	
+	//pull user avatar badge url
+	public String userAvatarUrl(int userId);
+	
+	//set user avatar
+	public void setUserAvatar(int userId, int badgeId);
+	
+	//assign signup badge, set badge as user avatar
+	public Badges newUserInitiation(int userId);
 	
 	//pulls a list of urls for highly rated photos 4-5 stars
 	public List<String> highlyRatedPhotoUrls();

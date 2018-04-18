@@ -2,7 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style>
@@ -20,15 +19,16 @@
 
 
 
+<div class="profile-wrapper">
 
-<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+<div class="w3-bar-block w3-light-grey w3-card profile-sidebar">
   <button class="w3-bar-item w3-button tablink" id="defaultOpen" onclick="openTab(event, 'Games')">Games</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Pictures')">Pictures</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Badges')">Badges</button>
   <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Preferences')">Preferences</button>
 </div>
 
-<div style="margin-left:130px">
+<div class="profile-container">
   
   <div id="Games" class="w3-container city" style="display:none">
   	<user-rank-bar></user-rank-bar>
@@ -49,8 +49,7 @@
   	<user-rank-bar></user-rank-bar>
     <user-preferences></user-preferences>
   </div>
-
-
+</div>
 
 </div>
 
@@ -107,7 +106,11 @@ document.getElementById("defaultOpen").click();
 		riot.observable(pubSub);//makes it observable
 		riot.mount('user-rank-bar', {
 			'bus' : pubSub,
-			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+			'CSRF_TOKEN' : '${CSRF_TOKEN}',
+			'username' : '<c:out value="${currentUser.userName}" />',
+			'score' : '<c:out value="${userScore}" />',
+			'avatarURL' : '<c:out value="${avatar}" />'
+			
 		});
 		
 		riot.mount('user-game-tab', {
@@ -143,8 +146,7 @@ document.getElementById("defaultOpen").click();
 			'formUrl' : '<c:url value="/users" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		}); 
-
-		</script>
+</script>
 
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
