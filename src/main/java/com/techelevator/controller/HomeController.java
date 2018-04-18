@@ -52,6 +52,8 @@ public class HomeController {
 				List<Badges> userBadges = bioDAO.returnBadges(badgeIds);
 				session.setAttribute("userBadges", userBadges);
 				session.setAttribute("badgeCount", badgeCount);
+				session.setAttribute("userScore", bioDAO.userScore(userId));
+				session.setAttribute("avatar", bioDAO.userAvatarUrl(userId));
 				Map<Integer, Integer> userRankings = bioDAO.pullAllUsersRankings();
 				int userRank = bioDAO.findUserRanking(userId, userRankings);
 				session.setAttribute("userRank", userRank);
