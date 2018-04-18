@@ -24,7 +24,9 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 <c:url var="cssHref" value="/css/style.css" />
 <link rel="stylesheet" type="text/css" href="${cssHref}">
-
+<!-- JS magnifyer functions -->
+<c:url var="jsMagnifyHref" value="/js/magnify.js" />
+<script src="${jsMagnifyHref}"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {

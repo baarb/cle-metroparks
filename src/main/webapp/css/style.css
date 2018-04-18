@@ -205,7 +205,6 @@ h5 {
 .stars label {
   box-sizing: border-box;
   width: 20%;
-  padding-right: 2%;
   height: 40px;
   float: right;
   cursor: pointer;
