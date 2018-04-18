@@ -141,7 +141,7 @@ document.getElementById("defaultOpen").click();
 			'badgesUrl' : '<c:url value="/users/${currentUser.userName}/badges" />',
 			'unearnedBadgesUrl': '<c:url value="/users/${currentUser.userName}/unearnedBadges" />',
 			'formAction': '<c:url value="/changeAvatar" />',
-			'user' : '${user}'
+			'userId' : '${currentUser.userId}'
 		});
 		 
 		

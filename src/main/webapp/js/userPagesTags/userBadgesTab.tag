@@ -8,20 +8,18 @@
 	<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
 	<ul id="content">
 		<li each={ badge in badges } class="card">
-		<a
-			href={badge.badgeUrl} target="_blank"><img src={
-				badge.badgeUrl } class="badge-image"> </a>
+		<a href={badge.badgeUrl} target="_blank"><img src={ badge.badgeUrl } class="badge-image"> </a>
 			<h5>{ badge.badgeTitle }</h5>
 			<p>{ badge.badgeDescription }</p>
 			<div class="submit-wrapper">
 				<form method="POST" action={opts.formAction}>
 					<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
-					<input type="hidden" name="user" value="{opts.user}">
-					<input type="hidden" name="chosenBadge" value="{badge}">
+					<input type="hidden" name="userId" value="{opts.userId}">
+					<input type="hidden" name="chosenBadge" value="{badge.badgeId}">
 					<input class="submit" type="submit" value="Make Avatar" />
 				</form>
 			</div>
-			</li>
+		</li>
 		<li each={ badge in unearnedBadges } class="card"><img src={ badge.inactiveBadgeUrl } class="badge-image">
 			<h5>{ badge.badgeTitle }</h5>
 			<p>{ badge.badgeDescription }</p></li>
