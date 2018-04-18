@@ -6,9 +6,7 @@
 <div class="game-section">
 	
 	<figure class="snip1321">
-		<img
-			src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg"
-			alt="sq-sample27" />
+		<img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-find-the-animal.jpg" />
 		<figcaption>
 			<!-- <i class="ion-stats-bars"></i> -->
 			<h4>Can you Identify</h4>
@@ -18,9 +16,7 @@
 	</figure>
 	
 	<figure class="snip1321">
-		<img
-			src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample26.jpg"
-			alt="sq-sample26" />
+		<img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-spot-the-animal.jpg" />
 		<figcaption>
 			<!-- <i class="ion-stats-bars"></i> -->
 			<h4>Can you Spot</h4>
