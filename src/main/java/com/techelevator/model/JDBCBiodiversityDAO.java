@@ -23,6 +23,17 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	//pulls a list of urls for highly rated photos 4-5 stars
+	public List<String> highlyRatedPhotoUrls(){
+		List<String> photoUrls = new ArrayList<>();
+		String pullHighlyRatedPhtotos = "select photo_url from rawphotos inner join votes on rawphotos.photo_id = votes.photo_id where rating > 3";
+		SqlRowSet ratedPhotos = jdbcTemplate.queryForRowSet(pullHighlyRatedPhtotos);
+		while (ratedPhotos.next()) {
+			photoUrls.add(ratedPhotos.getString("photo_url"));
+		}
+		return photoUrls;
+	}
+	
 	//returns a list of URLs for photos that a user has saved
 	public List<String> savedUserPhotos(int userId){
 		List<String> savedPhotoUrls = new ArrayList<>();

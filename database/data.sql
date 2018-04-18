@@ -6,7 +6,6 @@ BEGIN;
 
 INSERT INTO users(user_name, password, salt, email) VALUES ('bradley', 'password', 'salt', 'bradley.shilling@gmail.com');
 
-INSERT INTO badges(title, description, badge_url, disabled_badge_url) VALUES ('test badge', 'straight up testing purposes yo', 'http://metroparks-hackathon.s3.amazonaws.com/badges/deer-1.png', 'http://metroparks-hackathon.s3.amazonaws.com/badges-disabled/deer-1-disabled.png');
 
 INSERT INTO badges(title, description, badge_url, disabled_badge_url) VALUES ('Deer Spotter', 'Correctly identify deer in 10 photos', 'http://metroparks-hackathon.s3.amazonaws.com/badges/deer-1.png', 'http://metroparks-hackathon.s3.amazonaws.com/badges-disabled/deer-1-disabled.png');
 INSERT INTO badges(title, description, badge_url, disabled_badge_url) VALUES ('Master Deer Spotter', 'Correctly identify deer in 100 photos', 'http://metroparks-hackathon.s3.amazonaws.com/badges/deer-2.png', 'http://metroparks-hackathon.s3.amazonaws.com/badges-disabled/deer-2-disabled.png');
