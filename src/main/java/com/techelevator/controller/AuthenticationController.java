@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
 @Controller
@@ -64,8 +65,9 @@ public class AuthenticationController {
 								@RequestParam String password,
 								@RequestParam String newPassword,
 								RedirectAttributes flash, ModelMap model, HttpSession session) {
-		if(userDAO.searchForUsernameAndPassword(userName, password)) {
-			userDAO.updatePassword(userName, newPassword);
+		User user = (User) session.getAttribute("currentUser");
+		if(user.getUserName().equals(userName)) {
+			userDAO.updatePassword(userName, password, newPassword);
 			model.remove("currentUser");
 			session.invalidate();
 			return "redirect:/userRegistration/login";
