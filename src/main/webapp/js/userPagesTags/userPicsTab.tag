@@ -14,12 +14,19 @@
   <div class="module-section clearfix">
     <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
    <ul id="content">
-    
-    <li each={ pic in pictures } class="card">
-   		<div class="inside-top">
-   			<img src="{ pic }" width=100%>
-   		</div>
-   	</li>
+    <div hide={pictures == 0}>
+	    <li each={ pic in pictures } class="card">
+	   		<div class="inside-top">
+	   			<img src="{ pic }" width=100%>
+	   		</div>
+	   	</li>
+   	</div>
+   	 <div show={pictures == 0}>
+   	 	<h1>Looks like you don't have any favorite photos...</h1>
+   	 		
+   	 
+   	 </div>
+   	
     
    </ul>
     
@@ -272,12 +279,14 @@ color:#fff;
 
 <script>
 this.pictures = [];
+this.numberOfPictures = 0;
 
 this.on('mount', () => {
 		fetch(opts.savedPicsUrl, {method: 'GET', credentials: 'include'})
 			.then((response) => response.json())
 		    .then((json) => {
 		    		this.pictures = json;
+		    		this.numberOfPictures = Object.keys(this.pictures).length;
 		    		this.update();
 		    	});
 });
