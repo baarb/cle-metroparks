@@ -141,7 +141,10 @@ h5 {
 }
 /* input number */
 .form-wrapper input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  	-webkit-appearance: none;
+}
+.form-wrapper input[type=number] {
+  	-moz-appearance:textfield;
 }
 .form-wrapper input[type=number] {
 	width:2.15em;
@@ -182,7 +185,7 @@ h5 {
   background-image: url('http://metroparks-hackathon.s3.amazonaws.com/Theme/single-star-03.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
 }
 .stars input[type=radio] {
   display: none;
@@ -196,7 +199,7 @@ h5 {
   background-image: url('http://metroparks-hackathon.s3.amazonaws.com/Theme/single-star-01.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
 }
 .stars label {
   box-sizing: border-box;
@@ -217,7 +220,7 @@ h5 {
   background-image: url('http://metroparks-hackathon.s3.amazonaws.com/Theme/single-star-01.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
 }
 .stars label:hover:after,
 .stars label:hover ~ label:after {
@@ -225,7 +228,7 @@ h5 {
   background-image: url('http://metroparks-hackathon.s3.amazonaws.com/Theme/single-star-02.png') !important;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
 }
 .star-label {
 	padding-top:20px;
@@ -548,11 +551,56 @@ footer .logo {
 	border:none;
 	outline: none;
 }
+input[type=submit][disabled=disabled], button[disabled=disabled], input[type=submit]:disabled, button:disabled,
+input[type=submit][disabled=disabled]:hover, button[disabled=disabled]:hover, input[type=submit]:disabled:hover, button:disabled:hover {
+   background-color:rgba(160, 160, 160, 1); 
+}
 .btn-default:hover, button:hover, input[type=submit]:hover {
 	border:none;
 	color:white;
 	background-color:rgba(160, 206, 17, 1);
 }
+
+/*  
+*
+* profile page
+*
+*/
+.profile-wrapper {
+	width:100%;
+	display: grid; 
+	grid-template: "sidebar profile";
+	grid-template-columns: 130px calc(100% - 130px);
+  	grid-column-gap: 20px;
+}
+.profile-sidebar {
+	grid-area: sidebar;
+	min-height: calc(100vh - 70px);
+	margin-bottom:-70px;
+}
+.profile-container {
+	padding: 0 40px 0 0;
+	grid-area: profile;
+}
+
+
+.user-info-wrapper {
+	width:100%;
+	padding: 10px 0 20px 0;
+  	display: inline-flex;
+  	border-bottom: 1px solid #e7e7e7;
+  	
+}
+.avatar {
+	max-width: 100px;
+	max-height: 100px;
+}
+.user-info {
+	
+}
+
+
+
 
 /* w3 modal styles */
 .w3-image{max-width:100%;height:auto}img{vertical-align:middle}a{color:inherit}

@@ -29,8 +29,8 @@
 			</c:forEach>
 			<div>
 				<span>
-					<label class="checkbox container-checkbox quizChoiceButton"><c:out value="No animals" />
-	  					<input type="checkbox" name="animalSeen" value="Empty">
+					<label class="checkbox container-checkbox quizChoiceButton no-animal"><c:out value="No animals" />
+	  					<input type="checkbox" name="animalSeen" value="Empty" onchange='handleOtherChange(this);'>
 	  					<span class="checkmark"></span>
 					</label>
 				</span>
@@ -74,19 +74,27 @@
 			<input type="hidden" name="userId" value="${userId}"> 
 			<input type="hidden" name="photoId" value="${photoId}">
 			<div class="submit-wrapper">
-				<input class="submit" type="submit" value="Submit" />
+				<input class="submit" type="submit" value="Submit" disabled />
 			</div>
 		</form>
 
 		<script>
-			function handleChange(checkbox, number) {
+			function handleChange(checkbox, index) {
 			    if(checkbox.checked == true){
-			    		document.getElementsByClassName('quantity-wrapper')[number].style.display='block';
-			    		
-			        document.getElementsByClassName("quantity")[number].removeAttribute("disabled");
+			    		document.getElementsByClassName("quantity-wrapper")[index].style.display='block';
+			        document.getElementsByClassName("quantity")[index].removeAttribute("disabled");
+			        document.getElementsByClassName("submit")[0].removeAttribute("disabled");
 			    }else{
-			    		document.getElementsByClassName('quantity-wrapper')[number].style.display='none';
-			        document.getElementsByClassName("quantity")[number].setAttribute("disabled", "disabled");
+			    		document.getElementsByClassName("quantity-wrapper")[index].style.display='none';
+			        document.getElementsByClassName("quantity")[index].setAttribute("disabled", "disabled");
+			   }
+			}
+			
+			function handleOtherChange(checkbox) {
+			    if(checkbox.checked == true){
+			        document.getElementsByClassName("submit")[0].removeAttribute("disabled");
+			    }else{
+			    		
 			   }
 			}
 		</script>

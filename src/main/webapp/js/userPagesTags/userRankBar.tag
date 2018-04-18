@@ -1,9 +1,13 @@
 <user-rank-bar>
 
-<div>User Pic</div>
-<div>User Name</div>
-<div>User Rank</div>
-<div>Number of Badges</div>
+<div class="user-info-wrapper">
+<img src="{opts.avatarURL}" class="avatar">
+<div class="user-info">
+<h3>{opts.username}</h3>
+<span class="score">User Score: <span style="color:red">{opts.score}</span></span>
+</div>
+</div>
+
 
 
 

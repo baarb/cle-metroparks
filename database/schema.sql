@@ -43,7 +43,7 @@ CREATE TABLE users
 	salt VARCHAR(255) NOT NULL,
 	email VARCHAR(200) NOT NULL,
 	score INTEGER DEFAULT 0,
-	user_avatar INTEGER REFERENCES badges
+	user_avatar INTEGER DEFAULT 1
 );
 
 CREATE SEQUENCE seq_photo_id;
