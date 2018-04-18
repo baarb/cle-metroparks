@@ -23,8 +23,6 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	
-
 	// pulls a list of urls for highly rated photos 4-5 stars
 	public List<String> highlyRatedPhotoUrls() {
 		List<String> photoUrls = new ArrayList<>();
@@ -189,14 +187,14 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		}
 		return userRank;
 	}
-	
+
 	// pull user score
-		public int userScore(int userId) {
-			int score = 0;
-			String returnScoreByUser = "select score from users where user_id = ?";
-			score = jdbcTemplate.queryForObject(returnScoreByUser, int.class, userId);
-			return score;
-		}
+	public int userScore(int userId) {
+		int score = 0;
+		String returnScoreByUser = "select score from users where user_id = ?";
+		score = jdbcTemplate.queryForObject(returnScoreByUser, int.class, userId);
+		return score;
+	}
 
 	// find an unseen photo
 	public int unseenPhotoId(int userId) {
@@ -228,23 +226,24 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 
 		String sqlNumVotes = "select count(photo_id) from votes where photo_id = ?";
 		numVotes = jdbcTemplate.queryForObject(sqlNumVotes, int.class, photoId);
-		if(numVotes > 3) {
-		String sqlCountCategories = "select count(animal_id), animal_id from votes_animal "
-				+ "inner join votes on votes.vote_id = votes_animal.vote_id " + "where photo_id = ? group by animal_id";
-		SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, photoId);
-		while (animalGroupsSQL.next()) {
-			seenAnimals.put(animalGroupsSQL.getString("animal_id"), animalGroupsSQL.getInt("count"));
-		}
-		if (seenAnimals.keySet() != null) {
-			String[] seenAnimalsArray = seenAnimals.keySet().toArray(new String[seenAnimals.size()]);
-			while (!approved) {
-				for (int i = 0; i < seenAnimalsArray.length; i++) {
-					if (seenAnimals.get(seenAnimalsArray[i]) / numVotes >= .8) {
-						approved = true;
+		if (numVotes > 3) {
+			String sqlCountCategories = "select count(animal_id), animal_id from votes_animal "
+					+ "inner join votes on votes.vote_id = votes_animal.vote_id "
+					+ "where photo_id = ? group by animal_id";
+			SqlRowSet animalGroupsSQL = jdbcTemplate.queryForRowSet(sqlCountCategories, photoId);
+			while (animalGroupsSQL.next()) {
+				seenAnimals.put(animalGroupsSQL.getString("animal_id"), animalGroupsSQL.getInt("count"));
+			}
+			if (seenAnimals.keySet() != null) {
+				String[] seenAnimalsArray = seenAnimals.keySet().toArray(new String[seenAnimals.size()]);
+				while (!approved) {
+					for (int i = 0; i < seenAnimalsArray.length; i++) {
+						if (seenAnimals.get(seenAnimalsArray[i]) / numVotes >= .8) {
+							approved = true;
+						}
 					}
 				}
 			}
-		}
 		}
 		return approved;
 	}
@@ -263,8 +262,25 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 
 	// set photo as approved
 	public void setApprovedPhoto(int photoId) {
+		int count = 0;
+		int totalRatingScore = 0;
+		int averageRating = 0;
+		String findRatingSQL = "select rating from votes where photo_id = ?";
+		SqlRowSet photoVoteRatings = jdbcTemplate.queryForRowSet(findRatingSQL);
+		while (photoVoteRatings.next()) {
+			count++;
+			if (photoVoteRatings.getInt("rating") > 0) {
+			totalRatingScore += photoVoteRatings.getInt("rating");
+			}
+		}
+		averageRating = totalRatingScore / count;
+		if (averageRating > 0) {
+			String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id, average_rating) VALUES (?,?)";
+			jdbcTemplate.update(approvedPhotoSQL, photoId, averageRating);
+		}else {
 		String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id) VALUES (?)";
 		jdbcTemplate.update(approvedPhotoSQL, photoId);
+		}
 	}
 
 	// pull map of probable animals from AI
