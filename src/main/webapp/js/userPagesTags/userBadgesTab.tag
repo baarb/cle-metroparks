@@ -3,31 +3,36 @@
 <h2>Badges Earned ({numberOfBadges})</h2>
 
 <div class="badge-wrapper">
-  
 
-    <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-   <ul id="content">
-   	<li each={ badge in badges } class="card">
-   		<a href="{badge.badgeUrl}" target="_blank"><img src={ badge.badgeUrl } class="badge-image"> </a>
-   		<h5>{ badge.badgeTitle }</h5>
-   		<p>{ badge.badgeDescription }</p>	
-   		<div class="submit-wrapper">
-				<input class="submit" type="submit" value="Make Avatar" />
-		</div>
-   	</li>
-   	<li each={ badge in unearnedBadges } class="card">
-   		<img src={ badge.inactiveBadgeUrl } class="badge-image">
-   		<h5>{ badge.badgeTitle }</h5>
-   		<p>{ badge.badgeDescription }</p>
-   	</li>
-   </ul>
-    
-   
-    
-  <!--end of module-section-->
-	
-<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
-  
+
+	<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+	<ul id="content">
+		<li each={ badge in badges } class="card">
+		<a
+			href={badge.badgeUrl} target="_blank"><img src={
+				badge.badgeUrl } class="badge-image"> </a>
+			<h5>{ badge.badgeTitle }</h5>
+			<p>{ badge.badgeDescription }</p>
+			<div class="submit-wrapper">
+				<form method="POST" action={opts.formAction}>
+					<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
+					<input type="hidden" name="user" value="{opts.user}">
+					<input type="hidden" name="chosenBadge" value="{badge}">
+					<input class="submit" type="submit" value="Make Avatar" />
+				</form>
+			</div>
+			</li>
+		<li each={ badge in unearnedBadges } class="card"><img src={ badge.inactiveBadgeUrl } class="badge-image">
+			<h5>{ badge.badgeTitle }</h5>
+			<p>{ badge.badgeDescription }</p></li>
+	</ul>
+
+
+
+	<!--end of module-section-->
+
+	<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
+
 </div>
 
 
@@ -47,9 +52,7 @@ this.on('mount', () => {
 		    		this.numberOfBadges = Object.keys(this.badges).length;
 		    		this.update();
 		    	});
-});
 
-this.on('mount', () => {
 	fetch(opts.unearnedBadgesUrl, {method: 'GET', credentials: 'include'})
 		.then((response) => response.json())
 	    .then((json) => {
@@ -121,6 +124,5 @@ $('#controlL').click(function() {
 
 
 */
-</script>
-
+</script> 
 </user-badges-tab>

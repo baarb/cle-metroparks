@@ -126,18 +126,22 @@ document.getElementById("defaultOpen").click();
 			'savedPicsUrl' : '<c:url value="/users/${currentUser.userName}/savedPhotos" />'
 		});
 		
-		riot.mount('user-badges-tab', {
-			'bus' : pubSub,
-			'CSRF_TOKEN' : '${CSRF_TOKEN}',
-			'badgesUrl' : '<c:url value="/users/${currentUser.userName}/badges" />',
-			'unearnedBadgesUrl': '<c:url value="/users/${currentUser.userName}/unearnedBadges" />'
-		});
+		
 		
 		riot.mount('user-preferences', {
 			'bus' : pubSub,
 			'formUrl' : '<c:url value="/users/${currentUser.userName}/profile/changePassword" />', 
 			'errorMessage' : '<c:if test="${not empty message}"> <c:out value="Error: ${message}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
+		
+		riot.mount('user-badges-tab', {
+			'bus' : pubSub,
+			'CSRF_TOKEN' : '${CSRF_TOKEN}',
+			'badgesUrl' : '<c:url value="/users/${currentUser.userName}/badges" />',
+			'unearnedBadgesUrl': '<c:url value="/users/${currentUser.userName}/unearnedBadges" />',
+			'formAction': '<c:url value="/changeAvatar" />',
+			'user' : '${currentUser}'
 		});
 		 
 		
