@@ -46,7 +46,8 @@ public class UserController {
 		
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-			//bioDAO.newUserInitiation();
+			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
+			bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
@@ -64,7 +65,8 @@ public class UserController {
 
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-			//bioDAO.newUserInitiation();
+			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
+			bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("message", "Username already in use!");
@@ -93,7 +95,8 @@ public class UserController {
 
 		if(userDAO.getUserByUserName(user.getUserName()) == null) {
 			userDAO.saveUser(user.getUserName(), user.getPassword(), user.getEmail());
-			//bioDAO.newUserInitiation();
+			User newUser = (User) userDAO.getUserByUserName(user.getUserName());
+			bioDAO.newUserInitiation(newUser.getUserId());
 			return "redirect:/userRegistration/login";
 		} else {
 			flash.addFlashAttribute("popUpMessage", "Username already in use!");
