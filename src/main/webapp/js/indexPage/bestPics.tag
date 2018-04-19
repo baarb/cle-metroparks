@@ -1,8 +1,8 @@
 <best-pics>
 
 
-<div id="wrapper">
 
+<<<<<<< HEAD
 
 	<div class="title text-center h1">Collect photos of your favorite
 		animals</div>
@@ -17,13 +17,52 @@
 				
 				
 			</li>
+=======
+<div hide={pictures == 0}>
+	<div id="wrapper">
+	
+		<span id="controlL" class="left-controls" role="button"
+			aria-label="See Previous Modules"> <b
+			class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
+		</span>
+	
+>>>>>>> f108ca4e088d60684935d3541397434ec2bd6966
 
-		</ul>
-	</div>
+		<div class="title text-center h1">COLLECT photos of your favorite animals</div>
+	
+		
+			<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+			
+			<ul id="content">
+	
+				<li each={ pic in pictures } class="card">
+					<div class="inside-top">
+						<img src="{ pic }" width=100%>
+					</div>
+				</li>
+	
+			</ul>
+			
+		
+	
 	<!--end of module-section-->
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> f108ca4e088d60684935d3541397434ec2bd6966
 	
+		<span id="controlR" class="right-controls" role="button"
+			aria-label="See Previous Modules"> <b
+			class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
+		</span>
+		<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
+	</div>
+</div>
+<div show={pictures == 0}>
+	<div style="max-width: 50%; padding: 0px 75px 25px 45px;
+	position: relative; ">
+	</div>
 </div>
 
 
@@ -117,12 +156,14 @@ ul {
 
 <script>
 this.pictures = [];
+this.numberOfPictures = 0;
 
 this.on('mount', () => {
 		fetch(opts.bestPicsUrl, {method: 'GET', credentials: 'include'})
 			.then((response) => response.json())
 		    .then((json) => {
 		    		this.pictures = json;
+		    		this.numberOfPictures = Object.keys(this.pictures).length;
 		    		this.update();
 		    	});
 });
