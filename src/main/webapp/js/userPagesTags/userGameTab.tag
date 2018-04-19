@@ -14,10 +14,13 @@
 						</a>	
 					</figure>
 					<figure class="effect-ming">
-						<a href="http://textfiles.com/underconstruction/"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-spot-the-animal.jpg" alt="img16"/>
+						<a href="{opts.gameAnimalSpotting}"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-spot-the-animal.jpg" alt="img16"/>
 						<figcaption>
-							<h2>Animal <span>Spotting</span></h2>
+							<!-- <h2>Animal <span>Spotting</span></h2>
 							<p>We could't tell if there was an animal in these photos using our AI.</p><p> Lame.</p><p> Let's try human verification instead.</p>
+							 -->
+							 <h2>Animal <span>Spotting</span></h2>
+							<p>Soo... our AI only saw sticks in these pics.</p><p> Lame.</p><p> I bet you can do better.</p>
 							
 						</figcaption>	
 						</a>		

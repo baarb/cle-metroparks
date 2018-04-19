@@ -17,7 +17,7 @@
 						<figcaption>
 							<h2>You never <span>Know...</span></h2>
 							<p>what you might find. </p>
-							<a href="{opts.gameAnimalSpotting">View more</a>
+							<a href="{opts.gameAnimalSpotting}">View more</a>
 						</figcaption>			
 					</figure>
 				</div>
