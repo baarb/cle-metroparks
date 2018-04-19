@@ -3,7 +3,7 @@
 <div class="signup">
 <div class="signup-form modal-signup-form">
 	<h4>Sign Up to</h4>
-	<h4>become a Citizen Scientist</h4>
+	<h4>gain your first badge!</h4>
 	<div class="form-inputs">
 	<form method="POST" action="{opts.formUrl}">
 		<input type="hidden" name="CSRF_TOKEN" value="{opts.CSRF_TOKEN}" />
@@ -44,7 +44,9 @@
 <style>
 .signup {
 	grid-column: 2/3;
-	margin: 3%;
+}
+.signup-form{
+width: 100% !important;
 }
 
 .signup>h4 {

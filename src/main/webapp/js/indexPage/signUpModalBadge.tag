@@ -1,15 +1,21 @@
 <sign-up-modal-badge>
+<div class="madal-wrapper">
+<div class="signup">
+<div class="signup-form modal-signup-form">
 <div class="modalBadge">
 	<div class="congrats">
-		<h2>Congratulations</h1>
-		<h4>You just earned your first badge!</h2>
+		<h4>Congratulations</h4>
+		<p>You just earned your first badge!</p>
 	</div>
 
 	<img src={opts.firstBadgeImg} id="badge1">
-	<div class="badgeInfo">
-		<h4>{opts.firstBadgeTitle}</h4>
+	<div class="congrats">
+		<h5>{opts.firstBadgeTitle}</h5>
 		<p>{opts.firstBadgeDescription}</p>
 	</div>
+</div>
+</div>
+</div>
 </div>
 
 <style>
@@ -25,17 +31,20 @@
 	justify-content: inherit;
 }
 .congrats{
-	padding: 0% 12% 0% 12%;
+	
 	
 }
-.congrats>h2{
+.congrats>h4{
+	text-align: center;
+}
+.congrats>h5{
+	text-align: center;
+}
+.congrats>p{
 	text-align: center;
 }
 
-.badgeInfo {
-	display: grid;
-	justify-content: center;
-}
+
 </style>
 
 
