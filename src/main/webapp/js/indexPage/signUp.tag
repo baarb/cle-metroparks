@@ -51,6 +51,9 @@ h4 {
 						$.validator.addMethod('capitals', function(thing) {
 							return thing.match(/[A-Z]/);
 						});
+						$.validator.addMethod('lower', function(thing2) {
+							return thing2.match(/[a-z]/);
+						});
 						$(root).find('form').validate(
 										{
 
@@ -62,6 +65,7 @@ h4 {
 													required : true,
 													minlength : 15,
 													capitals : true,
+													lower : true
 												},
 												confirmPassword : {
 													required : true,
@@ -72,6 +76,7 @@ h4 {
 												password : {
 													minlength : "Password too short, make it at least 15 characters",
 													capitals : "Field must contain a capital letter",
+													lower : "Field must contain a lower case letter"
 												},
 												confirmPassword : {
 													equalTo : "Passwords do not match"
