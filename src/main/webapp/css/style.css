@@ -367,16 +367,54 @@ footer .logo {
 .box2UserBenSignUp {
 	display: grid;
 	grid-template-columns: auto auto;
-	background-image:
-		url("../img/background-background-image-creek-707915.jpg");
+	background-color: #1c5630;
+	color:#fff;
+}
+.signup{
+	background-image: url("http://metroparks-hackathon.s3.amazonaws.com/Theme/tree-bg.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	background-color: threeddarkshadow;
-	color: white;
-	margin-top: 1%;
-	margin-bottom: 1%;
+	padding:60px 20px;
 }
+.user-benifits{
+	padding:60px 20px;
+}
+.signup-form {
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 40px;
+	background-color: rgba(255,255,255, 0.8);
+	color:#363636;
+}
+
+
+.signup-form input[type=text], .signup-form input[type=password], .signup-form input[type=email] {
+	background-color: #fff;
+	padding:5px 10px;
+    margin: 0 0 8px 0px;
+    display: inline-block;
+    border:none;
+    box-sizing: border-box;
+    outline-style:none;
+	box-shadow:none;
+	border-color:transparent;
+	border-radius:0px;
+}
+.signup-form input[type=text]:focus, .signup-form input[type=password]:focus, .signup-form input[type=email]:focus {
+	background-color: #e7e7e7;
+}
+.signup-form input[type=text]:hover, .signup-form input[type=password]:hover, .signup-form input[type=email]:hover {
+	background-color: #e7e7e7;	
+}
+
+
+
+
+
+
+
 
 .underlayBox3 {
 	position: relative; /* Position the background text */
@@ -385,6 +423,16 @@ footer .logo {
 	width: 100%; /* Full width */
 	padding: 20px; /* Some padding */
 }
+.list1 ul, .list2 ul {
+	list-style-type: none;
+	list-style-image: url('http://metroparks-hackathon.s3.amazonaws.com/Theme/list-icon.png'); 
+}
+.list1 ul li, .list2 ul li {
+	font-size: 1.4em;
+	font-weight: 300;
+	padding-bottom:10px;
+}
+
 
 .box3MetroBen {
 	display: grid;
@@ -393,6 +441,7 @@ footer .logo {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	
 }
 
 .box4BestPics {
