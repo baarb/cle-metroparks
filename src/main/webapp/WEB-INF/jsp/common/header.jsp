@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home Page</title>
+<title>Critter Collector</title>
 <link rel="icon" type="image/png" href="http://metroparks-hackathon.s3.amazonaws.com/Theme/favicon.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

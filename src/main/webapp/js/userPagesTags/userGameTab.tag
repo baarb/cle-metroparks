@@ -6,18 +6,18 @@
 				
 				<div class="grid">
 					<figure class="effect-ming">
-						<a href="{opts.gameAnimalId}"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/9.jpg" alt="img09"/>
+						<a href="{opts.gameAnimalId}"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-find-the-animal.jpg" alt="img09"/>
 						<figcaption>
 							<h2>Animal <span>Identification</span></h2>
-							<p>Think you have what it takes?</p> <p>Nick doesn't.</p> <p>Help us identify our local wildlife. Before Brad eats them.</p>
+							<p>Think you have what it takes?</p> <p>Verify our AI results.</p> <p>Help us identify local wildlife, and rise through the ranks.</p>
 						</figcaption>		
 						</a>	
 					</figure>
 					<figure class="effect-ming">
-						<a href="http://textfiles.com/underconstruction/"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16"/>
+						<a href="http://textfiles.com/underconstruction/"><img src="http://metroparks-hackathon.s3.amazonaws.com/Theme/game-spot-the-animal.jpg" alt="img16"/>
 						<figcaption>
 							<h2>Animal <span>Spotting</span></h2>
-							<p>Barb sits in the corner the whole day. She's into crochet.</p><p> Lame.</p><p> Let's go spot animals instead.</p>
+							<p>We could't tell if there was an animal in these photos using our AI.</p><p> Lame.</p><p> Let's try human verification instead.</p>
 							
 						</figcaption>	
 						</a>		
