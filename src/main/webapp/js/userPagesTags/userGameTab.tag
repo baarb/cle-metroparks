@@ -1,7 +1,7 @@
 <user-game-tab>
 <h2>Games</h2>
 
-<div class="content">
+<div class="content game-holder">
 				
 				
 				<div class="grid">
