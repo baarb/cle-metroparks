@@ -882,3 +882,9 @@ list-style-type:none;
 .modal-badge-wrapper {
 	padding:40px;
 }
+
+/* nicks stupid change */
+.green, .green:hover {
+	color: #fff!important;
+    background-color: #1c5630!important;
+}
