@@ -112,7 +112,8 @@ document.getElementById("defaultOpen").click();
 			'CSRF_TOKEN' : '${CSRF_TOKEN}',
 			'username' : '<c:out value="${currentUser.userName}" />',
 			'score' : '<c:out value="${userScore}" />',
-			'avatarURL' : '<c:out value="${avatar}" />'
+			'avatarURL' : '<c:out value="${avatar}" />',
+			'userRank': '<c:out value="${userRank}" />'
 			
 		});
 		

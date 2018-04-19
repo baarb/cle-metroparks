@@ -182,8 +182,14 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	// finds the personal ranking of a specific user
 	public int findUserRanking(int userId, Map<Integer, Integer> userIdAndRankMap) {
 		int userRank = userId;
+		int userScore = userIdAndRankMap.get(userId);
 		if (userIdAndRankMap.containsKey(userId)) {
-			userRank = userIdAndRankMap.get(userId);
+			Integer[] usersArray = userIdAndRankMap.keySet().toArray(new Integer[userIdAndRankMap.keySet().size()]);
+			for (int i = 0; i < userIdAndRankMap.keySet().size(); i++) {
+				if (userIdAndRankMap.get(usersArray[i]) == userScore) {
+					userRank = i+1;
+				}
+			}
 		}
 		return userRank;
 	}
@@ -270,16 +276,16 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		while (photoVoteRatings.next()) {
 			count++;
 			if (photoVoteRatings.getInt("rating") > 0) {
-			totalRatingScore += photoVoteRatings.getInt("rating");
+				totalRatingScore += photoVoteRatings.getInt("rating");
 			}
 		}
 		averageRating = totalRatingScore / count;
 		if (averageRating > 0) {
 			String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id, average_rating) VALUES (?,?)";
 			jdbcTemplate.update(approvedPhotoSQL, photoId, averageRating);
-		}else {
-		String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id) VALUES (?)";
-		jdbcTemplate.update(approvedPhotoSQL, photoId);
+		} else {
+			String approvedPhotoSQL = "INSERT INTO approvedphotos(raw_photo_id) VALUES (?)";
+			jdbcTemplate.update(approvedPhotoSQL, photoId);
 		}
 	}
 
