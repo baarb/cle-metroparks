@@ -4,13 +4,26 @@
 
 
 	<c:if test="${not empty listOfBadges}">
+		
+		<div id="badge-notification" class="w3-modal">
+			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 480px">
+
+		 <span
+				onclick="document.getElementById('badge-notification').style.display='none'"
+				class="w3-button w3-xlarge w3-hover-red w3-display-topright"
+				title="Close Modal">&times;</span> 
+		
+		<div class="modal-badge-wrapper">
 		<c:forEach var="badge" items="${listOfBadges}">
 			<div>
-			<img src="${badge.badgeUrl}">
-			<c:out value="${badge.badgeTitle}"></c:out>
-			<c:out value="${badge.badgeDescription}"></c:out>
+			<h4>You Earned the ${badge.badgeTitle} Badge!</h4>
+			<img src="${badge.badgeUrl}"<br />
+			<p><c:out value="${badge.badgeDescription}"></c:out></p>
 			</div>
 		</c:forEach>
+		</div>
+	</div>
+</div>
 	</c:if>
 
 <div class="game-wrapper">

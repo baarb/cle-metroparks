@@ -34,8 +34,7 @@
 			<div>
 				<div class="img-magnifier-container">
 					<h3 id="coyote">Can you find the third Coyote?</h3>
-					<button
-						onclick="document.getElementById('id01').style.display='block'" class="mag-button">
+					<button onclick="document.getElementById('id01').style.display='block'" class="mag-button">
 						<img id="myimage" src="https://s3.amazonaws.com/metroparks-hackathon/Theme/coyote.jpg" width="600" height="400">
 					</button>
 					<signup-modal></signup-modal>

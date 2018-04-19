@@ -866,3 +866,19 @@ list-style-type:none;
 .w3-button:hover{color:#000!important;background-color:#ccc!important}
 .w3-transparent,.w3-hover-none:hover{background-color:transparent!important}
 .w3-hover-none:hover{box-shadow:none!important}
+
+
+/*badge modal */
+#badge-notification {
+	display:block;
+	text-align: center;
+	
+}
+#badge-notification img {
+	width:80%; 
+	margin-left:auto; 
+	margin-right:auto;
+}
+.modal-badge-wrapper {
+	padding:40px;
+}
