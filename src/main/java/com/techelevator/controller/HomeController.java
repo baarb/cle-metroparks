@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,8 +31,9 @@ public class HomeController {
 
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String displayLandingPage(HttpSession session) {
+	public String displayLandingPage(ModelMap modelHolder, HttpSession session) {
 		if (session.getAttribute("currentUser") == null) {
+			modelHolder.addAttribute("firstBadge", bioDAO.pullBadgeByBadgeId(1));
 			return "index";
 		} else {
 			User user = (User) session.getAttribute("currentUser");

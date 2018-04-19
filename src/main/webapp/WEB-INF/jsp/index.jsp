@@ -74,6 +74,8 @@
 		<script src="${signUpModal}" type="riot/tag"></script>
 		<c:url value="/js/indexPage/signUpModalPopUp.tag" var="signUpModalPopUp" />
 		<script src="${signUpModalPopUp}" type="riot/tag"></script>
+		<c:url value="/js/indexPage/signUpModalBadge.tag" var="signUpModalBadge" />
+		<script src="${signUpModalBadge}" type="riot/tag"></script>
 
 		<c:url value="/js/indexPage/signUp.tag" var="signUp" />
 		<script src="${signUp}" type="riot/tag"></script>
@@ -118,7 +120,7 @@
 		
 		riot.mount('sign-up-modal-badge', {
 			'bus' : pubSub,
-			'badgePhoto' : '${badgePhoto}',
+			'firstBadge' : '${firstBadge}',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 
