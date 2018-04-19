@@ -37,7 +37,10 @@ public interface BiodiversityDAO {
 	//given a list of badgeIds, will return badge objects for each id
 	public List<Badges> returnBadges(List<Integer> badgeIds);
 	
-	//pulls a likst of badgeIds of badges earned by a user
+	//returns badge by badge id
+	public Badges pullBadgeByBadgeId(int badgeId);
+	
+	//pulls a list of badgeIds of badges earned by a user
 	public List<Integer> pullBadgeIdsByUser (int userId);
 
 	//pulls a Map ranking of each registered user 
