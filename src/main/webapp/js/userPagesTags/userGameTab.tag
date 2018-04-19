@@ -8,7 +8,7 @@
 					<figure class="effect-ming">
 						<a href="{opts.gameAnimalId}"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/9.jpg" alt="img09"/>
 						<figcaption>
-							<h2>Austin <span>Identification</span></h2>
+							<h2>Animal <span>Identification</span></h2>
 							<p>Think you have what it takes?</p> <p>Nick doesn't.</p> <p>Help us identify our local wildlife. Before Brad eats them.</p>
 						</figcaption>		
 						</a>	
