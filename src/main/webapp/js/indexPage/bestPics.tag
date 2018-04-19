@@ -51,7 +51,7 @@ button:focus {
 
 
 .title {
-	color: #fff;
+	color: #363636;
 }
 
 .module-section {
