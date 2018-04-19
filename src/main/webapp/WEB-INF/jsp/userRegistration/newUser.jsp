@@ -25,6 +25,9 @@
 				confirmPassword : {
 					required : true,		
 					equalTo : "#password"  
+				},
+				email : {
+					required : true
 				}
 			},
 			messages : {			

@@ -80,6 +80,9 @@ width: 100% !important;
 												confirmPassword : {
 													required : true,
 													equalTo : "#passwordPopUp"
+												}, 
+												email : {
+													required : true
 												}
 											},
 											messages : {
