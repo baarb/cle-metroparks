@@ -133,6 +133,8 @@ document.getElementById("defaultOpen").click();
 		
 		riot.mount('user-pic-alt-link', {
 			'bus' : pubSub,
+			'gameAnimalId':'<c:url value="/games/gameAnimalId" />',
+			'gameAnimalSpotting':'<c:url value="/games/gameAnimalSpotting" />',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
 		
