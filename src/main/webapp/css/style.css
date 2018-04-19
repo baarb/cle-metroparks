@@ -425,7 +425,7 @@ footer .logo {
 .error {
 	color:red !important;
 }
-..w3-modal {
+.w3-modal {
     z-index: 400 !important;
 }
 
