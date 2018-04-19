@@ -6,19 +6,21 @@
 				
 				<div class="grid">
 					<figure class="effect-ming">
-						<a href="{opts.gameAnimalId}"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/9.jpg" alt="img09"/></a>
+						<a href="{opts.gameAnimalId}"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/9.jpg" alt="img09"/>
 						<figcaption>
 							<h2>Austin <span>Identification</span></h2>
 							<p>Think you have what it takes?</p> <p>Nick doesn't.</p> <p>Help us identify our local wildlife. Before Brad eats them.</p>
-						</figcaption>			
+						</figcaption>		
+						</a>	
 					</figure>
 					<figure class="effect-ming">
-						<a href="http://textfiles.com/underconstruction/"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16"/></a>
+						<a href="http://textfiles.com/underconstruction/"><img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16"/>
 						<figcaption>
 							<h2>Animal <span>Spotting</span></h2>
 							<p>Barb sits in the corner the whole day. She's into crochet.</p><p> Lame.</p><p> Let's go spot animals instead.</p>
 							
-						</figcaption>			
+						</figcaption>	
+						</a>		
 					</figure>
 				</div> 
 				
