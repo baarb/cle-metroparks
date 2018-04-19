@@ -7,11 +7,5 @@
 A collaborative project of Cleveland Metroparks and the RECaP lab at Michigan State University.</p>
 </div>
 
-<style>
-.metroBenefits{
-color: white;
-opacity: 1;
-}
 
-</style>
 </metro-benefits>

@@ -410,6 +410,23 @@ footer .logo {
 }
 
 
+.metroBenefits {
+	width:60%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:60px;
+	margin-bottom:60px;
+	padding: 40px;
+	background-color: rgba(255,255,255, 0.8);
+	color:#363636;
+}
+
+.metroBenefits h1 {
+	padding:0;
+	margin:0;
+	color:#1c5630;
+}
+
 
 
 

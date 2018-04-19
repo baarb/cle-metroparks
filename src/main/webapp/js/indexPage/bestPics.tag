@@ -3,157 +3,61 @@
 
 <div id="wrapper">
 
-	<span id="controlL" class="left-controls" role="button"
-		aria-label="See Previous Modules"> <b
-		class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
-	</span>
 
-	<div class="title text-center h1">COLLECT photos of your favorite
+	<div class="title text-center h1">Collect photos of your favorite
 		animals</div>
 
 	<div class="module-section clearfix">
 		<!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
 		<ul id="content">
 
-			<li each={ pic in pictures } class="card">
-				<div class="inside-top">
-					<img src="{ pic }" width=100%>
-				</div>
+			<li each={ pic in pictures } class="card" style="background-image: url('{ pic }'); background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;">
+				
+				
 			</li>
 
 		</ul>
 	</div>
 	<!--end of module-section-->
 
-	<span id="controlR" class="right-controls" role="button"
-		aria-label="See Previous Modules"> <b
-		class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
-	</span>
-	<!-- <button class="btn arrow-guides-right fa-chevron-right"></button> -->
+	
 	
 </div>
 
 
 <style>
-body {
-	background: #fff;
-}
 
 html {
-	overflow: scroll;
-	overflow-x: hidden;
+  overflow:   scroll;
 }
-
 ::-webkit-scrollbar {
-	width: 0px; /* remove scrollbar space */
-	background: transparent; /* optional: just make scrollbar invisible */
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
-/* optional: show position indicator in red */
-/*::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}*/
 #wrapper {
 	max-width: 100%;
 	padding: 50px 75px 50px 45px;
 	position: relative;
+	overflow: hidden;
 }
+
 
 button:focus {
 	outline: 0 !important;
 }
 
-.left-controls {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 4%;
-	height: 1000px;
-	z-index: 40;
-	background: #fff;
-	opacity: 0;
-	cursor: pointer;
-	text-align: center; webkit justify content : center;
-	justify-content: center;
-	display: webkit box;
-	display: webkit flex;
-	display: moz box;
-	display: ms flexbox;
-	display: flex;
-	color: #fff;
-}
 
-.fa-chevron-left-extra {
-	align-self: center;
-	position: relative;
-	height: auto;
-	top: -250px;
-	transform-origin: 55% 50%;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 1;
-	font-variant: normal;
-	text-transform: none;
-	font-size: 2.5vw;
-	transition: transform .1s ease-out 0s;
-	transition-property: transform;
-	transition-duration: 0.1s;
-	transition-timing-function: ease-out;
-	transition-delay: 0s;
-	color: blue;
-	opacity: .1;
-}
-
-.right-controls {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 4%;
-	height: 1000px;
-	z-index: 40;
-	background: #fff;
-	opacity: 0;
-	cursor: pointer;
-	text-align: center; webkit justify content : center;
-	justify-content: center;
-	display: webkit box;
-	display: webkit flex;
-	display: moz box;
-	display: ms flexbox;
-	display: flex;
-	color: #fff;
-}
-
-.fa-chevron-right-extra {
-	align-self: center;
-	position: relative;
-	height: auto;
-	top: -250px;
-	transform-origin: 55% 50%;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 1;
-	font-variant: normal;
-	text-transform: none;
-	font-size: 2.5vw;
-	transition: transform .1s ease-out 0s;
-	transition-property: transform;
-	transition-duration: 0.1s;
-	transition-timing-function: ease-out;
-	transition-delay: 0s;
-	color: blue;
-	opacity: .1;
-}
 
 .title {
-	color: #fff;
+	color: #363636;
 }
 
 .module-section {
 	max-width: 100%;
 	overflow: hidden;
 	overflow-x: scroll;
-	border-left: 1px solid #fff;
-	border-right: 1px solid #fff;
 }
 
 ul {
@@ -166,40 +70,7 @@ ul {
 	position: relative;
 }
 
-/*
-.arrow-guides, .arrow-guides:hover{
 
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:left;
-position:relative;
-top:80px;
-left:-10px;
-padding: 10px 5px 5px 2px;
-background:#999;
-color:#fff;
-}
-*/
-
-/*
-.arrow-guides-right, .arrow-guides-right:hover{
-
-font-size:29px;
-font-family: FontAwesome;
-font-style: normal;
-font-weight: normal;
-float:right;
-position:relative;
-bottom:185px;
-right:-40px;
-padding: 10px 2px 5px 5px;
-background:#999;
-color:#fff;
-}
-
-*/
 .card {
 	width: 25em;
 	height: 350px;
