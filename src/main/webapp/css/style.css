@@ -422,6 +422,13 @@ footer .logo {
 	background-color: #e7e7e7;	
 }
 
+.error {
+	color:red !important;
+}
+..w3-modal {
+    z-index: 400 !important;
+}
+
 
 .metroBenefits {
 	width:60%;

@@ -92,7 +92,7 @@ public class AnimalIdController {
 		}
 		
 		List<Integer> earnedBadgeIds = bioDao.assignBadge(userId, animalSeen);
-		if(earnedBadgeIds != null) {
+		if(earnedBadgeIds.size() > 0) {
 			List<Badges> listOfBadges = bioDao.returnBadges(earnedBadgeIds);
 			flashScope.addFlashAttribute("listOfBadges", listOfBadges);
 		}
