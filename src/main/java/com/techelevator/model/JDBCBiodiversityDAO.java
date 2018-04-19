@@ -200,7 +200,6 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		int userRank = userId;
 		int userScore = userIdAndRankMap.get(userId);
 		if (userIdAndRankMap.containsKey(userId)) {
-//			Integer[] usersArray = userIdAndRankMap.keySet().toArray(new Integer[userIdAndRankMap.keySet().size()]);
 			Integer[] userScoreArray = userIdAndRankMap.values().toArray(new Integer[userIdAndRankMap.keySet().size()]);
 			Arrays.sort(userScoreArray);
 			for (int i = 0; i < userScoreArray.length; i++) {
