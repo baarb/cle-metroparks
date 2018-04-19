@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,21 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 	@Autowired
 	public JDBCBiodiversityDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
+	//returns badge by badge id
+	public Badges pullBadgeByBadgeId(int badgeId) {
+	String sqlReturnBadge = "SELECT * FROM badges where badge_id = ?";
+	SqlRowSet badgeInfo = jdbcTemplate.queryForRowSet(sqlReturnBadge, badgeId);
+	Badges badge = new Badges();
+	while (badgeInfo.next()) {
+	badge.setBadgeId(badgeInfo.getInt("badge_id"));
+	badge.setBadgeTitle(badgeInfo.getString("title"));
+	badge.setBadgeUrl(badgeInfo.getString("badge_url"));
+	badge.setBadgeDescription(badgeInfo.getString("description"));
+	badge.setInactiveBadgeUrl(badgeInfo.getString("disabled_badge_url"));
+	}
+	    return badge;
 	}
 
 	// pulls a list of urls for highly rated photos 4-5 stars
@@ -184,10 +200,12 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		int userRank = userId;
 		int userScore = userIdAndRankMap.get(userId);
 		if (userIdAndRankMap.containsKey(userId)) {
-			Integer[] usersArray = userIdAndRankMap.keySet().toArray(new Integer[userIdAndRankMap.keySet().size()]);
-			for (int i = 0; i < userIdAndRankMap.keySet().size(); i++) {
-				if (userIdAndRankMap.get(usersArray[i]) == userScore) {
-					userRank = i+1;
+//			Integer[] usersArray = userIdAndRankMap.keySet().toArray(new Integer[userIdAndRankMap.keySet().size()]);
+			Integer[] userScoreArray = userIdAndRankMap.values().toArray(new Integer[userIdAndRankMap.keySet().size()]);
+			Arrays.sort(userScoreArray);
+			for (int i = 0; i < userScoreArray.length; i++) {
+				if (userIdAndRankMap.get(userId) == userScoreArray[i]) {
+					userRank = userScoreArray.length - i;
 				}
 			}
 		}

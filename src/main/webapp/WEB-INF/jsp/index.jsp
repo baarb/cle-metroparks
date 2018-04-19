@@ -116,6 +116,12 @@
 			'popUpMessage' : '<c:if test="${not empty popUpMessage}"> <c:out value="Error: ${popUpMessage}"/> </c:if>',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
+		
+		riot.mount('sign-up-modal-badge', {
+			'bus' : pubSub,
+			'badgePhoto' : '${badgePhoto}',
+			'CSRF_TOKEN' : '${CSRF_TOKEN}'
+		});
 
 		riot.mount('user-benefits', {
 			'bus' : pubSub,
