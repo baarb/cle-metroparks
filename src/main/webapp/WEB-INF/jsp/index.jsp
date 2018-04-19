@@ -65,8 +65,7 @@
 
 
 		<!-- Riot Tags -->
-		<script
-			src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+		<script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
 		<c:url value="/js/indexPage/signUpFunnel.tag" var="signUpFunnel" />
 		<script src="${signUpFunnel}" type="riot/tag"></script>
 
