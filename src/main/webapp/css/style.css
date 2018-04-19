@@ -377,6 +377,11 @@ footer .logo {
 	background-size: cover;
 	padding:60px 20px;
 }
+
+.madal-wrapper .signup {
+	padding: 20px;
+	background-image: none;
+}
 .user-benifits{
 	padding:60px 20px;
 }
@@ -402,6 +407,14 @@ footer .logo {
 	border-color:transparent;
 	border-radius:0px;
 }
+.modal-signup-form input[type=text], .modal-signup-form input[type=password], .modal-signup-form input[type=email] {
+	background-color: #ddd !important;
+	}
+.modal-signup-form input[type=text]:focus, .modal-signup-form input[type=password]:focus, .modal-signup-form input[type=email]:focus,
+.modal-signup-form input[type=text]:hover, .modal-signup-form input[type=password]:hover, .modal-signup-form input[type=email]:hover {
+	background-color: #aaa !important;
+}
+	
 .signup-form input[type=text]:focus, .signup-form input[type=password]:focus, .signup-form input[type=email]:focus {
 	background-color: #e7e7e7;
 }
