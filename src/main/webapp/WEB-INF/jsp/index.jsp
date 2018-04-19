@@ -122,6 +122,16 @@
 			'firstBadge' : '${firstBadge}',
 			'CSRF_TOKEN' : '${CSRF_TOKEN}'
 		});
+		
+
+		riot.mount('sign-up-modal-badge', {
+					'bus' : pubSub,
+					'firstBadge' : '${firstBadge}',
+					'firstBadgeImg' : '<c:out value="${firstBadge.badgeUrl}"/>',
+					'firstBadgeTitle':'<c:out value="${firstBadge.badgeTitle}"/>',
+					'firstBadgeDescription': '<c:out value="${firstBadge.badgeDescription}"/>',
+					'CSRF_TOKEN' : '${CSRF_TOKEN}'
+				});
 
 		riot.mount('user-benefits', {
 			'bus' : pubSub,
