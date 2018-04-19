@@ -290,7 +290,7 @@ public class JDBCBiodiversityDAO implements BiodiversityDAO {
 		int totalRatingScore = 0;
 		int averageRating = 0;
 		String findRatingSQL = "select rating from votes where photo_id = ?";
-		SqlRowSet photoVoteRatings = jdbcTemplate.queryForRowSet(findRatingSQL);
+		SqlRowSet photoVoteRatings = jdbcTemplate.queryForRowSet(findRatingSQL, photoId);
 		while (photoVoteRatings.next()) {
 			count++;
 			if (photoVoteRatings.getInt("rating") > 0) {

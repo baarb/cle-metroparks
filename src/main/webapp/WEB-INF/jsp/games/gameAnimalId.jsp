@@ -1,6 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+
+
+	<c:if test="${not empty listOfBadges}">
+		<c:forEach var="badge" items="${listOfBadges}">
+			<div>
+			<img src="${badge.badgeUrl}">
+			<c:out value="${badge.badgeTitle}"></c:out>
+			<c:out value="${badge.badgeDescription}"></c:out>
+			</div>
+		</c:forEach>
+	</c:if>
+
 <div class="game-wrapper">
 	
 	<div class="animalPic">
