@@ -9,7 +9,7 @@
 						<figcaption>
 							<h2>No favorite <span>Photos?</span></h2>
 							<p>Let's change that. Think you can identify these furry friends?</p>
-							<a href="#">View more</a>
+							<a href="{opts.gameAnimalId}">View more</a>
 						</figcaption>			
 					</figure>
 					<figure class="effect-moses">
@@ -17,7 +17,7 @@
 						<figcaption>
 							<h2>You never <span>Know...</span></h2>
 							<p>what you might find. </p>
-							<a href="#">View more</a>
+							<a href="{opts.gameAnimalSpotting">View more</a>
 						</figcaption>			
 					</figure>
 				</div>
