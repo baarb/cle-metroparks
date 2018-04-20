@@ -10,7 +10,7 @@
 	</div>
 	<div>
 		<!-- <img src="http://cdn.earthporm.com/wp-content/uploads/2015/05/shocked-astonished-animals-photography-2__700.png"> -->
-		<img src="https://i.pinimg.com/236x/93/3f/51/933f510469b589e3c8295a79617ae933--beavers-construction.jpg">
+		<img src="https://static.wixstatic.com/media/10185a_ebd4a5b054c94fafbe16304d72c1f33e~mv2.png/v1/fill/w_588,h_588,al_c,usm_0.66_1.00_0.01/10185a_ebd4a5b054c94fafbe16304d72c1f33e~mv2.png">
 	</div>
 
 </div>
