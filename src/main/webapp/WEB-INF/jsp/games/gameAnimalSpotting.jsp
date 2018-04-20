@@ -10,7 +10,7 @@
 	</div>
 	<div>
 		<!-- <img src="http://cdn.earthporm.com/wp-content/uploads/2015/05/shocked-astonished-animals-photography-2__700.png"> -->
-		<img src="https://thumbs.dreamstime.com/b/working-dog-bulldog-dressed-up-like-construction-worker-white-background-52561040.jpg">
+		<img src="https://i.pinimg.com/236x/93/3f/51/933f510469b589e3c8295a79617ae933--beavers-construction.jpg">
 	</div>
 
 </div>
